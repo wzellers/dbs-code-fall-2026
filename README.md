@@ -43,7 +43,16 @@ Both results documents record **retractions** as prominently as findings. Read t
 
 ## Layout
 
+Notebooks are numbered in reading order and live in the root, because they must run with the
+repo root as the working directory — MATLAB writes `bgn_vars.mat` to the cwd and
+`start_engine` resolves `matlab/` against it.
+
 ```
+01_t3p_sweeps.ipynb        T3P arm sweeps and runs across severities
+02_pd_switch.ipynb         the mid-simulation severity switch, and detecting it unstimulated
+03_experiments.ipynb       detection under stimulation, severity ladders, adaptive bandit
+04_detection_results.ipynb the conclusive detection run — both detectors, frozen thresholds
+
 dbs_t3p.py          T3P bandit — the live selection mechanism, and the published reward
 helpers.py          biomarker and reward primitives. DO NOT EDIT — shared by everything
 
@@ -71,9 +80,13 @@ datasets/           400 sampled rows per severity, ~35 min of MATLAB each
 runs_selector/      selector caches — small JSON, hours to regenerate, committed
 runs_neural/        neural caches — same
 runs/               TD3 checkpoints from the retired approach
+archive/            superseded approaches, kept for the record — do not build on these
 ```
 
 Every module carries a header saying its status and what it holds. Start there.
+
+**Notebooks are committed without stored outputs.** Run them to see results; the files hold
+code and explanation only, so diffs stay readable and the repo stays small.
 
 ---
 
