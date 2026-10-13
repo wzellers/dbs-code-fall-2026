@@ -43,6 +43,8 @@ from pathlib import Path
 
 import numpy as np
 
+import paths
+
 __version__ = "3.1.0"
 
 FREQ_VALUES = [55, 80, 105, 130, 155, 180]
@@ -293,7 +295,7 @@ def run_t3p(backend, cfg, helpers, verbose=True, save=True):
             print("  !! WARNING: converged to no stimulation")
 
     if save:
-        d = Path(cfg.results_dir)
+        d = paths.cache(cfg.results_dir)
         d.mkdir(parents=True, exist_ok=True)
         stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
         p = d / f"{cfg.name()}_{stamp}.json"

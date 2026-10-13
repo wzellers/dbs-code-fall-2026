@@ -38,6 +38,8 @@ from dataclasses import dataclass, asdict, field
 from pathlib import Path
 
 import numpy as np
+
+import paths
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -404,7 +406,7 @@ class MockEnv:
 
 class RunLogger:
     def __init__(self, cfg):
-        self.dir = Path(cfg.run_dir) / cfg.name()
+        self.dir = paths.cache(cfg.run_dir) / cfg.name()
         self.dir.mkdir(parents=True, exist_ok=True)
         self.csv = self.dir / "metrics.csv"
         if not self.csv.exists():

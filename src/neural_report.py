@@ -9,10 +9,12 @@ from pathlib import Path
 
 import numpy as np
 
+import paths
+
 import neural_t3p as nt
 
-OUT = Path(nt.RESULTS_DIR)
-REPORT = Path("NEURAL_RESULTS.md")
+OUT = paths.cache(nt.RESULTS_DIR)
+REPORT = paths.DOCS / "NEURAL_RESULTS.md"
 SIM_SECONDS = 3.6
 BUDGET_SIMS = 3700
 

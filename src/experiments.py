@@ -18,6 +18,8 @@ from pathlib import Path
 
 import numpy as np
 
+import paths
+
 import dbs_t3p as t3p
 import pd_switch as ps
 
@@ -56,10 +58,11 @@ def estimate_minutes(n_sims, seconds_per_1000ms=3.9, tmax=1000):
 
 def train_agents(backend, helpers, pd_values=(0.3, 0.6, 1.0),
                  out_dir="runs_agents", verbose=True, **cfg_kw):
-    Path(out_dir).mkdir(exist_ok=True)
+    out_dir = paths.cache(out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
     agents = {}
     for pd in pd_values:
-        path = Path(out_dir) / f"agent_pd{pd}.json"
+        path = out_dir / f"agent_pd{pd}.json"
         if path.exists():
             agents[pd] = json.loads(path.read_text())
             if verbose:
@@ -108,7 +111,7 @@ def cross_matrix(backend, helpers, agents, brain_pds=None, seeds=range(1, 11),
         cfg = t3p.T3PConfig(pd_value=brain, tmax=tmax, n_arms=len(t3p.ARMS))
         for apd in sorted(agents):
             a = agents[apd]
-            path = Path(out_dir) / f"agent{apd}_brain{brain}_t{tmax}.json"
+            path = out_dir / f"agent{apd}_brain{brain}_t{tmax}.json"
             if path.exists():
                 rows += json.loads(path.read_text())
                 continue

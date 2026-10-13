@@ -19,6 +19,8 @@ from pathlib import Path
 
 import numpy as np
 
+import paths
+
 import helpers
 import dbs_t3p as t3p
 
@@ -45,7 +47,7 @@ BANDS = {
 ALL_PD = sorted({p for v in BANDS.values() for p in v})
 
 RESULTS_DIR = "runs_neural"
-SAMPLES = Path(RESULTS_DIR) / "samples.jsonl"
+SAMPLES = paths.cache(RESULTS_DIR) / "samples.jsonl"
 
 
 def band_for(pd):
@@ -99,7 +101,7 @@ def at_grid_edge(freq, curr):
 # --------------------------------------------------------------------------------------
 
 def append_sample(rec):
-    Path(RESULTS_DIR).mkdir(parents=True, exist_ok=True)
+    paths.cache(RESULTS_DIR).mkdir(parents=True, exist_ok=True)
     with open(SAMPLES, "a") as fh:
         fh.write(json.dumps(rec) + "\n")
         fh.flush()

@@ -12,12 +12,14 @@ cancels a period-2 component exactly.
 import numpy as np
 from pathlib import Path
 
+import paths
+
 import pd_switch as pdsw
 
 
 def load_cached(out_dir):
     out = {}
-    for p in sorted(Path(out_dir).glob("seed*.npz"), key=lambda q: int(q.stem[4:])):
+    for p in sorted(paths.cache(out_dir).glob("seed*.npz"), key=lambda q: int(q.stem[4:])):
         d = np.load(p)
         out[int(p.stem[4:])] = (d["times"], d["values"])
     return out
@@ -59,7 +61,7 @@ def run(raw_thresh=7.0):
     print(f"\nfrozen paired threshold: {thresh}   "
           f"(midpoint of the clean range, chosen without seeing any stimulated run)\n")
 
-    dirs = sorted(p for p in Path(".").glob("runs_stim_*") if p.is_dir())
+    dirs = paths.cache_dirs("runs_stim_*")
     if not dirs:
         print("no runs_stim_*/ caches found")
         return

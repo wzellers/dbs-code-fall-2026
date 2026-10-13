@@ -16,6 +16,8 @@ from pathlib import Path
 
 import numpy as np
 
+import paths
+
 import helpers
 import dbs_t3p as t3p
 
@@ -745,11 +747,11 @@ def stats_from_json(rows):
 
 def save_arm_cache(stats, pd, results_dir=RESULTS_DIR):
     return save_json({"pd": pd, "arms": stats_to_json(stats)},
-                     Path(results_dir) / f"arms_pd{pd}.json")
+                     paths.cache(results_dir) / f"arms_pd{pd}.json")
 
 
 def load_arm_cache(pd, results_dir=RESULTS_DIR):
-    p = Path(results_dir) / f"arms_pd{pd}.json"
+    p = paths.cache(results_dir) / f"arms_pd{pd}.json"
     if not p.exists():
         return None
     return stats_from_json(json.loads(p.read_text())["arms"])
@@ -757,7 +759,7 @@ def load_arm_cache(pd, results_dir=RESULTS_DIR):
 
 def load_all_caches(results_dir=RESULTS_DIR):
     out = {}
-    for p in sorted(Path(results_dir).glob("arms_pd*.json")):
+    for p in sorted(paths.cache(results_dir).glob("arms_pd*.json")):
         d = json.loads(p.read_text())
         out[d["pd"]] = stats_from_json(d["arms"])
     return out

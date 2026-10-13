@@ -1,15 +1,16 @@
+# MATLAB simulation state - rewritten every step, never commit
 bgn_vars.mat
 *.mat
-runs_switch*/
-runs_stim_*/
-runs_ladder_*/
-runs_null_*/
-runs_dir_*/
-checkpoints/
-datasets/*.npz
+
+# Python
 __pycache__/
 *.py[cod]
 .ipynb_checkpoints/
 .venv/
 venv/
+
+# OS
 .DS_Store
+
+# Caches live under cache/ and ARE committed - small, and expensive to regenerate.
+# The selector's alone is about 2.5 hours of MATLAB.

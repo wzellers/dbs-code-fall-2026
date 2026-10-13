@@ -18,6 +18,8 @@ from pathlib import Path
 import numpy as np
 import scipy.io
 
+import paths
+
 DT_MS = 0.01
 FS_HZ = 100_000.0
 WINDOW_MS = 1000
@@ -91,14 +93,15 @@ def _settings(pb_fn, zoom_w, kw):
 
 
 def run_seeds(eng, seeds, pb_fn, out_dir="runs_switch", zoom_w=500, **kw):
-    Path(out_dir).mkdir(exist_ok=True)
+    out_dir = paths.cache(out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
     switch_idx = int(kw.get("hold_ms", 5_000) / DT_MS)
     settings = _settings(pb_fn, zoom_w, kw)
     results, zooms, unverified = {}, {}, []
 
     for seed in seeds:
         seed = int(seed)
-        path = Path(out_dir) / f"seed{seed}.npz"
+        path = out_dir / f"seed{seed}.npz"
         if path.exists():
             d = np.load(path)
             if "settings" in d.files:

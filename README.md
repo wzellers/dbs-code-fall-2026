@@ -45,41 +45,47 @@ Both results documents record **retractions** as prominently as findings. Read t
 
 Notebooks are numbered in reading order and live in the root, because they must run with the
 repo root as the working directory — MATLAB writes `bgn_vars.mat` to the cwd and
-`start_engine` resolves `matlab/` against it.
+`start_engine` resolves `matlab/` against it. Each opens with a cell putting `src/` on the
+import path.
+
+**Never hardcode a cache path.** Code names caches bare — `"runs_switch"` — and
+`src/paths.py` resolves them under `cache/`. A wrong cache path does not raise; it misses and
+silently re-simulates, which for the detection caches is hours of MATLAB.
 
 ```
 01_t3p_sweeps.ipynb        T3P arm sweeps and runs across severities
-02_pd_switch.ipynb         the mid-simulation severity switch, and detecting it unstimulated
+02_pd_switch.ipynb         the mid-simulation severity switch, detected unstimulated
 03_experiments.ipynb       detection under stimulation, severity ladders, adaptive bandit
 04_detection_results.ipynb the conclusive detection run — both detectors, frozen thresholds
 
-dbs_t3p.py          T3P bandit — the live selection mechanism, and the published reward
-helpers.py          biomarker and reward primitives. DO NOT EDIT — shared by everything
+src/
+  paths.py            where everything lives on disk. Import this, don't hardcode paths
+  helpers.py          biomarker and reward primitives. DO NOT EDIT — shared by everything
+  dbs_t3p.py          T3P bandit — the live selection mechanism, and the published reward
 
-dbs_selector.py     minimum-effective-dose rule, severity inference, safety constraint
-run_selector.py     driver for the selector's MATLAB stages
+  dbs_selector.py     minimum-effective-dose rule, severity inference, safety constraint
+  run_selector.py     driver for the selector's MATLAB stages
 
-neural_t3p.py       per-band reward networks, data collection, training
-neural_run.py       driver for the neural experiments
-neural_gates.py     validation gates, no MATLAB, runs in seconds
-neural_report.py    builds NEURAL_RESULTS.md from whatever is cached
-neural_extra.py     pooled-network and boundary follow-ups
+  neural_t3p.py       per-band reward networks, data collection, training
+  neural_run.py       driver for the neural experiments
+  neural_gates.py     validation gates, no MATLAB, runs in seconds
+  neural_report.py    builds docs/NEURAL_RESULTS.md from whatever is cached
+  neural_extra.py     pooled-network and boundary follow-ups
 
-pd_switch.py        mid-simulation severity switch, sliding beta power, two detectors
-experiments.py      detection under stimulation, severity ladders, adaptive bandit
-recheck_stim.py     pair-averaged re-analysis of cached detection runs
+  pd_switch.py        mid-simulation severity switch, sliding beta power, two detectors
+  experiments.py      detection under stimulation, severity ladders, adaptive bandit
+  recheck_stim.py     pair-averaged re-analysis of cached detection runs
 
-dbs_core.py         Config, MatlabEnv, MockEnv, Hjorth features — plus the retired TD3 agent
-dbs_checks.py       pre-flight checks: offline, live, calibration, fixed-policy baseline
-dbs_reward_model.py reward-model approach, superseded; its datasets are still used
-dbs_plots.py        TD3 training plots, superseded with it
+  dbs_core.py         Config, MatlabEnv, MockEnv, Hjorth features + the retired TD3 agent
+  dbs_checks.py       pre-flight checks: offline, live, calibration, fixed-policy baseline
+  dbs_reward_model.py reward-model approach, superseded; its datasets are still used
+  dbs_plots.py        TD3 training plots, superseded with it
 
+docs/               results and task documents
+cache/              every simulation cache, plus generated figures
 matlab/             bgn_init.m, bgn_step.m, set_pd.m
 gating/             28 gating-variable functions called by bgn_step
 datasets/           400 sampled rows per severity, ~35 min of MATLAB each
-runs_selector/      selector caches — small JSON, hours to regenerate, committed
-runs_neural/        neural caches — same
-runs/               TD3 checkpoints from the retired approach
 archive/            superseded approaches, kept for the record — do not build on these
 ```
 
@@ -114,14 +120,13 @@ step; concurrent MATLAB engines corrupt each other.
 objects bound to stale classes and produces `AttributeError`s on methods that visibly exist.
 
 ```bash
-# selector, each stage cached independently
-python -u run_selector.py --stage probe --n-probe 15      #  ~6 min
-python -u run_selector.py --stage arms  --n 10            # ~49 min
-python -u run_selector.py --report --tau -0.20            # no simulation
+# run scripts from the repo root, by path - that puts src/ on sys.path automatically
+python -u src/run_selector.py --stage probe --n-probe 15   #  ~6 min
+python -u src/run_selector.py --stage arms  --n 10         # ~49 min
+python -u src/run_selector.py --report --tau -0.20         # no simulation
 
-# neural, gates first
-python neural_gates.py
-python -u neural_run.py --stage collect
+python src/neural_gates.py
+python -u src/neural_run.py --stage collect
 
 # detection — detection_results.ipynb runs top to bottom
 ```

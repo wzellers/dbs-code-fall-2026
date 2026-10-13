@@ -42,8 +42,13 @@ Use `/opt/anaconda3/bin/python`. `matlab.engine` is installed there and nowhere 
 /opt/anaconda3/bin/python -c "import matlab.engine; print('ok')"
 ```
 
-**Run from the repo root.** `bgn_vars.mat` is written to the working directory by MATLAB and
-read back by Python, and `start_engine` resolves `matlab/` and `gating/` against the cwd.
+**Run from the repo root, always.** `bgn_vars.mat` is written to the working directory by
+MATLAB and read back by Python, and `start_engine` resolves `matlab/` and `gating/` against
+the cwd. Modules live in `src/`; run scripts by path (`python src/run_selector.py`) so that
+directory lands on `sys.path` without a cwd change. Notebooks do the same with a setup cell.
+
+**Never hardcode a cache path.** Name caches bare and let `src/paths.py` resolve them under
+`cache/`. A wrong path does not raise - it misses and silently re-simulates.
 
 **Simulations must run serially.** `bgn_vars.mat` is one shared file rewritten every step, so
 concurrent MATLAB engines corrupt each other.
@@ -107,7 +112,8 @@ Each of these cost real debugging time. Do not rediscover them.
 **Live.** `dbs_t3p.py` is the bandit and the published reward. `dbs_selector.py` and
 `run_selector.py` are the minimum-effective-dose selector with severity inference.
 `neural_*.py` is the per-band warm-start. `pd_switch.py`, `experiments.py` and
-`recheck_stim.py` are the change-detection work. Notebooks `01_`–`04_` run in that order.
+`recheck_stim.py` are the change-detection work. `paths.py` resolves every on-disk location.
+All of these live in `src/`. Notebooks `01_`–`04_` sit in the root and run in that order.
 
 **Superseded but documented.** `dbs_core.py` holds the live environment and state features
 *plus* the retired TD3 agent — read its header, the file is half and half.
@@ -123,6 +129,6 @@ kept and commented because the reasons they were dropped are themselves findings
 
 ## Caches
 
-`runs_selector/`, `runs_neural/` and the detection caches are **committed**, because they are
+Everything lives under `cache/`. `runs_selector/`, `runs_neural/` and the detection caches are **committed**, because they are
 small and expensive to regenerate — the selector's alone is about 2.5 hours of MATLAB. Check
 for a cache before running anything.
