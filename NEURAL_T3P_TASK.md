@@ -1,6 +1,9 @@
 # Task: Per-Band Neural Warm-Start for T3P
 
-Background and measured findings are in `claude-briefing.md`. Operating rules are in
+> **Status: completed.** Results are in `NEURAL_RESULTS.md`, decisions in
+> `DECISIONS.md`. Kept as the specification this work was carried out against.
+
+Background and measured findings are in `CLAUDE_CODE_BRIEFING.md`. Operating rules are in
 `CLAUDE.md`. This document is the current task. Work autonomously; log decisions to
 `DECISIONS.md`.
 

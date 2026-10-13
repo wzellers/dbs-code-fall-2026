@@ -391,6 +391,6 @@ Pre-extend caches are preserved in `runs_selector.bak/`.
 
 ---
 
-## Note on the briefing
+## Note on the briefing (resolved)
 
-`CLAUDE.md` points at `CLAUDE_CODE_BRIEFING.md`; the file is actually `claude-briefing.md`.
+The broken `claude-briefing.md` reference in `CLAUDE.md` and `NEURAL_T3P_TASK.md` has been corrected to `CLAUDE_CODE_BRIEFING.md`.
