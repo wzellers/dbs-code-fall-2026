@@ -190,3 +190,21 @@ it caught two things: the ladder raw/paired inconsistency above, and that runs_s
 180 Hz while the rest of the sweep ran at 130 Hz, so the table was not the clean amplitude sweep
 it was presented as. Both are now disclosed in the document.
 **Reversible:** n/a - additive.
+
+## [repo] MATLAB path setup moved into paths.py, caller arguments ignored
+**Chose:** have MatlabBackend, pd_switch.start_engine and dbs_core.MatlabEnv all add
+paths.MATLAB and paths.GATING explicitly, keep code_dir only as MATLAB's working directory,
+and accept-but-ignore parent_dir / matlab_dir
+**Over:** fixing the call sites to pass the right arguments
+**Because:** the restructure moved the .m files into matlab/ while gating/ stayed at the root,
+and two notebooks still passed parent_dir="." - which added the repo root instead of matlab/
+and left bgn_init itself undefined. Three engine-startup sites had three different path
+conventions between them, one of which (dbs_core.MatlabEnv) added nothing at all. Fixing the
+call sites would have left the footgun loaded. Now there is one convention and callers cannot
+get it wrong. Each site also raises with the resolved path if either directory is missing,
+rather than warning and failing later inside bgn_step.
+**Note:** the old "matlab/gating not found" warning really was harmless, as
+CLAUDE_CODE_BRIEFING.md said - bgn_init.m line 58 runs addpath("gating") itself, relative to
+the cwd. The broken part was parent_dir=".", not the warning. Briefing corrected to say both.
+**Reversible:** yes - no cached data involved. Needs a MATLAB machine to confirm; cannot be
+verified from a container without the engine.

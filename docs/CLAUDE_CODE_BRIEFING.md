@@ -63,8 +63,17 @@ res, bandit = t3p.run_t3p(backend, cfg, helpers)
 One simulation ≈ **3.9 seconds**. Budget accordingly: a 31-arm sweep at 5 repeats is about
 10 minutes; a full T3P run (31 warm-up + 75 rounds) is about 4 minutes.
 
-`MatlabBackend` prints a warning about `matlab/gating` not existing. Harmless —
-`bgn_init.m` adds `gating/` from the working directory itself.
+`MatlabBackend` used to print a warning about `matlab/gating` not existing. That warning was
+harmless, for the reason given here originally: `bgn_init.m` line 58 runs `addpath("gating")`
+itself, relative to MATLAB's working directory, which is the repo root. It no longer appears —
+`MatlabBackend` now adds `matlab/` and `gating/` explicitly through `paths.py`, so the model
+does not depend on the cwd or on `bgn_init` having run first.
+
+What was *not* harmless, and is now fixed: two notebooks constructed the backend as
+`MatlabBackend(code_dir=".", parent_dir=".")`, which added the repo root to the MATLAB path
+instead of `matlab/`. After the restructure moved the `.m` files into `matlab/`, that left
+`bgn_init` itself undefined. Both arguments are now ignored and the paths come from `paths.py`,
+so the call is just `t3p.MatlabBackend()`.
 
 ---
 

@@ -270,10 +270,27 @@ def sgis_raw(sgis):
 
 class MatlabEnv:
     def __init__(self, cfg, mat_path="bgn_vars.mat"):
+        """Start a MATLAB engine with matlab/ and gating/ on its path.
+
+        This used to add nothing and depend entirely on MATLAB's inherited working
+        directory, which happened to work only when launched from a flat repo root. Both
+        directories are now resolved through paths.py: matlab/ holds bgn_init, bgn_step and
+        set_pd, gating/ holds the 28 functions bgn_step calls by bare name, and MATLAB does
+        not recurse into subfolders.
+        """
         import matlab.engine
         self.cfg = cfg
         self.mat_path = Path(mat_path)
+        for label, d in (("matlab", paths.MATLAB), ("gating", paths.GATING)):
+            if not d.is_dir():
+                raise FileNotFoundError(
+                    f"{label}/ not found at {d}. The MATLAB model cannot run without it; "
+                    f"check that paths.REPO ({paths.REPO}) is the repository root."
+                )
         self.eng = matlab.engine.start_matlab()
+        self.eng.cd(str(paths.REPO), nargout=0)
+        self.eng.addpath(str(paths.MATLAB), nargout=0)
+        self.eng.addpath(str(paths.GATING), nargout=0)
         self.last = {}
 
     def _wait(self, retries=10, delay=0.2):

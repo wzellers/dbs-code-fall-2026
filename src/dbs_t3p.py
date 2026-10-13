@@ -86,19 +86,37 @@ class T3PConfig:
 
 class MatlabBackend:
     def __init__(self, code_dir=None, parent_dir=None):
+        """Start a MATLAB engine with both halves of the model on its path.
+
+        bgn_step.m calls 28 gating functions by bare name (Hinf, gpe_*, stn_*, ...), and
+        MATLAB does not recurse into subfolders, so BOTH matlab/ and gating/ must be added
+        explicitly. They are siblings at the repo root, not nested, so the old default of
+        parent_dir/"gating" looked for matlab/gating and never found it. That printed a
+        warning rather than failing, and the call to bgn_step died later with an undefined
+        function. Resolution now goes through paths.py and ignores the cwd, so it cannot
+        depend on where the notebook was launched from.
+
+        code_dir only sets MATLAB's working directory, which is where bgn_vars.mat is
+        written and read. parent_dir is accepted for backward compatibility and ignored.
+        """
         import matlab.engine
-        self.code_dir = Path(code_dir or Path.cwd())
-        self.parent_dir = Path(parent_dir or self.code_dir / "matlab")
+        self.code_dir = Path(code_dir).resolve() if code_dir else paths.REPO
+        self.parent_dir = paths.MATLAB
         self.mat_path = self.code_dir / "bgn_vars.mat"
+
+        for label, d in (("matlab", paths.MATLAB), ("gating", paths.GATING)):
+            if not d.is_dir():
+                raise FileNotFoundError(
+                    f"{label}/ not found at {d}. The MATLAB model cannot run without it; "
+                    f"check that paths.REPO ({paths.REPO}) is the repository root."
+                )
+
         self.eng = matlab.engine.start_matlab()
         self.eng.cd(str(self.code_dir), nargout=0)
-        self.eng.addpath(str(self.parent_dir), nargout=0)
-        gating = self.parent_dir / "gating"
-        if gating.exists():
-            self.eng.addpath(str(gating), nargout=0)
-        else:
-            print(f"WARNING: {gating} not found — gating functions may be missing")
-        print(f"MATLAB cwd {self.code_dir}\nMATLAB path + {self.parent_dir}, {gating}")
+        self.eng.addpath(str(paths.MATLAB), nargout=0)
+        self.eng.addpath(str(paths.GATING), nargout=0)
+        print(f"MATLAB cwd {self.code_dir}\n"
+              f"MATLAB path + {paths.MATLAB}, {paths.GATING}")
 
     def _wait(self, retries=10, delay=0.2):
         for _ in range(retries):

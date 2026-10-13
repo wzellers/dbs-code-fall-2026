@@ -29,15 +29,27 @@ STEP_SAMPLES = int(STEP_MS / DT_MS)
 HALF_WINDOW_S = WINDOW_MS / 2000.0
 
 
-def start_engine(code_dir=".", matlab_dir="matlab"):
+def start_engine(code_dir=None, matlab_dir=None):
+    """Start a MATLAB engine with matlab/ and gating/ both on its path.
+
+    bgn_step.m calls the 28 gating functions by bare name and MATLAB does not recurse into
+    subfolders, so both directories must be added. They resolve through paths.py rather than
+    from the cwd, so launching a notebook from anywhere still works. matlab_dir is accepted
+    for backward compatibility and ignored; code_dir only sets MATLAB's working directory,
+    which is where bgn_vars.mat lives.
+    """
     import matlab.engine
-    code_dir = Path(code_dir).resolve()
+    code_dir = Path(code_dir).resolve() if code_dir else paths.REPO
+    for label, d in (("matlab", paths.MATLAB), ("gating", paths.GATING)):
+        if not d.is_dir():
+            raise FileNotFoundError(
+                f"{label}/ not found at {d}. The MATLAB model cannot run without it; "
+                f"check that paths.REPO ({paths.REPO}) is the repository root."
+            )
     eng = matlab.engine.start_matlab()
     eng.cd(str(code_dir), nargout=0)
-    eng.addpath(str(code_dir / matlab_dir), nargout=0)
-    gating = code_dir / "gating"
-    if gating.exists():
-        eng.addpath(str(gating), nargout=0)
+    eng.addpath(str(paths.MATLAB), nargout=0)
+    eng.addpath(str(paths.GATING), nargout=0)
     return eng
 
 
