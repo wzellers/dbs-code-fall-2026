@@ -1,3 +1,36 @@
+"""Simulation environment, state features, and the abandoned TD3 agent.
+
+STATUS: mixed - read this before using anything here.
+
+LIVE, used by current work:
+    Config              every tunable: timing, reward weights, state bounds
+    MatlabEnv           the real BGT model through the MATLAB engine
+    MockEnv             stand-in needing no MATLAB
+    hjorth_raw          the four state features: sd, activity, mobility, complexity
+    sgis_raw            the STN-input biomarker this path's reward uses
+    denormalize_action  maps a [-1, 1] action onto real frequency and amplitude
+
+SUPERSEDED, the TD3 approach:
+    Actor, Critic, ReplayBuffer, TD3Agent, RunLogger, collapsed, train, evaluate
+
+Why TD3 was dropped: its untrained actor only ever proposed amplitudes between roughly
+1600 and 3500 uA, so it never sampled the low-amplitude region where the good settings
+turned out to be. It trained on half the action space and lost to fixed open-loop
+stimulation. dbs_reward_model.py replaced it by sampling actions uniformly instead.
+
+NOTE - this file's reward is NOT the published one. It uses sgis (FFT bins 1-20 of the
+averaged STN input) with weights 0.5 and 0.2, where dbs_t3p uses beta power with the
+three-term paper reward. Numbers from the two paths are not comparable.
+
+KNOWN ISSUE - how channels are combined.
+    hjorth_raw computes each parameter per neuron and then averages the ten results. A
+    real DBS lead records one combined field potential, so this is not what the device
+    would measure. The two are not interchangeable: averaging per-neuron statistics is
+    blind to how synchronised the neurons are, while computing on the combined signal
+    tracks synchrony directly - and beta-band synchrony is the hallmark of the PD state.
+    helpers.calculate_pb has the same issue. sgis_raw below combines first.
+"""
+
 import copy
 import json
 import time

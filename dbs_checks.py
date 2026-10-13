@@ -1,3 +1,22 @@
+"""Pre-flight checks. Run before trusting any experiment's output.
+
+STATUS: active.
+
+    versions()          confirm modules on disk are the same release
+    offline()           no MATLAB needed: network shapes, action scaling, Hjorth features
+    live(env, ...)      probe the real environment at candidate actions
+    reward_landscape()  tabulate reward terms across probed actions
+    baseline(env, ...)  fixed open-loop stimulation - the bar any agent must clear
+    suggest_bounds()    propose state-normalisation bounds from observed samples
+    rms_range(), tune_rms_max()   calibrate the energy term
+
+offline() exercises the TD3 agent, so it needs dbs_core's superseded half. The rest is
+independent of which controller approach is in use.
+
+baseline() is the one to run first on any new setup. An agent that cannot beat fixed
+stimulation is not worth tuning.
+"""
+
 import shutil
 import tempfile
 from pathlib import Path

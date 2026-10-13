@@ -1,3 +1,28 @@
+"""Reward models: predict reward from state and action, then argmax over candidates.
+
+STATUS: superseded by the selector and neural work, but the datasets it produced are
+still used - datasets/pd*.json holds 400 sampled rows per severity, about 35 minutes of
+MATLAB each.
+
+    collect()           sample random actions, record state before and reward after
+    to_tensors()        4 Hjorth state features + 2 normalised action values -> reward
+    RewardModel, fit()  the network and its training loop
+    best_action()       argmax over CANDIDATE_GRID under the learned model
+    cross_evaluate()    every model against every severity's held-out data
+    action_agreement()  how often models trained at different severities agree
+
+This approach replaced TD3 because actions are sampled uniformly here, so training data
+covers the whole action space rather than whatever an untrained actor happened to propose.
+
+THE RESULT THAT MATTERS: cross-evaluation showed each model predicts best on the severity
+it was trained for, but the models almost all SELECT THE SAME ACTION regardless. The
+specialisation is real in reward prediction and does not reach the control decision. Read
+the R-squared matrix as evidence that a selector has something to select on, not as
+evidence that the controllers behave differently.
+
+Uses dbs_core's reward (sgis-based), not the published three-term beta-power reward.
+"""
+
 import json
 import time
 from pathlib import Path

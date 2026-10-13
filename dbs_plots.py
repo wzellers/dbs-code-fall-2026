@@ -1,3 +1,16 @@
+"""Training and evaluation plots for TD3 runs.
+
+STATUS: superseded along with the TD3 approach - it reads the metrics.csv that
+RunLogger writes, which only the TD3 training loop produces.
+
+    plot_training(run_dir)   reward, frequency and amplitude against episode
+    plot_eval(run_dir, rows) evaluation episodes
+    compare_runs(run_dirs)   several runs on one axis
+
+Nothing in the selector, neural or detection work uses this. The newer work plots
+inline in its own notebooks and scripts.
+"""
+
 import csv
 from pathlib import Path
 

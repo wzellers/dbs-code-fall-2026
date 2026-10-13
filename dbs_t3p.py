@@ -1,3 +1,39 @@
+"""T3P multi-armed bandit - the live controller-selection mechanism.
+
+STATUS: active. This is the module the current work builds on.
+
+The bandit from the group's published paper: warm up every arm, prune to the top K,
+then epsilon-greedy with a linear decay. An arm is a (frequency, amplitude) pair.
+There is no state input - it is a pure bandit, not a contextual one.
+
+Contents
+    T3PConfig        arms, rounds, epsilon schedule, reward weights
+    MatlabBackend    runs the real BGT model; MockBackend stands in without MATLAB
+    compute_reward   the three-term reward, see below
+    T3PBandit        warm-up, prune, select, update
+    sweep_all_arms   measure every arm; run_t3p runs the bandit itself
+    compare_severities   summarise results across pd values
+
+Reward, matching the published paper:
+
+    R = -0.7 * r1  +  0.1 * r3  -  0.2 * r2
+
+    r1  beta-band power, normalised          suppress it
+    r2  RMS of the stimulation current       spend less energy
+    r3  longest unbroken run of zero current  stimulate less often
+
+r2 and r3 are deterministic given (freq, curr), so -0.7*r1 can be recovered exactly
+from a measured composite reward. dbs_selector.biomarker_from_reward does this.
+
+CAUTION - the default current grid.
+    CURR_VALUES starts at 1000 uA, which skips the 300-550 uA region entirely. Both the
+    reward-model work and the selector work found that region is where the useful
+    settings are, and that reward falls monotonically with amplitude above it. The
+    notebooks override CURR_VALUES for this reason. Check the grid before trusting any
+    sweep, and check whether a selected arm sits at a grid edge - this project has
+    produced a boundary artifact at least four times.
+"""
+
 import json
 import os
 import time
