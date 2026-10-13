@@ -1,0 +1,54 @@
+{
+  "0.1": {
+    "true_pd": 0.1,
+    "pd_hat": 0.2581404064387619,
+    "pd_mle": 0.19260682518515032,
+    "pd_used": 0.4,
+    "probe_mean": -0.008214016776045895,
+    "probe_se": 0.002959657627343834,
+    "chosen_curr": 300,
+    "chosen_freq": 180,
+    "mode_a_curr": 0,
+    "matches_mode_a": false,
+    "under_dosed": false
+  },
+  "0.4": {
+    "true_pd": 0.4,
+    "pd_hat": 0.37807992221276776,
+    "pd_mle": 0.3503117191500625,
+    "pd_used": 0.4,
+    "probe_mean": -0.01980367760623521,
+    "probe_se": 0.0025999378149144017,
+    "chosen_curr": 300,
+    "chosen_freq": 180,
+    "mode_a_curr": 300,
+    "matches_mode_a": true,
+    "under_dosed": false
+  },
+  "0.7": {
+    "true_pd": 0.7,
+    "pd_hat": 0.7059649578965821,
+    "pd_mle": 0.6895357636424179,
+    "pd_used": 0.7,
+    "probe_mean": -0.04803870156111671,
+    "probe_se": 0.0013746940953662371,
+    "chosen_curr": 350,
+    "chosen_freq": 180,
+    "mode_a_curr": 350,
+    "matches_mode_a": true,
+    "under_dosed": false
+  },
+  "1.0": {
+    "true_pd": 1.0,
+    "pd_hat": 0.9709296404763266,
+    "pd_mle": 0.8733697673157635,
+    "pd_used": 1.0,
+    "probe_mean": -0.06040994327366599,
+    "probe_se": 0.002983797565001228,
+    "chosen_curr": 350,
+    "chosen_freq": 180,
+    "mode_a_curr": 350,
+    "matches_mode_a": true,
+    "under_dosed": false
+  }
+}
