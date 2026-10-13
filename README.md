@@ -91,6 +91,7 @@ src/                       all Python. Nothing here runs from inside this direct
   pd_switch.py             the severity switch, sliding beta power, both detectors
   experiments.py           detection under stimulation, ladders, adaptive bandit
   recheck_stim.py          pair-averaged re-analysis of cached detection runs
+  verify_detection.py      re-derives every number in DETECTION_RESULTS.md from cache, no MATLAB
 
   dbs_core.py              Config, MatlabEnv, MockEnv, Hjorth features — plus retired TD3
   dbs_checks.py            pre-flight checks: offline, live, calibration, baseline
@@ -159,6 +160,7 @@ stale classes and raises `AttributeError` on methods you can see in the file.
 
 ```bash
 python src/neural_gates.py                                 # no MATLAB, seconds
+python src/verify_detection.py                             # no MATLAB, ~30s - 77 checks
 python -u src/run_selector.py --stage probe --n-probe 15    #  ~6 min
 python -u src/run_selector.py --stage arms  --n 10          # ~49 min
 python -u src/run_selector.py --report --tau -0.20          # cached, no simulation

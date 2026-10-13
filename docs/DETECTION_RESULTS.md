@@ -95,19 +95,30 @@ correcting it.
 The concern was structural: a controller's job is to suppress beta power, and beta power is also
 what we watch. A thermometer held at a fixed reading.
 
-`pd` 0.3 → 0.7, 10 brains per amplitude (`cache/runs_stim_*/`):
+`pd` 0.3 → 0.7, 10 brains per row (`cache/runs_stim_*/`):
 
 | stimulation | sep raw | sep paired | gain | changepoint | k-means | latency |
 |---|---|---|---|---|---|---|
 | none | 5.04 | 5.93 | 1.18× | 10/10 | 8/10 | 1.98 s |
-| 250 µA | 3.93 | 4.51 | 1.15× | 9/10 | 4/10 | 2.40 s |
-| 500 µA | 5.50 | 7.25 | 1.32× | 10/10 | 3/10 | 1.82 s |
-| 1000 µA | 1.46 | 3.17 | 2.17× | 8/10 | 4/10 | 3.19 s |
-| 3500 µA | 1.43 | 2.87 | 2.00× | 9/10 | 4/10 | 3.29 s |
-| 3500 µA, 10 s record | 2.01 | 3.16 | 1.57× | 10/10 | 0/10 | 2.62 s |
+| 130 Hz / 250 µA | 3.93 | 4.51 | 1.15× | 9/10 | 4/10 | 2.40 s |
+| **180 Hz / 500 µA** | 5.50 | 7.25 | 1.32× | 10/10 | 3/10 | 1.82 s |
+| 130 Hz / 1000 µA | 1.46 | 3.17 | 2.17× | 8/10 | 4/10 | 3.19 s |
+| 130 Hz / 3500 µA | 1.43 | 2.87 | 2.00× | 9/10 | 4/10 | 3.29 s |
+| 130 Hz / 3500 µA, 10 s record | 2.01 | 3.16 | 1.57× | 10/10 | 0/10 | 2.62 s |
 
-**500 µA is the row that matters** — it is where all three trained agents converged, and
-detection there is perfect at 1.8 s.
+**This is not a clean amplitude sweep, and must not be read as one.** The 500 µA row ran at
+180 Hz; every other stimulated row ran at 130 Hz. So that row differs from its neighbours in two
+variables, and the apparent recovery of separation at 500 µA cannot be attributed to amplitude.
+A frequency-matched sweep is one of the cheapest things left to run.
+
+What the table does support, row by row, is the claim the section is about: **detection works at
+every setting tested.** Each row is an independent measurement of whether a severity change
+stays visible under that stimulus, and none of them needs a neighbour to be interpreted.
+
+**The 180 Hz / 500 µA row is the one that matters** — it is where all three trained agents
+converged, and detection there is perfect at 1.8 s. It is also the operating point used for the
+null runs in §4 and the directionality test in §5, so those three results are mutually
+comparable.
 
 ### The windowing artifact, and why the raw column misleads
 
@@ -122,9 +133,11 @@ Averaging each window with its neighbour cancels an alternation exactly, while r
 falls by √2. Detection at the two failing amplitudes went to **8/10 and 9/10**, which is
 p = 0.016 and p = 0.004 on the discordant pairs.
 
-The `gain` column is the diagnostic, and it splits cleanly: **1.15–1.32× at the three amplitudes
-that always worked, 2.00–2.17× at the two that failed.** The cost is half the time resolution,
-worth 0.3–1.0 s of extra latency.
+The `gain` column is the diagnostic, and it splits cleanly: **1.15–1.32× at the three settings
+that always worked, 2.00–2.17× at the two that failed.** It is a within-row measure — how much
+one run's own separation improves when its own alternation is cancelled — so unlike the
+separation columns it is not touched by the frequency confound above. The cost is half the time
+resolution, worth 0.3–1.0 s of extra latency.
 
 **The cause of the alternation is not known.** The correction is validated and its effect on the
 statistic is understood; why it appears above 500 µA is not.
@@ -200,14 +213,17 @@ test can now be tripped either way. Worth it.
 ## 6. How small a change can be seen
 
 A ladder from `pd` 0.5, stepping up by 0.1 to 0.4, 10 brains each (`cache/runs_ladder_*/`).
-Separation:
+Separation, raw and pair-averaged, as in §3:
 
-| step | unstimulated | 180 Hz / 500 µA |
-|---|---|---|
-| 0.1 | 0.64 ± 0.16 | 1.56 ± 0.27 |
-| 0.2 | 0.81 ± 0.26 | **3.68 ± 0.36** |
-| 0.3 | 1.01 ± 0.27 | **3.88 ± 0.59** |
-| 0.4 | 1.44 ± 0.41 | 1.76 ± 0.92 |
+| step | unstim raw | unstim paired | 180/500 raw | 180/500 paired |
+|---|---|---|---|---|
+| 0.1 | 0.64 ± 0.16 | 0.81 ± 0.19 | 1.56 ± 0.27 | 2.24 ± 0.38 |
+| 0.2 | 0.81 ± 0.26 | 1.03 ± 0.30 | 3.68 ± 0.36 | **5.27 ± 0.53** |
+| 0.3 | 1.01 ± 0.27 | 1.31 ± 0.32 | 3.88 ± 0.59 | **5.79 ± 0.83** |
+| 0.4 | 1.44 ± 0.41 | 1.95 ± 0.57 | 1.76 ± 0.92 | 2.47 ± 1.24 |
+
+The gap percentages quoted below are raw, so that the 0.5 → 0.9 row is measured the same way as
+the 30-brain 0.3 → 0.7 baseline it is being compared against.
 
 **This did not measure what it was designed to measure.** The design held the starting point
 fixed so that step size was the only variable, which assumed beta power rises roughly
@@ -225,9 +241,9 @@ what governs detectability; where the step starts and ends is.**
 
 Two things follow.
 
-**Unstimulated, there is almost no severity signal above pd 0.5.** Separation never reaches 2
-anywhere on the ladder. Nearly all of the 0.3 → 0.7 result comes from the stretch between 0.3
-and 0.5.
+**Unstimulated, there is almost no severity signal above pd 0.5.** No step on the ladder clears
+a separation of 2 — the widest reaches 1.95 ± 0.57, an error bar that straddles it. Nearly all
+of the 0.3 → 0.7 result comes from the stretch between 0.3 and 0.5.
 
 **Under stimulation there is a strong signal in exactly that range.** This is the opposite of the
 concern that an effective controller erases the biomarker. A fixed stimulus suppresses a mild
@@ -240,8 +256,8 @@ monotone across the whole severity range with roughly five times the spread seen
 and the agents' operating point is one of the bad ones.** It also fits the efficacy cliff the
 selector measured between 105 and 130 Hz.
 
-The 0.4 step falling back to 1.76 ± 0.92 fits the same picture: pd 0.9 is past the peak, and the
-±0.92 says brains disagree about exactly where it sits.
+The 0.4 step falling back to 2.47 ± 1.24 fits the same picture: pd 0.9 is past the peak, and an
+error bar half the size of the estimate says brains disagree about exactly where that peak sits.
 
 ---
 
@@ -277,6 +293,9 @@ from 3 to 10 s**, so the detector needs no warm-up to reach full performance.
 - **n = 10 per condition**, 30 for the baseline. Differences smaller than about two combined
   standard errors are not differences.
 - **One brain model, one biomarker.** Everything rests on `calculate_pb` over GPi voltage.
+- **The amplitude sweep in §3 is not frequency-matched.** One of its six rows ran at 180 Hz and
+  the rest at 130 Hz, so the rows cannot be compared to each other as amplitude steps. The
+  per-row conclusions stand; a sweep of amplitude at fixed frequency has not been run.
 - **Beta power is computed per neuron and then averaged**, which is not what a single lead
   measures and is blind to synchrony — the hallmark of the Parkinsonian state. Whether the
   combined-signal convention changes any of these numbers is untested and cheap to test.
@@ -293,6 +312,24 @@ from 3 to 10 s**, so the detector needs no warm-up to reach full performance.
 ---
 
 ## 9. Reproducing
+
+Every number above is re-derived from the committed caches by one script, with no MATLAB and in
+about thirty seconds:
+
+```bash
+python src/verify_detection.py     # 77 checks against the figures quoted in this document
+```
+
+It compares each quoted value against a fresh computation and prints `FAIL` on any disagreement,
+so this document is checkable by anyone who clones the repo rather than being a record of
+numbers someone once saw. **Run it after editing `pd_switch.py` or moving a cache.** It currently
+passes 77/77.
+
+Two things it reads from each run's stored settings rather than assuming, because both have
+already caused a wrong number: `runs_stim_a500` is at 180 Hz where the rest of the sweep is at
+130 Hz, and `runs_stim_long_a3500` switches at 10 s where everything else switches at 5 s.
+Scoring that run with the default `switch_s=5.0` finds a changepoint in the middle of segment 1
+and reports a plausible-looking wrong latency.
 
 ```bash
 # notebooks run top to bottom, from the repo root

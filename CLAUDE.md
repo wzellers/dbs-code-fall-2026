@@ -106,6 +106,15 @@ Each of these cost real debugging time. Do not rediscover them.
   reward on `sgis`. Numbers from the two paths are not comparable.
 - **Saturation above ~350 µA** makes several arms statistically indistinguishable. Report tied
   sets rather than a single best arm.
+- **Switch time is not always 5 s.** `ps.summarize` and `ps.evaluate` default to
+  `switch_s=5.0`, but the switch happens at `hold_ms`, and `runs_stim_long_a3500` used
+  `hold_ms=10000`. Scoring it with the default does not raise — it finds a changepoint inside
+  segment 1 and returns a plausible wrong latency. Read `hold_ms` from the run's stored
+  `settings` field. `src/verify_detection.py` does this.
+- **The §3 amplitude sweep is not frequency-matched.** `runs_stim_a500` ran at 180 Hz; the other
+  stimulated rows ran at 130 Hz. Do not compare those rows to each other as amplitude steps.
+- **`detect_cp` and `detect_kmeans` are one-sided** and cannot fire on a severity decrease.
+  Use `detect_cp2` for anything that must notice a patient improving.
 
 ## Files
 

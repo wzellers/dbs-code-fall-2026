@@ -163,3 +163,30 @@ moved the "best arm" at several severities, and warm's tied-set score dropped fr
 selecting an arm that was never in its action set. Corrected figures: cold 9/12, warm 8/12,
 pooled 7/8. The 205 Hz result is reported separately as the boundary caveat.
 **Reversible:** yes — `arm_stats(..., grid_only=False)`.
+
+## [detection] ladder table reports both raw and pair-averaged separation
+**Chose:** show both columns, and keep the gap percentages raw
+**Over:** paired only (consistent with §2-§5) or raw only (as first written)
+**Because:** the document was quoting raw separation in §6 and paired everywhere else, which is
+a silent inconsistency. Both are shown because the correction's effect is small at these low
+amplitudes (0.64 -> 0.81) where it is large at high amplitude (1.43 -> 2.87), and that contrast
+is itself evidence for the period-2 explanation. The gap percentages stay raw so the 0.5 -> 0.9
+row is measured the same way as the 30-brain 0.3 -> 0.7 baseline it is compared against.
+**Reversible:** yes - re-scoring only, no simulation. `src/verify_detection.py` checks both.
+
+## [detection] detect_cp2 promoted from notebook cell to src/pd_switch.py
+**Chose:** move the two-sided detector into the module
+**Over:** leaving it defined in 04_detection_results.ipynb cell 21
+**Because:** it is the detector the results actually recommend - one-sided detect_cp catches
+0/10 downward switches - and it was not importable, so section 5 of DETECTION_RESULTS.md was
+not reproducible from committed code. A result that depends on a notebook cell is not a result.
+**Reversible:** yes, but there is no reason to.
+
+## [detection] src/verify_detection.py added
+**Chose:** a script that re-derives all 77 quoted figures from the committed caches
+**Over:** trusting the notebook output that produced them
+**Because:** committing the caches is only worth it if the document becomes checkable. Writing
+it caught two things: the ladder raw/paired inconsistency above, and that runs_stim_a500 ran at
+180 Hz while the rest of the sweep ran at 130 Hz, so the table was not the clean amplitude sweep
+it was presented as. Both are now disclosed in the document.
+**Reversible:** n/a - additive.
