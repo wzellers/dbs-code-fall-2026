@@ -77,8 +77,8 @@ probe sufficient. Assuming the global figure where it does not apply wastes simu
 - Never report a difference smaller than its error bar as a finding.
 - Several findings in this project have been retracted after failing at higher n or after a
   measurement was corrected. **State null results plainly** rather than hunting for a framing
-  that makes them look positive. Both results documents record their retractions as
-  prominently as their findings; keep that standard.
+  that makes them look positive. All three results documents in `docs/` record their
+  retractions as prominently as their findings; keep that standard.
 
 ## Known traps
 

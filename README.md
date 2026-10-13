@@ -14,9 +14,10 @@ right stimulation for the severity they are in right now — and notice when it 
 1. **`CLAUDE.md`** — operating rules: how to run things, known traps, statistical standards.
    Read before running anything, whether you are a person or an agent.
 2. **This file's layout section**, below, for where everything lives.
-3. **`docs/SELECTOR_RESULTS.md`** and **`docs/NEURAL_RESULTS.md`** — the measured results.
-   Both record retractions as prominently as findings; that is deliberate, and the
-   retractions are often more informative than the findings.
+3. **`docs/SELECTOR_RESULTS.md`**, **`docs/NEURAL_RESULTS.md`** and
+   **`docs/DETECTION_RESULTS.md`** — the measured results, one per line of work. All three
+   record retractions as prominently as findings; that is deliberate, and the retractions are
+   often more informative than the findings.
 4. **Notebooks `01`–`04`**, in order, for the detection work and the bandit's behaviour.
 
 Every module in `src/` opens with a header giving its status, what it contains, and the traps
@@ -32,7 +33,7 @@ Four lines, three of them live.
 |---|---|---|---|
 | **Controller selection** | working | `src/dbs_selector.py`, `src/run_selector.py` | `docs/SELECTOR_RESULTS.md` |
 | **Neural warm-start** | working | `src/neural_*.py` | `docs/NEURAL_RESULTS.md` |
-| **Change detection** | working | `src/pd_switch.py`, `src/experiments.py`, `src/recheck_stim.py` | `04_detection_results.ipynb` |
+| **Change detection** | working | `src/pd_switch.py`, `src/experiments.py`, `src/recheck_stim.py` | `docs/DETECTION_RESULTS.md` |
 | **TD3 / reward models** | superseded | `src/dbs_core.py`, `src/dbs_reward_model.py` | module headers, and below |
 
 **Controller selection** picks stimulation by minimising power subject to a floor on symptom
@@ -99,6 +100,7 @@ src/                       all Python. Nothing here runs from inside this direct
 docs/                      results and the task documents they were carried out against
   SELECTOR_RESULTS.md      the selector: 2,353 simulations, two retractions
   NEURAL_RESULTS.md        the warm-start: 3,482 simulations, three experiments
+  DETECTION_RESULTS.md     the change detection: ~280 simulations, four retractions
   NEURAL_T3P_TASK.md       the specification the neural work was done against (completed)
   DECISIONS.md             choices those task documents left open, and why
   CLAUDE_CODE_BRIEFING.md  project background and the measured findings behind it
@@ -236,5 +238,10 @@ than hunting for a framing that makes them look positive.
   no claim about clinical amplitude ranges is safe.
 - **Mode B is internally consistent, not cross-validated.** The probe calibration and the arm
   measurements come from the same simulator.
-- **The detection work has no results document.** Its numbers live in `04_detection_results.ipynb`
-  and in notes outside this repo. The other two lines each have one; this one should too.
+- **Why the high-amplitude measurement artifact exists.** Above 500 µA consecutive beta-power
+  windows alternate high–low, which inflates the within-segment spread without moving either
+  segment mean. Pair-averaging cancels it and restores detection, and the correction is
+  validated, but the mechanism is undiagnosed. An aliasing explanation was tested and ruled out.
+- **Whether a cheaper feature than beta power can detect a severity change.** Detection
+  currently needs an FFT per neuron per window. Hjorth parameters need only variances and
+  differences. Untested, and cheap to test.
