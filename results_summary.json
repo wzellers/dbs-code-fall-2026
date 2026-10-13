@@ -1,0 +1,234 @@
+{
+  "thresholds": {
+    "cp_raw": 7.0,
+    "cp_paired": 5.75,
+    "km_min_gap": 0.13
+  },
+  "baseline_0.3to0.7_nostim": {
+    "n": 30,
+    "gap": 23.418446648576243,
+    "gap_sem": 1.624985247779726,
+    "sep": 5.099799419551241,
+    "sep_sem": 0.36157848572921014,
+    "sep_worst": 1.673537638775615
+  },
+  "baseline_detectors": {
+    "changepoint raw": {
+      "ok": 19,
+      "n": 20,
+      "latency": 1.25
+    },
+    "changepoint paired": {
+      "ok": 20,
+      "n": 20,
+      "latency": 1.675
+    },
+    "k-means paired": {
+      "ok": 17,
+      "n": 20,
+      "latency": 1.5661764705882353
+    }
+  },
+  "under_stimulation": [
+    {
+      "run": "runs_stim_a0",
+      "n": 10,
+      "switch_s": 5.0,
+      "sep_raw": 5.043877942665718,
+      "sep_paired": 5.928861666769912,
+      "gain": 1.1754570063280465,
+      "cp_ok": 10,
+      "km_ok": 8,
+      "cp_latency": 1.975,
+      "verdict": "detectable"
+    },
+    {
+      "run": "runs_stim_a1000",
+      "n": 10,
+      "switch_s": 5.0,
+      "sep_raw": 1.4631103938554577,
+      "sep_paired": 3.1707503339332535,
+      "gain": 2.167129935819795,
+      "cp_ok": 8,
+      "km_ok": 4,
+      "cp_latency": 3.1875,
+      "verdict": "detectable"
+    },
+    {
+      "run": "runs_stim_a250",
+      "n": 10,
+      "switch_s": 5.0,
+      "sep_raw": 3.9261879791676577,
+      "sep_paired": 4.514032326005576,
+      "gain": 1.149723943417131,
+      "cp_ok": 9,
+      "km_ok": 4,
+      "cp_latency": 2.4027777777777777,
+      "verdict": "detectable"
+    },
+    {
+      "run": "runs_stim_a3500",
+      "n": 10,
+      "switch_s": 5.0,
+      "sep_raw": 1.4325933979948546,
+      "sep_paired": 2.870296767284181,
+      "gain": 2.0035669376262826,
+      "cp_ok": 9,
+      "km_ok": 4,
+      "cp_latency": 3.2916666666666665,
+      "verdict": "marginal"
+    },
+    {
+      "run": "runs_stim_a500",
+      "n": 10,
+      "switch_s": 5.0,
+      "sep_raw": 5.503232533604691,
+      "sep_paired": 7.251835797809821,
+      "gain": 1.317741119156339,
+      "cp_ok": 10,
+      "km_ok": 3,
+      "cp_latency": 1.825,
+      "verdict": "detectable"
+    },
+    {
+      "run": "runs_stim_long_a3500",
+      "n": 10,
+      "switch_s": 10.0,
+      "sep_raw": 2.010055579124456,
+      "sep_paired": 3.1581020117152905,
+      "gain": 1.5711515863113115,
+      "cp_ok": 10,
+      "km_ok": 0,
+      "cp_latency": 2.625,
+      "verdict": "detectable"
+    }
+  ],
+  "ladder_nostim": [
+    {
+      "step": 0.1,
+      "pd_start": 0.5,
+      "pd_end": 0.6,
+      "n": 10,
+      "gap": 2.0194375820174293,
+      "gap_sem": 0.4811609305947109,
+      "sep": 0.6376749681883712,
+      "sep_sem": 0.15646963657443244,
+      "sep_worst": 0.07682834050433805,
+      "sep_paired": 0.8100524137356346,
+      "cp_ok": 2,
+      "km_ok": 0,
+      "verdict": "below resolution"
+    },
+    {
+      "step": 0.2,
+      "pd_start": 0.5,
+      "pd_end": 0.7,
+      "n": 10,
+      "gap": 3.1224827521389686,
+      "gap_sem": 0.9835909955279513,
+      "sep": 0.8133996647380528,
+      "sep_sem": 0.2592186203577827,
+      "sep_worst": -0.26039814907473535,
+      "sep_paired": 1.0254631785044341,
+      "cp_ok": 1,
+      "km_ok": 0,
+      "verdict": "below resolution"
+    },
+    {
+      "step": 0.3,
+      "pd_start": 0.5,
+      "pd_end": 0.8,
+      "n": 10,
+      "gap": 3.8789394438752645,
+      "gap_sem": 1.1485371583618555,
+      "sep": 1.0066414310711016,
+      "sep_sem": 0.26629807104126635,
+      "sep_worst": -0.0045737264940634015,
+      "sep_paired": 1.3089742131161741,
+      "cp_ok": 1,
+      "km_ok": 1,
+      "verdict": "below resolution"
+    },
+    {
+      "step": 0.4,
+      "pd_start": 0.5,
+      "pd_end": 0.9,
+      "n": 10,
+      "gap": 5.4555221335692865,
+      "gap_sem": 1.2649171585635284,
+      "sep": 1.4427295595173981,
+      "sep_sem": 0.411909249609973,
+      "sep_worst": 0.31018975578699465,
+      "sep_paired": 1.9514020120306523,
+      "cp_ok": 4,
+      "km_ok": 2,
+      "verdict": "below resolution"
+    }
+  ],
+  "ladder_stim_180hz_500ua": [
+    {
+      "step": 0.1,
+      "pd_start": 0.5,
+      "pd_end": 0.6,
+      "n": 10,
+      "gap": 15.448547004657604,
+      "gap_sem": 2.662499977371444,
+      "sep": 1.560542379783881,
+      "sep_sem": 0.26680493808130856,
+      "sep_worst": -0.14625610840500508,
+      "sep_paired": 2.2362935720210553,
+      "cp_ok": 3,
+      "km_ok": 5,
+      "verdict": "below resolution"
+    },
+    {
+      "step": 0.2,
+      "pd_start": 0.5,
+      "pd_end": 0.7,
+      "n": 10,
+      "gap": 35.62116360800299,
+      "gap_sem": 3.7766127882283254,
+      "sep": 3.6820570471231497,
+      "sep_sem": 0.35890757140925683,
+      "sep_worst": 2.1582271078431607,
+      "sep_paired": 5.267562139085751,
+      "cp_ok": 10,
+      "km_ok": 6,
+      "verdict": "detectable"
+    },
+    {
+      "step": 0.3,
+      "pd_start": 0.5,
+      "pd_end": 0.8,
+      "n": 10,
+      "gap": 40.45525539163106,
+      "gap_sem": 6.604119930481005,
+      "sep": 3.8825221241772296,
+      "sep_sem": 0.5925064664742716,
+      "sep_worst": 0.13313120513478613,
+      "sep_paired": 5.788063270206516,
+      "cp_ok": 9,
+      "km_ok": 5,
+      "verdict": "detectable"
+    },
+    {
+      "step": 0.4,
+      "pd_start": 0.5,
+      "pd_end": 0.9,
+      "n": 10,
+      "gap": 22.774316221297898,
+      "gap_sem": 9.569284392549887,
+      "sep": 1.7598826702120234,
+      "sep_sem": 0.9166795872365746,
+      "sep_worst": -4.30041670432239,
+      "sep_paired": 2.4748626433300753,
+      "cp_ok": 6,
+      "km_ok": 6,
+      "verdict": "below resolution"
+    }
+  ],
+  "resolution": {
+    "nostim_smallest_step": null,
+    "stim_smallest_step": 0.2
+  }
+}

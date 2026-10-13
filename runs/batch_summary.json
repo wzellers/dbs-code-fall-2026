@@ -1,0 +1,116 @@
+{
+  "td3_h64_pd0.3_v3": {
+    "pd": 0.3,
+    "hidden": 64,
+    "started": "2026-09-07 20:05:39",
+    "env_checks_passed": true,
+    "train_minutes": 70.2,
+    "eval_reward": -0.2116,
+    "eval_freq": 115.0,
+    "eval_amp": 1264.0,
+    "eval_sgis": 715.0,
+    "run_dir": "runs/td3_h64_pd0.3_v3",
+    "best_fixed": {
+      "freq": 100,
+      "amp": 1000,
+      "reward": -0.0863,
+      "sgis": 363.0
+    },
+    "status": "ok"
+  },
+  "td3_h32_pd0.3_v3": {
+    "pd": 0.3,
+    "hidden": 32,
+    "started": "2026-09-07 21:23:51",
+    "env_checks_passed": true,
+    "train_minutes": 70.3,
+    "eval_reward": -0.2157,
+    "eval_freq": 118.5,
+    "eval_amp": 1171.0,
+    "eval_sgis": 730.0,
+    "run_dir": "runs/td3_h32_pd0.3_v3",
+    "best_fixed": {
+      "freq": 130,
+      "amp": 1000,
+      "reward": -0.0883,
+      "sgis": 391.0
+    },
+    "status": "ok"
+  },
+  "td3_h64_pd0.6_v3": {
+    "pd": 0.6,
+    "hidden": 64,
+    "started": "2026-09-07 22:42:06",
+    "env_checks_passed": true,
+    "train_minutes": 66.4,
+    "eval_reward": -0.151,
+    "eval_freq": 92.5,
+    "eval_amp": 1.0,
+    "eval_sgis": 662.0,
+    "run_dir": "runs/td3_h64_pd0.6_v3",
+    "best_fixed": {
+      "freq": 130,
+      "amp": 1000,
+      "reward": -0.1029,
+      "sgis": 438.0
+    },
+    "status": "ok"
+  },
+  "td3_h32_pd0.6_v3": {
+    "pd": 0.6,
+    "hidden": 32,
+    "started": "2026-09-07 23:55:55",
+    "env_checks_passed": true,
+    "train_minutes": 66.4,
+    "eval_reward": -0.1883,
+    "eval_freq": 172.3,
+    "eval_amp": 1682.0,
+    "eval_sgis": 600.0,
+    "run_dir": "runs/td3_h32_pd0.6_v3",
+    "best_fixed": {
+      "freq": 180,
+      "amp": 1000,
+      "reward": -0.0905,
+      "sgis": 335.0
+    },
+    "status": "ok"
+  },
+  "td3_h64_pd1.0_v3": {
+    "pd": 1.0,
+    "hidden": 64,
+    "started": "2026-09-08 01:09:46",
+    "env_checks_passed": true,
+    "train_minutes": 66.5,
+    "eval_reward": -0.1869,
+    "eval_freq": 175.9,
+    "eval_amp": 1700.0,
+    "eval_sgis": 593.0,
+    "run_dir": "runs/td3_h64_pd1.0_v3",
+    "best_fixed": {
+      "freq": 180,
+      "amp": 1000,
+      "reward": -0.1043,
+      "sgis": 419.0
+    },
+    "status": "ok"
+  },
+  "td3_h32_pd1.0_v3": {
+    "pd": 1.0,
+    "hidden": 32,
+    "started": "2026-09-08 02:23:44",
+    "env_checks_passed": true,
+    "train_minutes": 66.4,
+    "eval_reward": -0.2456,
+    "eval_freq": 165.0,
+    "eval_amp": 2273.0,
+    "eval_sgis": 687.0,
+    "run_dir": "runs/td3_h32_pd1.0_v3",
+    "best_fixed": {
+      "freq": 180,
+      "amp": 1000,
+      "reward": -0.0863,
+      "sgis": 350.0
+    },
+    "status": "ok"
+  }
+}
