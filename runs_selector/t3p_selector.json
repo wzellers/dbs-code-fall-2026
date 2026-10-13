@@ -1,0 +1,5862 @@
+[
+  {
+    "pd": 0.1,
+    "best_arm": 9,
+    "best_freq": 105,
+    "best_curr": 300,
+    "best_Q": -0.19450899331710061,
+    "best_se": 0.0015059172326355873,
+    "best_power": 53.497396014069665,
+    "cleared": true,
+    "floor_met": true,
+    "active": [
+      9,
+      3,
+      16,
+      4,
+      10,
+      23,
+      17,
+      30
+    ],
+    "Q": [
+      -0.13516450751056377,
+      0.0,
+      -0.21266328705891757,
+      -0.08811232810750513,
+      -0.09486663882132024,
+      -0.08835926739493712,
+      -0.0909547909790348,
+      -0.0857495360333128,
+      0.0,
+      -0.19450899331710061,
+      -0.054480881003085575,
+      -0.05322659952561323,
+      -0.052067384565101696,
+      -0.047207794067042466,
+      -0.038082785171756374,
+      0.0,
+      -0.17149385090773073,
+      -0.030690676077299233,
+      -0.036760439962052416,
+      -0.036790189040147456,
+      -0.0349854088789288,
+      -0.03496668848660485,
+      0.0,
+      -0.14282325909932517,
+      -0.014463533932084605,
+      -0.007182856947597125,
+      -0.010792142677015917,
+      -0.006494531729899347,
+      -0.011183622809675796,
+      0.0,
+      -0.10196037312866475,
+      -0.020274180898496506,
+      -0.011952733503466909,
+      -0.010470778974196134,
+      -0.006473944978979431,
+      -0.009380735827513578
+    ],
+    "counts": [
+      5,
+      0,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      0,
+      44,
+      5,
+      5,
+      5,
+      5,
+      5,
+      0,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      0,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      0,
+      6,
+      5,
+      5,
+      5,
+      5,
+      5
+    ],
+    "log": [
+      {
+        "phase": "warmup",
+        "arm": 0,
+        "freq": 80,
+        "curr": 0,
+        "reward": -0.12702618515056724
+      },
+      {
+        "phase": "warmup",
+        "arm": 0,
+        "freq": 80,
+        "curr": 0,
+        "reward": -0.14845699871047058
+      },
+      {
+        "phase": "warmup",
+        "arm": 0,
+        "freq": 80,
+        "curr": 0,
+        "reward": -0.1098433642767504
+      },
+      {
+        "phase": "warmup",
+        "arm": 0,
+        "freq": 80,
+        "curr": 0,
+        "reward": -0.12945837534147966
+      },
+      {
+        "phase": "warmup",
+        "arm": 0,
+        "freq": 80,
+        "curr": 0,
+        "reward": -0.16103761407355108
+      },
+      {
+        "phase": "warmup",
+        "arm": 2,
+        "freq": 80,
+        "curr": 300,
+        "reward": -0.2150781927561296
+      },
+      {
+        "phase": "warmup",
+        "arm": 2,
+        "freq": 80,
+        "curr": 300,
+        "reward": -0.20636190438551705
+      },
+      {
+        "phase": "warmup",
+        "arm": 2,
+        "freq": 80,
+        "curr": 300,
+        "reward": -0.2157492936411332
+      },
+      {
+        "phase": "warmup",
+        "arm": 2,
+        "freq": 80,
+        "curr": 300,
+        "reward": -0.21336898035714594
+      },
+      {
+        "phase": "warmup",
+        "arm": 2,
+        "freq": 80,
+        "curr": 300,
+        "reward": -0.21275806415466209
+      },
+      {
+        "phase": "warmup",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.09675408621379304
+      },
+      {
+        "phase": "warmup",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.08063099618466867
+      },
+      {
+        "phase": "warmup",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.07997654502012376
+      },
+      {
+        "phase": "warmup",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.08634703040997427
+      },
+      {
+        "phase": "warmup",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.09685298270896593
+      },
+      {
+        "phase": "warmup",
+        "arm": 4,
+        "freq": 80,
+        "curr": 400,
+        "reward": -0.09256311228876182
+      },
+      {
+        "phase": "warmup",
+        "arm": 4,
+        "freq": 80,
+        "curr": 400,
+        "reward": -0.09518200590663509
+      },
+      {
+        "phase": "warmup",
+        "arm": 4,
+        "freq": 80,
+        "curr": 400,
+        "reward": -0.09080700175051021
+      },
+      {
+        "phase": "warmup",
+        "arm": 4,
+        "freq": 80,
+        "curr": 400,
+        "reward": -0.1014319408479171
+      },
+      {
+        "phase": "warmup",
+        "arm": 4,
+        "freq": 80,
+        "curr": 400,
+        "reward": -0.09434913331277703
+      },
+      {
+        "phase": "warmup",
+        "arm": 5,
+        "freq": 80,
+        "curr": 450,
+        "reward": -0.09320912419517086
+      },
+      {
+        "phase": "warmup",
+        "arm": 5,
+        "freq": 80,
+        "curr": 450,
+        "reward": -0.08404735158757667
+      },
+      {
+        "phase": "warmup",
+        "arm": 5,
+        "freq": 80,
+        "curr": 450,
+        "reward": -0.08893352950459289
+      },
+      {
+        "phase": "warmup",
+        "arm": 5,
+        "freq": 80,
+        "curr": 450,
+        "reward": -0.07778629178086613
+      },
+      {
+        "phase": "warmup",
+        "arm": 5,
+        "freq": 80,
+        "curr": 450,
+        "reward": -0.09782003990647906
+      },
+      {
+        "phase": "warmup",
+        "arm": 6,
+        "freq": 80,
+        "curr": 500,
+        "reward": -0.10305944158585457
+      },
+      {
+        "phase": "warmup",
+        "arm": 6,
+        "freq": 80,
+        "curr": 500,
+        "reward": -0.08774441895371915
+      },
+      {
+        "phase": "warmup",
+        "arm": 6,
+        "freq": 80,
+        "curr": 500,
+        "reward": -0.09304516685520986
+      },
+      {
+        "phase": "warmup",
+        "arm": 6,
+        "freq": 80,
+        "curr": 500,
+        "reward": -0.08472295973759093
+      },
+      {
+        "phase": "warmup",
+        "arm": 6,
+        "freq": 80,
+        "curr": 500,
+        "reward": -0.08620196776279954
+      },
+      {
+        "phase": "warmup",
+        "arm": 7,
+        "freq": 80,
+        "curr": 550,
+        "reward": -0.0861854651905864
+      },
+      {
+        "phase": "warmup",
+        "arm": 7,
+        "freq": 80,
+        "curr": 550,
+        "reward": -0.09133178170815556
+      },
+      {
+        "phase": "warmup",
+        "arm": 7,
+        "freq": 80,
+        "curr": 550,
+        "reward": -0.08342769312480251
+      },
+      {
+        "phase": "warmup",
+        "arm": 7,
+        "freq": 80,
+        "curr": 550,
+        "reward": -0.0844253500206611
+      },
+      {
+        "phase": "warmup",
+        "arm": 7,
+        "freq": 80,
+        "curr": 550,
+        "reward": -0.0833773901223584
+      },
+      {
+        "phase": "warmup",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.19503725533293997
+      },
+      {
+        "phase": "warmup",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.17704241313841837
+      },
+      {
+        "phase": "warmup",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.19517142834642487
+      },
+      {
+        "phase": "warmup",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.19598153510853555
+      },
+      {
+        "phase": "warmup",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.2183555256725006
+      },
+      {
+        "phase": "warmup",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.04905557861806663
+      },
+      {
+        "phase": "warmup",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.0605377329235247
+      },
+      {
+        "phase": "warmup",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.05131882821467611
+      },
+      {
+        "phase": "warmup",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.06597244642527056
+      },
+      {
+        "phase": "warmup",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.045519818833889884
+      },
+      {
+        "phase": "warmup",
+        "arm": 11,
+        "freq": 105,
+        "curr": 400,
+        "reward": -0.04897331011797859
+      },
+      {
+        "phase": "warmup",
+        "arm": 11,
+        "freq": 105,
+        "curr": 400,
+        "reward": -0.055131946146465716
+      },
+      {
+        "phase": "warmup",
+        "arm": 11,
+        "freq": 105,
+        "curr": 400,
+        "reward": -0.05657632158545172
+      },
+      {
+        "phase": "warmup",
+        "arm": 11,
+        "freq": 105,
+        "curr": 400,
+        "reward": -0.05330780604046606
+      },
+      {
+        "phase": "warmup",
+        "arm": 11,
+        "freq": 105,
+        "curr": 400,
+        "reward": -0.05214361373770408
+      },
+      {
+        "phase": "warmup",
+        "arm": 12,
+        "freq": 105,
+        "curr": 450,
+        "reward": -0.04559755745052457
+      },
+      {
+        "phase": "warmup",
+        "arm": 12,
+        "freq": 105,
+        "curr": 450,
+        "reward": -0.055917793559808915
+      },
+      {
+        "phase": "warmup",
+        "arm": 12,
+        "freq": 105,
+        "curr": 450,
+        "reward": -0.05641857131897003
+      },
+      {
+        "phase": "warmup",
+        "arm": 12,
+        "freq": 105,
+        "curr": 450,
+        "reward": -0.05867017860037563
+      },
+      {
+        "phase": "warmup",
+        "arm": 12,
+        "freq": 105,
+        "curr": 450,
+        "reward": -0.04373282189582933
+      },
+      {
+        "phase": "warmup",
+        "arm": 13,
+        "freq": 105,
+        "curr": 500,
+        "reward": -0.039004143149981
+      },
+      {
+        "phase": "warmup",
+        "arm": 13,
+        "freq": 105,
+        "curr": 500,
+        "reward": -0.046547151674750695
+      },
+      {
+        "phase": "warmup",
+        "arm": 13,
+        "freq": 105,
+        "curr": 500,
+        "reward": -0.050184032236292135
+      },
+      {
+        "phase": "warmup",
+        "arm": 13,
+        "freq": 105,
+        "curr": 500,
+        "reward": -0.05612163172565078
+      },
+      {
+        "phase": "warmup",
+        "arm": 13,
+        "freq": 105,
+        "curr": 500,
+        "reward": -0.04418201154853773
+      },
+      {
+        "phase": "warmup",
+        "arm": 14,
+        "freq": 105,
+        "curr": 550,
+        "reward": -0.03196256936355975
+      },
+      {
+        "phase": "warmup",
+        "arm": 14,
+        "freq": 105,
+        "curr": 550,
+        "reward": -0.0444040275724349
+      },
+      {
+        "phase": "warmup",
+        "arm": 14,
+        "freq": 105,
+        "curr": 550,
+        "reward": -0.04113253940888155
+      },
+      {
+        "phase": "warmup",
+        "arm": 14,
+        "freq": 105,
+        "curr": 550,
+        "reward": -0.040390897627378436
+      },
+      {
+        "phase": "warmup",
+        "arm": 14,
+        "freq": 105,
+        "curr": 550,
+        "reward": -0.03252389188652726
+      },
+      {
+        "phase": "warmup",
+        "arm": 16,
+        "freq": 130,
+        "curr": 300,
+        "reward": -0.1632993320243067
+      },
+      {
+        "phase": "warmup",
+        "arm": 16,
+        "freq": 130,
+        "curr": 300,
+        "reward": -0.17909774482885013
+      },
+      {
+        "phase": "warmup",
+        "arm": 16,
+        "freq": 130,
+        "curr": 300,
+        "reward": -0.1722854790865625
+      },
+      {
+        "phase": "warmup",
+        "arm": 16,
+        "freq": 130,
+        "curr": 300,
+        "reward": -0.16400651051866474
+      },
+      {
+        "phase": "warmup",
+        "arm": 16,
+        "freq": 130,
+        "curr": 300,
+        "reward": -0.17878018808026958
+      },
+      {
+        "phase": "warmup",
+        "arm": 17,
+        "freq": 130,
+        "curr": 350,
+        "reward": -0.02642977451308598
+      },
+      {
+        "phase": "warmup",
+        "arm": 17,
+        "freq": 130,
+        "curr": 350,
+        "reward": -0.03437577457612518
+      },
+      {
+        "phase": "warmup",
+        "arm": 17,
+        "freq": 130,
+        "curr": 350,
+        "reward": -0.04190033299441944
+      },
+      {
+        "phase": "warmup",
+        "arm": 17,
+        "freq": 130,
+        "curr": 350,
+        "reward": -0.02591740050813831
+      },
+      {
+        "phase": "warmup",
+        "arm": 17,
+        "freq": 130,
+        "curr": 350,
+        "reward": -0.024830097794727245
+      },
+      {
+        "phase": "warmup",
+        "arm": 18,
+        "freq": 130,
+        "curr": 400,
+        "reward": -0.03772335730188517
+      },
+      {
+        "phase": "warmup",
+        "arm": 18,
+        "freq": 130,
+        "curr": 400,
+        "reward": -0.025503989874244567
+      },
+      {
+        "phase": "warmup",
+        "arm": 18,
+        "freq": 130,
+        "curr": 400,
+        "reward": -0.03642816653082863
+      },
+      {
+        "phase": "warmup",
+        "arm": 18,
+        "freq": 130,
+        "curr": 400,
+        "reward": -0.04553369124243222
+      },
+      {
+        "phase": "warmup",
+        "arm": 18,
+        "freq": 130,
+        "curr": 400,
+        "reward": -0.03861299486087149
+      },
+      {
+        "phase": "warmup",
+        "arm": 19,
+        "freq": 130,
+        "curr": 450,
+        "reward": -0.04463295892869183
+      },
+      {
+        "phase": "warmup",
+        "arm": 19,
+        "freq": 130,
+        "curr": 450,
+        "reward": -0.0418240874652485
+      },
+      {
+        "phase": "warmup",
+        "arm": 19,
+        "freq": 130,
+        "curr": 450,
+        "reward": -0.03613293259214057
+      },
+      {
+        "phase": "warmup",
+        "arm": 19,
+        "freq": 130,
+        "curr": 450,
+        "reward": -0.033100806670570485
+      },
+      {
+        "phase": "warmup",
+        "arm": 19,
+        "freq": 130,
+        "curr": 450,
+        "reward": -0.028260159544085887
+      },
+      {
+        "phase": "warmup",
+        "arm": 20,
+        "freq": 130,
+        "curr": 500,
+        "reward": -0.035984523025804564
+      },
+      {
+        "phase": "warmup",
+        "arm": 20,
+        "freq": 130,
+        "curr": 500,
+        "reward": -0.025285153064253375
+      },
+      {
+        "phase": "warmup",
+        "arm": 20,
+        "freq": 130,
+        "curr": 500,
+        "reward": -0.03670807026441916
+      },
+      {
+        "phase": "warmup",
+        "arm": 20,
+        "freq": 130,
+        "curr": 500,
+        "reward": -0.03615393579026212
+      },
+      {
+        "phase": "warmup",
+        "arm": 20,
+        "freq": 130,
+        "curr": 500,
+        "reward": -0.040795362249904765
+      },
+      {
+        "phase": "warmup",
+        "arm": 21,
+        "freq": 130,
+        "curr": 550,
+        "reward": -0.02665357720233652
+      },
+      {
+        "phase": "warmup",
+        "arm": 21,
+        "freq": 130,
+        "curr": 550,
+        "reward": -0.038025903161657534
+      },
+      {
+        "phase": "warmup",
+        "arm": 21,
+        "freq": 130,
+        "curr": 550,
+        "reward": -0.03559780556896226
+      },
+      {
+        "phase": "warmup",
+        "arm": 21,
+        "freq": 130,
+        "curr": 550,
+        "reward": -0.03396263141038408
+      },
+      {
+        "phase": "warmup",
+        "arm": 21,
+        "freq": 130,
+        "curr": 550,
+        "reward": -0.04059352508968385
+      },
+      {
+        "phase": "warmup",
+        "arm": 23,
+        "freq": 155,
+        "curr": 300,
+        "reward": -0.13923183658472216
+      },
+      {
+        "phase": "warmup",
+        "arm": 23,
+        "freq": 155,
+        "curr": 300,
+        "reward": -0.1495419801616111
+      },
+      {
+        "phase": "warmup",
+        "arm": 23,
+        "freq": 155,
+        "curr": 300,
+        "reward": -0.14528027390527035
+      },
+      {
+        "phase": "warmup",
+        "arm": 23,
+        "freq": 155,
+        "curr": 300,
+        "reward": -0.13087792819815827
+      },
+      {
+        "phase": "warmup",
+        "arm": 23,
+        "freq": 155,
+        "curr": 300,
+        "reward": -0.149184276646864
+      },
+      {
+        "phase": "warmup",
+        "arm": 24,
+        "freq": 155,
+        "curr": 350,
+        "reward": -0.012235209691958356
+      },
+      {
+        "phase": "warmup",
+        "arm": 24,
+        "freq": 155,
+        "curr": 350,
+        "reward": -0.015094631720409936
+      },
+      {
+        "phase": "warmup",
+        "arm": 24,
+        "freq": 155,
+        "curr": 350,
+        "reward": -0.011943939298510254
+      },
+      {
+        "phase": "warmup",
+        "arm": 24,
+        "freq": 155,
+        "curr": 350,
+        "reward": -0.016354340304222757
+      },
+      {
+        "phase": "warmup",
+        "arm": 24,
+        "freq": 155,
+        "curr": 350,
+        "reward": -0.01668954864532172
+      },
+      {
+        "phase": "warmup",
+        "arm": 25,
+        "freq": 155,
+        "curr": 400,
+        "reward": -0.004477322568311036
+      },
+      {
+        "phase": "warmup",
+        "arm": 25,
+        "freq": 155,
+        "curr": 400,
+        "reward": -0.0034365388062843633
+      },
+      {
+        "phase": "warmup",
+        "arm": 25,
+        "freq": 155,
+        "curr": 400,
+        "reward": -0.0002548446095970384
+      },
+      {
+        "phase": "warmup",
+        "arm": 25,
+        "freq": 155,
+        "curr": 400,
+        "reward": -0.01092073132463518
+      },
+      {
+        "phase": "warmup",
+        "arm": 25,
+        "freq": 155,
+        "curr": 400,
+        "reward": -0.016824847429158008
+      },
+      {
+        "phase": "warmup",
+        "arm": 26,
+        "freq": 155,
+        "curr": 450,
+        "reward": -0.009277581103596956
+      },
+      {
+        "phase": "warmup",
+        "arm": 26,
+        "freq": 155,
+        "curr": 450,
+        "reward": -0.012384681474583076
+      },
+      {
+        "phase": "warmup",
+        "arm": 26,
+        "freq": 155,
+        "curr": 450,
+        "reward": -0.015582720265135514
+      },
+      {
+        "phase": "warmup",
+        "arm": 26,
+        "freq": 155,
+        "curr": 450,
+        "reward": -0.007494825682537667
+      },
+      {
+        "phase": "warmup",
+        "arm": 26,
+        "freq": 155,
+        "curr": 450,
+        "reward": -0.009220904859226366
+      },
+      {
+        "phase": "warmup",
+        "arm": 27,
+        "freq": 155,
+        "curr": 500,
+        "reward": 0.0015679017586388184
+      },
+      {
+        "phase": "warmup",
+        "arm": 27,
+        "freq": 155,
+        "curr": 500,
+        "reward": -0.001872935541424689
+      },
+      {
+        "phase": "warmup",
+        "arm": 27,
+        "freq": 155,
+        "curr": 500,
+        "reward": -0.013420960869741384
+      },
+      {
+        "phase": "warmup",
+        "arm": 27,
+        "freq": 155,
+        "curr": 500,
+        "reward": -0.00461438078873095
+      },
+      {
+        "phase": "warmup",
+        "arm": 27,
+        "freq": 155,
+        "curr": 500,
+        "reward": -0.014132283208238531
+      },
+      {
+        "phase": "warmup",
+        "arm": 28,
+        "freq": 155,
+        "curr": 550,
+        "reward": -0.012780971511112519
+      },
+      {
+        "phase": "warmup",
+        "arm": 28,
+        "freq": 155,
+        "curr": 550,
+        "reward": -0.008097306971459129
+      },
+      {
+        "phase": "warmup",
+        "arm": 28,
+        "freq": 155,
+        "curr": 550,
+        "reward": -0.016342706471507318
+      },
+      {
+        "phase": "warmup",
+        "arm": 28,
+        "freq": 155,
+        "curr": 550,
+        "reward": -0.007407516006421833
+      },
+      {
+        "phase": "warmup",
+        "arm": 28,
+        "freq": 155,
+        "curr": 550,
+        "reward": -0.011289613087878177
+      },
+      {
+        "phase": "warmup",
+        "arm": 30,
+        "freq": 180,
+        "curr": 300,
+        "reward": -0.10896233726787821
+      },
+      {
+        "phase": "warmup",
+        "arm": 30,
+        "freq": 180,
+        "curr": 300,
+        "reward": -0.09919766466943401
+      },
+      {
+        "phase": "warmup",
+        "arm": 30,
+        "freq": 180,
+        "curr": 300,
+        "reward": -0.1011618555503082
+      },
+      {
+        "phase": "warmup",
+        "arm": 30,
+        "freq": 180,
+        "curr": 300,
+        "reward": -0.11056005959527938
+      },
+      {
+        "phase": "warmup",
+        "arm": 30,
+        "freq": 180,
+        "curr": 300,
+        "reward": -0.09045225861536854
+      },
+      {
+        "phase": "warmup",
+        "arm": 31,
+        "freq": 180,
+        "curr": 350,
+        "reward": -0.016650621554217346
+      },
+      {
+        "phase": "warmup",
+        "arm": 31,
+        "freq": 180,
+        "curr": 350,
+        "reward": -0.01225563830836568
+      },
+      {
+        "phase": "warmup",
+        "arm": 31,
+        "freq": 180,
+        "curr": 350,
+        "reward": -0.02687366364800413
+      },
+      {
+        "phase": "warmup",
+        "arm": 31,
+        "freq": 180,
+        "curr": 350,
+        "reward": -0.017797813980877014
+      },
+      {
+        "phase": "warmup",
+        "arm": 31,
+        "freq": 180,
+        "curr": 350,
+        "reward": -0.02779316700101836
+      },
+      {
+        "phase": "warmup",
+        "arm": 32,
+        "freq": 180,
+        "curr": 400,
+        "reward": -0.00983606875485745
+      },
+      {
+        "phase": "warmup",
+        "arm": 32,
+        "freq": 180,
+        "curr": 400,
+        "reward": -0.00783124968718907
+      },
+      {
+        "phase": "warmup",
+        "arm": 32,
+        "freq": 180,
+        "curr": 400,
+        "reward": -0.008969938883929097
+      },
+      {
+        "phase": "warmup",
+        "arm": 32,
+        "freq": 180,
+        "curr": 400,
+        "reward": -0.0060242695343223525
+      },
+      {
+        "phase": "warmup",
+        "arm": 32,
+        "freq": 180,
+        "curr": 400,
+        "reward": -0.027102140657036578
+      },
+      {
+        "phase": "warmup",
+        "arm": 33,
+        "freq": 180,
+        "curr": 450,
+        "reward": -0.017052410705183745
+      },
+      {
+        "phase": "warmup",
+        "arm": 33,
+        "freq": 180,
+        "curr": 450,
+        "reward": -0.0034635936337596707
+      },
+      {
+        "phase": "warmup",
+        "arm": 33,
+        "freq": 180,
+        "curr": 450,
+        "reward": -0.0035868178071331684
+      },
+      {
+        "phase": "warmup",
+        "arm": 33,
+        "freq": 180,
+        "curr": 450,
+        "reward": -0.012220405597259867
+      },
+      {
+        "phase": "warmup",
+        "arm": 33,
+        "freq": 180,
+        "curr": 450,
+        "reward": -0.016030667127644217
+      },
+      {
+        "phase": "warmup",
+        "arm": 34,
+        "freq": 180,
+        "curr": 500,
+        "reward": 0.003266094402689171
+      },
+      {
+        "phase": "warmup",
+        "arm": 34,
+        "freq": 180,
+        "curr": 500,
+        "reward": -0.0193616832166128
+      },
+      {
+        "phase": "warmup",
+        "arm": 34,
+        "freq": 180,
+        "curr": 500,
+        "reward": -0.002529370730124495
+      },
+      {
+        "phase": "warmup",
+        "arm": 34,
+        "freq": 180,
+        "curr": 500,
+        "reward": -0.014946144151209283
+      },
+      {
+        "phase": "warmup",
+        "arm": 34,
+        "freq": 180,
+        "curr": 500,
+        "reward": 0.0012013788003602567
+      },
+      {
+        "phase": "warmup",
+        "arm": 35,
+        "freq": 180,
+        "curr": 550,
+        "reward": -0.011188837041923482
+      },
+      {
+        "phase": "warmup",
+        "arm": 35,
+        "freq": 180,
+        "curr": 550,
+        "reward": -0.020278543851789878
+      },
+      {
+        "phase": "warmup",
+        "arm": 35,
+        "freq": 180,
+        "curr": 550,
+        "reward": -0.006276567712079271
+      },
+      {
+        "phase": "warmup",
+        "arm": 35,
+        "freq": 180,
+        "curr": 550,
+        "reward": 0.0013025725670209494
+      },
+      {
+        "phase": "warmup",
+        "arm": 35,
+        "freq": 180,
+        "curr": 550,
+        "reward": -0.010462303098796208
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.19734662071934583
+      },
+      {
+        "phase": "explore",
+        "arm": 30,
+        "freq": 180,
+        "curr": 300,
+        "reward": -0.10142806307372014
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.1849305166535593
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.2075861564264184
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.1889790659522717
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.19988727127164588
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.20905217019160613
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.1842389910479009
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.1796160911748251
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.1967483911206029
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.21628368005492993
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.19775979870642563
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.1892507644998862
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.19070050852558956
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.19425017381309154
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.1977078878078208
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.19521770808607752
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.2045701198896173
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.1993621386786834
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.19961480630518838
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.19424987509777156
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.18775017472572722
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.1976059653978882
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.19255967781990999
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.1862199634868579
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.16620180560201847
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.20218198121165662
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.18770962319255294
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.21040258269741485
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.1983380585170016
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.1814892405385718
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.18384840399421962
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.1911720544033296
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.20517914134637538
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.19692222258184505
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.19687987537795562
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.1908269662195757
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.1973434687529204
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.18426724236023426
+      },
+      {
+        "phase": "exploit",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.1925563641042931
+      }
+    ],
+    "minutes": 7.4
+  },
+  {
+    "pd": 0.4,
+    "best_arm": 3,
+    "best_freq": 80,
+    "best_curr": 350,
+    "best_Q": -0.10450518212992453,
+    "best_se": 0.0012317103535798265,
+    "best_power": 54.23279070861207,
+    "cleared": true,
+    "floor_met": true,
+    "active": [
+      3,
+      4,
+      10,
+      23,
+      17,
+      30,
+      5,
+      11
+    ],
+    "Q": [
+      -0.3757162271074996,
+      0.0,
+      -0.2863512408640944,
+      -0.10450518212992453,
+      -0.10034666614334921,
+      -0.09867608777824373,
+      -0.09644901450865552,
+      -0.08994507130990577,
+      0.0,
+      -0.25313202970918197,
+      -0.0592573663260152,
+      -0.06613770229751566,
+      -0.0605641505305725,
+      -0.049528511434105436,
+      -0.040433579804517845,
+      0.0,
+      -0.21800832583390925,
+      -0.038934523690335135,
+      -0.042122800519503414,
+      -0.04281359390338253,
+      -0.04452547465590977,
+      -0.04806275764970571,
+      0.0,
+      -0.19513116579737463,
+      -0.02758407168083772,
+      -0.026064432002610535,
+      -0.022570562766574976,
+      -0.018044090237919908,
+      -0.026370388758111152,
+      0.0,
+      -0.17601020185249144,
+      -0.03235762295486222,
+      -0.023483131221264032,
+      -0.014297294148221187,
+      -0.018066928536231572,
+      -0.022097745372445188
+    ],
+    "counts": [
+      5,
+      0,
+      5,
+      44,
+      5,
+      5,
+      5,
+      5,
+      0,
+      5,
+      5,
+      6,
+      5,
+      5,
+      5,
+      0,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      0,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      0,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+    ],
+    "log": [
+      {
+        "phase": "warmup",
+        "arm": 0,
+        "freq": 80,
+        "curr": 0,
+        "reward": -0.3719162813961171
+      },
+      {
+        "phase": "warmup",
+        "arm": 0,
+        "freq": 80,
+        "curr": 0,
+        "reward": -0.3952409290724118
+      },
+      {
+        "phase": "warmup",
+        "arm": 0,
+        "freq": 80,
+        "curr": 0,
+        "reward": -0.4022924313654195
+      },
+      {
+        "phase": "warmup",
+        "arm": 0,
+        "freq": 80,
+        "curr": 0,
+        "reward": -0.3515748428992064
+      },
+      {
+        "phase": "warmup",
+        "arm": 0,
+        "freq": 80,
+        "curr": 0,
+        "reward": -0.35755665080434296
+      },
+      {
+        "phase": "warmup",
+        "arm": 2,
+        "freq": 80,
+        "curr": 300,
+        "reward": -0.30816920920667873
+      },
+      {
+        "phase": "warmup",
+        "arm": 2,
+        "freq": 80,
+        "curr": 300,
+        "reward": -0.2804315524321341
+      },
+      {
+        "phase": "warmup",
+        "arm": 2,
+        "freq": 80,
+        "curr": 300,
+        "reward": -0.28912281168625914
+      },
+      {
+        "phase": "warmup",
+        "arm": 2,
+        "freq": 80,
+        "curr": 300,
+        "reward": -0.2794023400302394
+      },
+      {
+        "phase": "warmup",
+        "arm": 2,
+        "freq": 80,
+        "curr": 300,
+        "reward": -0.2746302909651608
+      },
+      {
+        "phase": "warmup",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.11267462672309872
+      },
+      {
+        "phase": "warmup",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.1157218473955231
+      },
+      {
+        "phase": "warmup",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.1115728838147502
+      },
+      {
+        "phase": "warmup",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.11314605416656101
+      },
+      {
+        "phase": "warmup",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.11851923541890319
+      },
+      {
+        "phase": "warmup",
+        "arm": 4,
+        "freq": 80,
+        "curr": 400,
+        "reward": -0.09568475222002684
+      },
+      {
+        "phase": "warmup",
+        "arm": 4,
+        "freq": 80,
+        "curr": 400,
+        "reward": -0.10381632204614488
+      },
+      {
+        "phase": "warmup",
+        "arm": 4,
+        "freq": 80,
+        "curr": 400,
+        "reward": -0.10909681503163443
+      },
+      {
+        "phase": "warmup",
+        "arm": 4,
+        "freq": 80,
+        "curr": 400,
+        "reward": -0.10161094740735643
+      },
+      {
+        "phase": "warmup",
+        "arm": 4,
+        "freq": 80,
+        "curr": 400,
+        "reward": -0.09152449401158344
+      },
+      {
+        "phase": "warmup",
+        "arm": 5,
+        "freq": 80,
+        "curr": 450,
+        "reward": -0.10530901163798374
+      },
+      {
+        "phase": "warmup",
+        "arm": 5,
+        "freq": 80,
+        "curr": 450,
+        "reward": -0.10293607567899846
+      },
+      {
+        "phase": "warmup",
+        "arm": 5,
+        "freq": 80,
+        "curr": 450,
+        "reward": -0.0917734700618635
+      },
+      {
+        "phase": "warmup",
+        "arm": 5,
+        "freq": 80,
+        "curr": 450,
+        "reward": -0.09431804258057477
+      },
+      {
+        "phase": "warmup",
+        "arm": 5,
+        "freq": 80,
+        "curr": 450,
+        "reward": -0.09904383893179815
+      },
+      {
+        "phase": "warmup",
+        "arm": 6,
+        "freq": 80,
+        "curr": 500,
+        "reward": -0.09182718130979943
+      },
+      {
+        "phase": "warmup",
+        "arm": 6,
+        "freq": 80,
+        "curr": 500,
+        "reward": -0.09436084519951937
+      },
+      {
+        "phase": "warmup",
+        "arm": 6,
+        "freq": 80,
+        "curr": 500,
+        "reward": -0.1098116210914627
+      },
+      {
+        "phase": "warmup",
+        "arm": 6,
+        "freq": 80,
+        "curr": 500,
+        "reward": -0.10058630926644482
+      },
+      {
+        "phase": "warmup",
+        "arm": 6,
+        "freq": 80,
+        "curr": 500,
+        "reward": -0.08565911567605121
+      },
+      {
+        "phase": "warmup",
+        "arm": 7,
+        "freq": 80,
+        "curr": 550,
+        "reward": -0.09480238564596216
+      },
+      {
+        "phase": "warmup",
+        "arm": 7,
+        "freq": 80,
+        "curr": 550,
+        "reward": -0.0942981703066061
+      },
+      {
+        "phase": "warmup",
+        "arm": 7,
+        "freq": 80,
+        "curr": 550,
+        "reward": -0.0857050291402219
+      },
+      {
+        "phase": "warmup",
+        "arm": 7,
+        "freq": 80,
+        "curr": 550,
+        "reward": -0.08553768027431795
+      },
+      {
+        "phase": "warmup",
+        "arm": 7,
+        "freq": 80,
+        "curr": 550,
+        "reward": -0.08938209118242067
+      },
+      {
+        "phase": "warmup",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.243732695540402
+      },
+      {
+        "phase": "warmup",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.23504860232591607
+      },
+      {
+        "phase": "warmup",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.28004014005114186
+      },
+      {
+        "phase": "warmup",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.2545391042884343
+      },
+      {
+        "phase": "warmup",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.2522996063400155
+      },
+      {
+        "phase": "warmup",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.06603585128548892
+      },
+      {
+        "phase": "warmup",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.04562322034185431
+      },
+      {
+        "phase": "warmup",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.0679089378739455
+      },
+      {
+        "phase": "warmup",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.059111997320832076
+      },
+      {
+        "phase": "warmup",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.05760682480795518
+      },
+      {
+        "phase": "warmup",
+        "arm": 11,
+        "freq": 105,
+        "curr": 400,
+        "reward": -0.056435115901473584
+      },
+      {
+        "phase": "warmup",
+        "arm": 11,
+        "freq": 105,
+        "curr": 400,
+        "reward": -0.07217871307052505
+      },
+      {
+        "phase": "warmup",
+        "arm": 11,
+        "freq": 105,
+        "curr": 400,
+        "reward": -0.07811006619717564
+      },
+      {
+        "phase": "warmup",
+        "arm": 11,
+        "freq": 105,
+        "curr": 400,
+        "reward": -0.06129018508375611
+      },
+      {
+        "phase": "warmup",
+        "arm": 11,
+        "freq": 105,
+        "curr": 400,
+        "reward": -0.0659369670235697
+      },
+      {
+        "phase": "warmup",
+        "arm": 12,
+        "freq": 105,
+        "curr": 450,
+        "reward": -0.07071165935237526
+      },
+      {
+        "phase": "warmup",
+        "arm": 12,
+        "freq": 105,
+        "curr": 450,
+        "reward": -0.0477672781192988
+      },
+      {
+        "phase": "warmup",
+        "arm": 12,
+        "freq": 105,
+        "curr": 450,
+        "reward": -0.07356256855288214
+      },
+      {
+        "phase": "warmup",
+        "arm": 12,
+        "freq": 105,
+        "curr": 450,
+        "reward": -0.053058446567776224
+      },
+      {
+        "phase": "warmup",
+        "arm": 12,
+        "freq": 105,
+        "curr": 450,
+        "reward": -0.057720800060530084
+      },
+      {
+        "phase": "warmup",
+        "arm": 13,
+        "freq": 105,
+        "curr": 500,
+        "reward": -0.043484028365252045
+      },
+      {
+        "phase": "warmup",
+        "arm": 13,
+        "freq": 105,
+        "curr": 500,
+        "reward": -0.03325094926214843
+      },
+      {
+        "phase": "warmup",
+        "arm": 13,
+        "freq": 105,
+        "curr": 500,
+        "reward": -0.0603629026742031
+      },
+      {
+        "phase": "warmup",
+        "arm": 13,
+        "freq": 105,
+        "curr": 500,
+        "reward": -0.06460264974123707
+      },
+      {
+        "phase": "warmup",
+        "arm": 13,
+        "freq": 105,
+        "curr": 500,
+        "reward": -0.04594202712768652
+      },
+      {
+        "phase": "warmup",
+        "arm": 14,
+        "freq": 105,
+        "curr": 550,
+        "reward": -0.03972449441054168
+      },
+      {
+        "phase": "warmup",
+        "arm": 14,
+        "freq": 105,
+        "curr": 550,
+        "reward": -0.04478353814483556
+      },
+      {
+        "phase": "warmup",
+        "arm": 14,
+        "freq": 105,
+        "curr": 550,
+        "reward": -0.05000236117469398
+      },
+      {
+        "phase": "warmup",
+        "arm": 14,
+        "freq": 105,
+        "curr": 550,
+        "reward": -0.021325936167203692
+      },
+      {
+        "phase": "warmup",
+        "arm": 14,
+        "freq": 105,
+        "curr": 550,
+        "reward": -0.046331569125314304
+      },
+      {
+        "phase": "warmup",
+        "arm": 16,
+        "freq": 130,
+        "curr": 300,
+        "reward": -0.22048756615233767
+      },
+      {
+        "phase": "warmup",
+        "arm": 16,
+        "freq": 130,
+        "curr": 300,
+        "reward": -0.22309028097884862
+      },
+      {
+        "phase": "warmup",
+        "arm": 16,
+        "freq": 130,
+        "curr": 300,
+        "reward": -0.20966259475297688
+      },
+      {
+        "phase": "warmup",
+        "arm": 16,
+        "freq": 130,
+        "curr": 300,
+        "reward": -0.20994969323671606
+      },
+      {
+        "phase": "warmup",
+        "arm": 16,
+        "freq": 130,
+        "curr": 300,
+        "reward": -0.226851494048667
+      },
+      {
+        "phase": "warmup",
+        "arm": 17,
+        "freq": 130,
+        "curr": 350,
+        "reward": -0.04201822966060778
+      },
+      {
+        "phase": "warmup",
+        "arm": 17,
+        "freq": 130,
+        "curr": 350,
+        "reward": -0.03595178965938515
+      },
+      {
+        "phase": "warmup",
+        "arm": 17,
+        "freq": 130,
+        "curr": 350,
+        "reward": -0.03739015176585617
+      },
+      {
+        "phase": "warmup",
+        "arm": 17,
+        "freq": 130,
+        "curr": 350,
+        "reward": -0.03319235685895017
+      },
+      {
+        "phase": "warmup",
+        "arm": 17,
+        "freq": 130,
+        "curr": 350,
+        "reward": -0.046120090506876404
+      },
+      {
+        "phase": "warmup",
+        "arm": 18,
+        "freq": 130,
+        "curr": 400,
+        "reward": -0.040435318551262055
+      },
+      {
+        "phase": "warmup",
+        "arm": 18,
+        "freq": 130,
+        "curr": 400,
+        "reward": -0.040554665719880145
+      },
+      {
+        "phase": "warmup",
+        "arm": 18,
+        "freq": 130,
+        "curr": 400,
+        "reward": -0.03587144405591544
+      },
+      {
+        "phase": "warmup",
+        "arm": 18,
+        "freq": 130,
+        "curr": 400,
+        "reward": -0.042397184389223665
+      },
+      {
+        "phase": "warmup",
+        "arm": 18,
+        "freq": 130,
+        "curr": 400,
+        "reward": -0.05135538988123577
+      },
+      {
+        "phase": "warmup",
+        "arm": 19,
+        "freq": 130,
+        "curr": 450,
+        "reward": -0.04484404694950585
+      },
+      {
+        "phase": "warmup",
+        "arm": 19,
+        "freq": 130,
+        "curr": 450,
+        "reward": -0.03381536496009731
+      },
+      {
+        "phase": "warmup",
+        "arm": 19,
+        "freq": 130,
+        "curr": 450,
+        "reward": -0.04483526241487998
+      },
+      {
+        "phase": "warmup",
+        "arm": 19,
+        "freq": 130,
+        "curr": 450,
+        "reward": -0.04603552773052601
+      },
+      {
+        "phase": "warmup",
+        "arm": 19,
+        "freq": 130,
+        "curr": 450,
+        "reward": -0.044537767461903535
+      },
+      {
+        "phase": "warmup",
+        "arm": 20,
+        "freq": 130,
+        "curr": 500,
+        "reward": -0.04493212420393654
+      },
+      {
+        "phase": "warmup",
+        "arm": 20,
+        "freq": 130,
+        "curr": 500,
+        "reward": -0.048785676982606246
+      },
+      {
+        "phase": "warmup",
+        "arm": 20,
+        "freq": 130,
+        "curr": 500,
+        "reward": -0.04285348991484833
+      },
+      {
+        "phase": "warmup",
+        "arm": 20,
+        "freq": 130,
+        "curr": 500,
+        "reward": -0.041561081797143
+      },
+      {
+        "phase": "warmup",
+        "arm": 20,
+        "freq": 130,
+        "curr": 500,
+        "reward": -0.044495000381014733
+      },
+      {
+        "phase": "warmup",
+        "arm": 21,
+        "freq": 130,
+        "curr": 550,
+        "reward": -0.049353051408308965
+      },
+      {
+        "phase": "warmup",
+        "arm": 21,
+        "freq": 130,
+        "curr": 550,
+        "reward": -0.048985513585999146
+      },
+      {
+        "phase": "warmup",
+        "arm": 21,
+        "freq": 130,
+        "curr": 550,
+        "reward": -0.05043982424497247
+      },
+      {
+        "phase": "warmup",
+        "arm": 21,
+        "freq": 130,
+        "curr": 550,
+        "reward": -0.04729204175628514
+      },
+      {
+        "phase": "warmup",
+        "arm": 21,
+        "freq": 130,
+        "curr": 550,
+        "reward": -0.04424335725296284
+      },
+      {
+        "phase": "warmup",
+        "arm": 23,
+        "freq": 155,
+        "curr": 300,
+        "reward": -0.18276881228950065
+      },
+      {
+        "phase": "warmup",
+        "arm": 23,
+        "freq": 155,
+        "curr": 300,
+        "reward": -0.2039881139849571
+      },
+      {
+        "phase": "warmup",
+        "arm": 23,
+        "freq": 155,
+        "curr": 300,
+        "reward": -0.21621530256086607
+      },
+      {
+        "phase": "warmup",
+        "arm": 23,
+        "freq": 155,
+        "curr": 300,
+        "reward": -0.18604512391667918
+      },
+      {
+        "phase": "warmup",
+        "arm": 23,
+        "freq": 155,
+        "curr": 300,
+        "reward": -0.18663847623487015
+      },
+      {
+        "phase": "warmup",
+        "arm": 24,
+        "freq": 155,
+        "curr": 350,
+        "reward": -0.024687191116960383
+      },
+      {
+        "phase": "warmup",
+        "arm": 24,
+        "freq": 155,
+        "curr": 350,
+        "reward": -0.025140593450413046
+      },
+      {
+        "phase": "warmup",
+        "arm": 24,
+        "freq": 155,
+        "curr": 350,
+        "reward": -0.037552090494782545
+      },
+      {
+        "phase": "warmup",
+        "arm": 24,
+        "freq": 155,
+        "curr": 350,
+        "reward": -0.02948804316229007
+      },
+      {
+        "phase": "warmup",
+        "arm": 24,
+        "freq": 155,
+        "curr": 350,
+        "reward": -0.02105244017974258
+      },
+      {
+        "phase": "warmup",
+        "arm": 25,
+        "freq": 155,
+        "curr": 400,
+        "reward": -0.022344616303757604
+      },
+      {
+        "phase": "warmup",
+        "arm": 25,
+        "freq": 155,
+        "curr": 400,
+        "reward": -0.016430078420654554
+      },
+      {
+        "phase": "warmup",
+        "arm": 25,
+        "freq": 155,
+        "curr": 400,
+        "reward": -0.022309930677066225
+      },
+      {
+        "phase": "warmup",
+        "arm": 25,
+        "freq": 155,
+        "curr": 400,
+        "reward": -0.03480427524702154
+      },
+      {
+        "phase": "warmup",
+        "arm": 25,
+        "freq": 155,
+        "curr": 400,
+        "reward": -0.03443325936455275
+      },
+      {
+        "phase": "warmup",
+        "arm": 26,
+        "freq": 155,
+        "curr": 450,
+        "reward": -0.03114073407948667
+      },
+      {
+        "phase": "warmup",
+        "arm": 26,
+        "freq": 155,
+        "curr": 450,
+        "reward": -0.03531214717846147
+      },
+      {
+        "phase": "warmup",
+        "arm": 26,
+        "freq": 155,
+        "curr": 450,
+        "reward": -0.021178937313011133
+      },
+      {
+        "phase": "warmup",
+        "arm": 26,
+        "freq": 155,
+        "curr": 450,
+        "reward": -0.018100991696926312
+      },
+      {
+        "phase": "warmup",
+        "arm": 26,
+        "freq": 155,
+        "curr": 450,
+        "reward": -0.007120003564989291
+      },
+      {
+        "phase": "warmup",
+        "arm": 27,
+        "freq": 155,
+        "curr": 500,
+        "reward": -0.011989381475255823
+      },
+      {
+        "phase": "warmup",
+        "arm": 27,
+        "freq": 155,
+        "curr": 500,
+        "reward": -0.0450418100949726
+      },
+      {
+        "phase": "warmup",
+        "arm": 27,
+        "freq": 155,
+        "curr": 500,
+        "reward": -0.013752952728396394
+      },
+      {
+        "phase": "warmup",
+        "arm": 27,
+        "freq": 155,
+        "curr": 500,
+        "reward": -0.013052984108728202
+      },
+      {
+        "phase": "warmup",
+        "arm": 27,
+        "freq": 155,
+        "curr": 500,
+        "reward": -0.00638332278224652
+      },
+      {
+        "phase": "warmup",
+        "arm": 28,
+        "freq": 155,
+        "curr": 550,
+        "reward": -0.019081004552308035
+      },
+      {
+        "phase": "warmup",
+        "arm": 28,
+        "freq": 155,
+        "curr": 550,
+        "reward": -0.026287340807923
+      },
+      {
+        "phase": "warmup",
+        "arm": 28,
+        "freq": 155,
+        "curr": 550,
+        "reward": -0.029701255251607023
+      },
+      {
+        "phase": "warmup",
+        "arm": 28,
+        "freq": 155,
+        "curr": 550,
+        "reward": -0.023155699553344407
+      },
+      {
+        "phase": "warmup",
+        "arm": 28,
+        "freq": 155,
+        "curr": 550,
+        "reward": -0.0336266436253733
+      },
+      {
+        "phase": "warmup",
+        "arm": 30,
+        "freq": 180,
+        "curr": 300,
+        "reward": -0.19478602600314293
+      },
+      {
+        "phase": "warmup",
+        "arm": 30,
+        "freq": 180,
+        "curr": 300,
+        "reward": -0.192011021183367
+      },
+      {
+        "phase": "warmup",
+        "arm": 30,
+        "freq": 180,
+        "curr": 300,
+        "reward": -0.17473988848484387
+      },
+      {
+        "phase": "warmup",
+        "arm": 30,
+        "freq": 180,
+        "curr": 300,
+        "reward": -0.1513801723733755
+      },
+      {
+        "phase": "warmup",
+        "arm": 30,
+        "freq": 180,
+        "curr": 300,
+        "reward": -0.16713390121772786
+      },
+      {
+        "phase": "warmup",
+        "arm": 31,
+        "freq": 180,
+        "curr": 350,
+        "reward": -0.02836544465763273
+      },
+      {
+        "phase": "warmup",
+        "arm": 31,
+        "freq": 180,
+        "curr": 350,
+        "reward": -0.03587757533698368
+      },
+      {
+        "phase": "warmup",
+        "arm": 31,
+        "freq": 180,
+        "curr": 350,
+        "reward": -0.034105961562972756
+      },
+      {
+        "phase": "warmup",
+        "arm": 31,
+        "freq": 180,
+        "curr": 350,
+        "reward": -0.026864178866735235
+      },
+      {
+        "phase": "warmup",
+        "arm": 31,
+        "freq": 180,
+        "curr": 350,
+        "reward": -0.036574954349986706
+      },
+      {
+        "phase": "warmup",
+        "arm": 32,
+        "freq": 180,
+        "curr": 400,
+        "reward": -0.024433118832846865
+      },
+      {
+        "phase": "warmup",
+        "arm": 32,
+        "freq": 180,
+        "curr": 400,
+        "reward": -0.031859625087962126
+      },
+      {
+        "phase": "warmup",
+        "arm": 32,
+        "freq": 180,
+        "curr": 400,
+        "reward": -0.016570906310018268
+      },
+      {
+        "phase": "warmup",
+        "arm": 32,
+        "freq": 180,
+        "curr": 400,
+        "reward": -0.014024572843965738
+      },
+      {
+        "phase": "warmup",
+        "arm": 32,
+        "freq": 180,
+        "curr": 400,
+        "reward": -0.030527433031527156
+      },
+      {
+        "phase": "warmup",
+        "arm": 33,
+        "freq": 180,
+        "curr": 450,
+        "reward": -0.017472886997190788
+      },
+      {
+        "phase": "warmup",
+        "arm": 33,
+        "freq": 180,
+        "curr": 450,
+        "reward": -0.015009436817874776
+      },
+      {
+        "phase": "warmup",
+        "arm": 33,
+        "freq": 180,
+        "curr": 450,
+        "reward": -0.019673511320225892
+      },
+      {
+        "phase": "warmup",
+        "arm": 33,
+        "freq": 180,
+        "curr": 450,
+        "reward": -0.009394996560431888
+      },
+      {
+        "phase": "warmup",
+        "arm": 33,
+        "freq": 180,
+        "curr": 450,
+        "reward": -0.009935639045382597
+      },
+      {
+        "phase": "warmup",
+        "arm": 34,
+        "freq": 180,
+        "curr": 500,
+        "reward": -0.019461674015880677
+      },
+      {
+        "phase": "warmup",
+        "arm": 34,
+        "freq": 180,
+        "curr": 500,
+        "reward": -0.02238958906911518
+      },
+      {
+        "phase": "warmup",
+        "arm": 34,
+        "freq": 180,
+        "curr": 500,
+        "reward": -0.018389812905694566
+      },
+      {
+        "phase": "warmup",
+        "arm": 34,
+        "freq": 180,
+        "curr": 500,
+        "reward": -0.016172445053534882
+      },
+      {
+        "phase": "warmup",
+        "arm": 34,
+        "freq": 180,
+        "curr": 500,
+        "reward": -0.013921121636932553
+      },
+      {
+        "phase": "warmup",
+        "arm": 35,
+        "freq": 180,
+        "curr": 550,
+        "reward": -0.01510027301052823
+      },
+      {
+        "phase": "warmup",
+        "arm": 35,
+        "freq": 180,
+        "curr": 550,
+        "reward": -0.02498067821950293
+      },
+      {
+        "phase": "warmup",
+        "arm": 35,
+        "freq": 180,
+        "curr": 550,
+        "reward": -0.024536474498732568
+      },
+      {
+        "phase": "warmup",
+        "arm": 35,
+        "freq": 180,
+        "curr": 550,
+        "reward": -0.028652425615697974
+      },
+      {
+        "phase": "warmup",
+        "arm": 35,
+        "freq": 180,
+        "curr": 550,
+        "reward": -0.017218875517764236
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.09970826672526745
+      },
+      {
+        "phase": "explore",
+        "arm": 11,
+        "freq": 105,
+        "curr": 400,
+        "reward": -0.06287516650859382
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.10655495593899948
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.10351159881410951
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.10369033506300594
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.09991718054603033
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.10409528555023795
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.10295701067416628
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.11064189947190436
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.09883266753077623
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.10815606526134659
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.09827938423503067
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.09957346292542099
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.0923764516325576
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.09618568144863744
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.10556199547597067
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.10401952993380821
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.10751184009879486
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.09588256154484551
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.09461700410726294
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.1114744563065358
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.09595630675009023
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.1074288878065303
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.11020875221122346
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.09751779504805676
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.09351052587387598
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.09961476020355663
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.10551740576064611
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.12624516492441176
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.09745786267213943
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.09912780203507238
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.11767274574330136
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.10250138880110365
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.1048983907952253
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.12119540259672638
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.08764297041010191
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.11289114563934372
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.10131734118919186
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.09923685427565725
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.10310423017687904
+      }
+    ],
+    "minutes": 7.4
+  },
+  {
+    "pd": 0.7,
+    "best_arm": 3,
+    "best_freq": 80,
+    "best_curr": 350,
+    "best_Q": -0.180358173938492,
+    "best_se": 0.0028448170879710223,
+    "best_power": 54.23279070861207,
+    "cleared": true,
+    "floor_met": true,
+    "active": [
+      3,
+      4,
+      10,
+      17,
+      5,
+      11,
+      24,
+      6
+    ],
+    "Q": [
+      -0.5179339774536177,
+      0.0,
+      -0.42788527140001303,
+      -0.180358173938492,
+      -0.15088489941548702,
+      -0.17378841550129845,
+      -0.16586561937758382,
+      -0.14124757980640126,
+      0.0,
+      -0.37959812111833496,
+      -0.0998229528517268,
+      -0.09734331762411505,
+      -0.08989865591622205,
+      -0.0803852141284364,
+      -0.09873321668408813,
+      0.0,
+      -0.30675659721272647,
+      -0.04111395369781068,
+      -0.04281680670042419,
+      -0.04163088845493642,
+      -0.04410492116139687,
+      -0.0466671353846791,
+      0.0,
+      -0.2561730447516424,
+      -0.047163440337596306,
+      -0.05503190571052048,
+      -0.04884514482160595,
+      -0.05340130302263465,
+      -0.057011388449835734,
+      0.0,
+      -0.23565449284234838,
+      -0.04868513304807392,
+      -0.048797030134995804,
+      -0.022094390056816966,
+      -0.03180372149276793,
+      -0.03294071527195641
+    ],
+    "counts": [
+      5,
+      0,
+      5,
+      44,
+      5,
+      5,
+      6,
+      5,
+      0,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      0,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      0,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      0,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+    ],
+    "log": [
+      {
+        "phase": "warmup",
+        "arm": 0,
+        "freq": 80,
+        "curr": 0,
+        "reward": -0.5377333313208982
+      },
+      {
+        "phase": "warmup",
+        "arm": 0,
+        "freq": 80,
+        "curr": 0,
+        "reward": -0.4797919569073126
+      },
+      {
+        "phase": "warmup",
+        "arm": 0,
+        "freq": 80,
+        "curr": 0,
+        "reward": -0.5379809703677216
+      },
+      {
+        "phase": "warmup",
+        "arm": 0,
+        "freq": 80,
+        "curr": 0,
+        "reward": -0.5158798178156639
+      },
+      {
+        "phase": "warmup",
+        "arm": 0,
+        "freq": 80,
+        "curr": 0,
+        "reward": -0.518283810856492
+      },
+      {
+        "phase": "warmup",
+        "arm": 2,
+        "freq": 80,
+        "curr": 300,
+        "reward": -0.40052148386604763
+      },
+      {
+        "phase": "warmup",
+        "arm": 2,
+        "freq": 80,
+        "curr": 300,
+        "reward": -0.45707836809829877
+      },
+      {
+        "phase": "warmup",
+        "arm": 2,
+        "freq": 80,
+        "curr": 300,
+        "reward": -0.39253807081020475
+      },
+      {
+        "phase": "warmup",
+        "arm": 2,
+        "freq": 80,
+        "curr": 300,
+        "reward": -0.4452789857532444
+      },
+      {
+        "phase": "warmup",
+        "arm": 2,
+        "freq": 80,
+        "curr": 300,
+        "reward": -0.4440094484722696
+      },
+      {
+        "phase": "warmup",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.18336087253378858
+      },
+      {
+        "phase": "warmup",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.1979645123179497
+      },
+      {
+        "phase": "warmup",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.17910204496211118
+      },
+      {
+        "phase": "warmup",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.1860707142340753
+      },
+      {
+        "phase": "warmup",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.14998944630533087
+      },
+      {
+        "phase": "warmup",
+        "arm": 4,
+        "freq": 80,
+        "curr": 400,
+        "reward": -0.14809523980246855
+      },
+      {
+        "phase": "warmup",
+        "arm": 4,
+        "freq": 80,
+        "curr": 400,
+        "reward": -0.16958549960609973
+      },
+      {
+        "phase": "warmup",
+        "arm": 4,
+        "freq": 80,
+        "curr": 400,
+        "reward": -0.14218862356151485
+      },
+      {
+        "phase": "warmup",
+        "arm": 4,
+        "freq": 80,
+        "curr": 400,
+        "reward": -0.15909403005705625
+      },
+      {
+        "phase": "warmup",
+        "arm": 4,
+        "freq": 80,
+        "curr": 400,
+        "reward": -0.1354611040502957
+      },
+      {
+        "phase": "warmup",
+        "arm": 5,
+        "freq": 80,
+        "curr": 450,
+        "reward": -0.17647837634743269
+      },
+      {
+        "phase": "warmup",
+        "arm": 5,
+        "freq": 80,
+        "curr": 450,
+        "reward": -0.19325825545506967
+      },
+      {
+        "phase": "warmup",
+        "arm": 5,
+        "freq": 80,
+        "curr": 450,
+        "reward": -0.17177099090856443
+      },
+      {
+        "phase": "warmup",
+        "arm": 5,
+        "freq": 80,
+        "curr": 450,
+        "reward": -0.1826991069034636
+      },
+      {
+        "phase": "warmup",
+        "arm": 5,
+        "freq": 80,
+        "curr": 450,
+        "reward": -0.1447353478919618
+      },
+      {
+        "phase": "warmup",
+        "arm": 6,
+        "freq": 80,
+        "curr": 500,
+        "reward": -0.15085653280313077
+      },
+      {
+        "phase": "warmup",
+        "arm": 6,
+        "freq": 80,
+        "curr": 500,
+        "reward": -0.13690995371200007
+      },
+      {
+        "phase": "warmup",
+        "arm": 6,
+        "freq": 80,
+        "curr": 500,
+        "reward": -0.16822076434292946
+      },
+      {
+        "phase": "warmup",
+        "arm": 6,
+        "freq": 80,
+        "curr": 500,
+        "reward": -0.1718086970494238
+      },
+      {
+        "phase": "warmup",
+        "arm": 6,
+        "freq": 80,
+        "curr": 500,
+        "reward": -0.19739207488954258
+      },
+      {
+        "phase": "warmup",
+        "arm": 7,
+        "freq": 80,
+        "curr": 550,
+        "reward": -0.13701118754973987
+      },
+      {
+        "phase": "warmup",
+        "arm": 7,
+        "freq": 80,
+        "curr": 550,
+        "reward": -0.14235923752388427
+      },
+      {
+        "phase": "warmup",
+        "arm": 7,
+        "freq": 80,
+        "curr": 550,
+        "reward": -0.13567699762539537
+      },
+      {
+        "phase": "warmup",
+        "arm": 7,
+        "freq": 80,
+        "curr": 550,
+        "reward": -0.1383409553890792
+      },
+      {
+        "phase": "warmup",
+        "arm": 7,
+        "freq": 80,
+        "curr": 550,
+        "reward": -0.15284952094390764
+      },
+      {
+        "phase": "warmup",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.3946745161454942
+      },
+      {
+        "phase": "warmup",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.3704300657761631
+      },
+      {
+        "phase": "warmup",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.3959024171655557
+      },
+      {
+        "phase": "warmup",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.34689520127621615
+      },
+      {
+        "phase": "warmup",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.3900884052282459
+      },
+      {
+        "phase": "warmup",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.09152420896936944
+      },
+      {
+        "phase": "warmup",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.11618179319225114
+      },
+      {
+        "phase": "warmup",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.1025128478907928
+      },
+      {
+        "phase": "warmup",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.0726237908591105
+      },
+      {
+        "phase": "warmup",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.11627212334711014
+      },
+      {
+        "phase": "warmup",
+        "arm": 11,
+        "freq": 105,
+        "curr": 400,
+        "reward": -0.10040664665415228
+      },
+      {
+        "phase": "warmup",
+        "arm": 11,
+        "freq": 105,
+        "curr": 400,
+        "reward": -0.09240948337742477
+      },
+      {
+        "phase": "warmup",
+        "arm": 11,
+        "freq": 105,
+        "curr": 400,
+        "reward": -0.09817869827404424
+      },
+      {
+        "phase": "warmup",
+        "arm": 11,
+        "freq": 105,
+        "curr": 400,
+        "reward": -0.08116516778863689
+      },
+      {
+        "phase": "warmup",
+        "arm": 11,
+        "freq": 105,
+        "curr": 400,
+        "reward": -0.11455659202631707
+      },
+      {
+        "phase": "warmup",
+        "arm": 12,
+        "freq": 105,
+        "curr": 450,
+        "reward": -0.09674167819633091
+      },
+      {
+        "phase": "warmup",
+        "arm": 12,
+        "freq": 105,
+        "curr": 450,
+        "reward": -0.08413285096717875
+      },
+      {
+        "phase": "warmup",
+        "arm": 12,
+        "freq": 105,
+        "curr": 450,
+        "reward": -0.08645802883377321
+      },
+      {
+        "phase": "warmup",
+        "arm": 12,
+        "freq": 105,
+        "curr": 450,
+        "reward": -0.09156039871785884
+      },
+      {
+        "phase": "warmup",
+        "arm": 12,
+        "freq": 105,
+        "curr": 450,
+        "reward": -0.09060032286596857
+      },
+      {
+        "phase": "warmup",
+        "arm": 13,
+        "freq": 105,
+        "curr": 500,
+        "reward": -0.10085052152784425
+      },
+      {
+        "phase": "warmup",
+        "arm": 13,
+        "freq": 105,
+        "curr": 500,
+        "reward": -0.07893899692571292
+      },
+      {
+        "phase": "warmup",
+        "arm": 13,
+        "freq": 105,
+        "curr": 500,
+        "reward": -0.057681313001488176
+      },
+      {
+        "phase": "warmup",
+        "arm": 13,
+        "freq": 105,
+        "curr": 500,
+        "reward": -0.09081894624334562
+      },
+      {
+        "phase": "warmup",
+        "arm": 13,
+        "freq": 105,
+        "curr": 500,
+        "reward": -0.07363629294379104
+      },
+      {
+        "phase": "warmup",
+        "arm": 14,
+        "freq": 105,
+        "curr": 550,
+        "reward": -0.11416484859362043
+      },
+      {
+        "phase": "warmup",
+        "arm": 14,
+        "freq": 105,
+        "curr": 550,
+        "reward": -0.08716057326381639
+      },
+      {
+        "phase": "warmup",
+        "arm": 14,
+        "freq": 105,
+        "curr": 550,
+        "reward": -0.0826106291059621
+      },
+      {
+        "phase": "warmup",
+        "arm": 14,
+        "freq": 105,
+        "curr": 550,
+        "reward": -0.10861636915644211
+      },
+      {
+        "phase": "warmup",
+        "arm": 14,
+        "freq": 105,
+        "curr": 550,
+        "reward": -0.10111366330059965
+      },
+      {
+        "phase": "warmup",
+        "arm": 16,
+        "freq": 130,
+        "curr": 300,
+        "reward": -0.3048550530226757
+      },
+      {
+        "phase": "warmup",
+        "arm": 16,
+        "freq": 130,
+        "curr": 300,
+        "reward": -0.30978303773814436
+      },
+      {
+        "phase": "warmup",
+        "arm": 16,
+        "freq": 130,
+        "curr": 300,
+        "reward": -0.2964620145066234
+      },
+      {
+        "phase": "warmup",
+        "arm": 16,
+        "freq": 130,
+        "curr": 300,
+        "reward": -0.3303932155248809
+      },
+      {
+        "phase": "warmup",
+        "arm": 16,
+        "freq": 130,
+        "curr": 300,
+        "reward": -0.2922896652713081
+      },
+      {
+        "phase": "warmup",
+        "arm": 17,
+        "freq": 130,
+        "curr": 350,
+        "reward": -0.04180805892128506
+      },
+      {
+        "phase": "warmup",
+        "arm": 17,
+        "freq": 130,
+        "curr": 350,
+        "reward": -0.03760113887924686
+      },
+      {
+        "phase": "warmup",
+        "arm": 17,
+        "freq": 130,
+        "curr": 350,
+        "reward": -0.040817179984892815
+      },
+      {
+        "phase": "warmup",
+        "arm": 17,
+        "freq": 130,
+        "curr": 350,
+        "reward": -0.03849614981262937
+      },
+      {
+        "phase": "warmup",
+        "arm": 17,
+        "freq": 130,
+        "curr": 350,
+        "reward": -0.0468472408909993
+      },
+      {
+        "phase": "warmup",
+        "arm": 18,
+        "freq": 130,
+        "curr": 400,
+        "reward": -0.04231409643707303
+      },
+      {
+        "phase": "warmup",
+        "arm": 18,
+        "freq": 130,
+        "curr": 400,
+        "reward": -0.037687401621605464
+      },
+      {
+        "phase": "warmup",
+        "arm": 18,
+        "freq": 130,
+        "curr": 400,
+        "reward": -0.04379234150359463
+      },
+      {
+        "phase": "warmup",
+        "arm": 18,
+        "freq": 130,
+        "curr": 400,
+        "reward": -0.03900279699547885
+      },
+      {
+        "phase": "warmup",
+        "arm": 18,
+        "freq": 130,
+        "curr": 400,
+        "reward": -0.05128739694436896
+      },
+      {
+        "phase": "warmup",
+        "arm": 19,
+        "freq": 130,
+        "curr": 450,
+        "reward": -0.04701761649849777
+      },
+      {
+        "phase": "warmup",
+        "arm": 19,
+        "freq": 130,
+        "curr": 450,
+        "reward": -0.028114330177903053
+      },
+      {
+        "phase": "warmup",
+        "arm": 19,
+        "freq": 130,
+        "curr": 450,
+        "reward": -0.042366915560185306
+      },
+      {
+        "phase": "warmup",
+        "arm": 19,
+        "freq": 130,
+        "curr": 450,
+        "reward": -0.050580387977995606
+      },
+      {
+        "phase": "warmup",
+        "arm": 19,
+        "freq": 130,
+        "curr": 450,
+        "reward": -0.04007519206010037
+      },
+      {
+        "phase": "warmup",
+        "arm": 20,
+        "freq": 130,
+        "curr": 500,
+        "reward": -0.04051833381505253
+      },
+      {
+        "phase": "warmup",
+        "arm": 20,
+        "freq": 130,
+        "curr": 500,
+        "reward": -0.04661214402490289
+      },
+      {
+        "phase": "warmup",
+        "arm": 20,
+        "freq": 130,
+        "curr": 500,
+        "reward": -0.04596096335964446
+      },
+      {
+        "phase": "warmup",
+        "arm": 20,
+        "freq": 130,
+        "curr": 500,
+        "reward": -0.0433734072357245
+      },
+      {
+        "phase": "warmup",
+        "arm": 20,
+        "freq": 130,
+        "curr": 500,
+        "reward": -0.044059757371659986
+      },
+      {
+        "phase": "warmup",
+        "arm": 21,
+        "freq": 130,
+        "curr": 550,
+        "reward": -0.039954580400246686
+      },
+      {
+        "phase": "warmup",
+        "arm": 21,
+        "freq": 130,
+        "curr": 550,
+        "reward": -0.05270746337624272
+      },
+      {
+        "phase": "warmup",
+        "arm": 21,
+        "freq": 130,
+        "curr": 550,
+        "reward": -0.045463732056302136
+      },
+      {
+        "phase": "warmup",
+        "arm": 21,
+        "freq": 130,
+        "curr": 550,
+        "reward": -0.044545224539909396
+      },
+      {
+        "phase": "warmup",
+        "arm": 21,
+        "freq": 130,
+        "curr": 550,
+        "reward": -0.05066467655069458
+      },
+      {
+        "phase": "warmup",
+        "arm": 23,
+        "freq": 155,
+        "curr": 300,
+        "reward": -0.24922127986507253
+      },
+      {
+        "phase": "warmup",
+        "arm": 23,
+        "freq": 155,
+        "curr": 300,
+        "reward": -0.2506489368701924
+      },
+      {
+        "phase": "warmup",
+        "arm": 23,
+        "freq": 155,
+        "curr": 300,
+        "reward": -0.27057135816605143
+      },
+      {
+        "phase": "warmup",
+        "arm": 23,
+        "freq": 155,
+        "curr": 300,
+        "reward": -0.2661292603249238
+      },
+      {
+        "phase": "warmup",
+        "arm": 23,
+        "freq": 155,
+        "curr": 300,
+        "reward": -0.24429438853197183
+      },
+      {
+        "phase": "warmup",
+        "arm": 24,
+        "freq": 155,
+        "curr": 350,
+        "reward": -0.05637104568845521
+      },
+      {
+        "phase": "warmup",
+        "arm": 24,
+        "freq": 155,
+        "curr": 350,
+        "reward": -0.039096725668931534
+      },
+      {
+        "phase": "warmup",
+        "arm": 24,
+        "freq": 155,
+        "curr": 350,
+        "reward": -0.045968167196376
+      },
+      {
+        "phase": "warmup",
+        "arm": 24,
+        "freq": 155,
+        "curr": 350,
+        "reward": -0.044902915872271465
+      },
+      {
+        "phase": "warmup",
+        "arm": 24,
+        "freq": 155,
+        "curr": 350,
+        "reward": -0.04947834726194734
+      },
+      {
+        "phase": "warmup",
+        "arm": 25,
+        "freq": 155,
+        "curr": 400,
+        "reward": -0.061800414868235974
+      },
+      {
+        "phase": "warmup",
+        "arm": 25,
+        "freq": 155,
+        "curr": 400,
+        "reward": -0.04467920602800539
+      },
+      {
+        "phase": "warmup",
+        "arm": 25,
+        "freq": 155,
+        "curr": 400,
+        "reward": -0.057328704252124656
+      },
+      {
+        "phase": "warmup",
+        "arm": 25,
+        "freq": 155,
+        "curr": 400,
+        "reward": -0.05898304715386361
+      },
+      {
+        "phase": "warmup",
+        "arm": 25,
+        "freq": 155,
+        "curr": 400,
+        "reward": -0.052368156250372805
+      },
+      {
+        "phase": "warmup",
+        "arm": 26,
+        "freq": 155,
+        "curr": 450,
+        "reward": -0.03974660357943324
+      },
+      {
+        "phase": "warmup",
+        "arm": 26,
+        "freq": 155,
+        "curr": 450,
+        "reward": -0.04626074817613067
+      },
+      {
+        "phase": "warmup",
+        "arm": 26,
+        "freq": 155,
+        "curr": 450,
+        "reward": -0.06716735538272704
+      },
+      {
+        "phase": "warmup",
+        "arm": 26,
+        "freq": 155,
+        "curr": 450,
+        "reward": -0.05003575494892905
+      },
+      {
+        "phase": "warmup",
+        "arm": 26,
+        "freq": 155,
+        "curr": 450,
+        "reward": -0.04101526202080974
+      },
+      {
+        "phase": "warmup",
+        "arm": 27,
+        "freq": 155,
+        "curr": 500,
+        "reward": -0.06737449978687873
+      },
+      {
+        "phase": "warmup",
+        "arm": 27,
+        "freq": 155,
+        "curr": 500,
+        "reward": -0.051794765768656895
+      },
+      {
+        "phase": "warmup",
+        "arm": 27,
+        "freq": 155,
+        "curr": 500,
+        "reward": -0.04908601351524311
+      },
+      {
+        "phase": "warmup",
+        "arm": 27,
+        "freq": 155,
+        "curr": 500,
+        "reward": -0.050681667904070346
+      },
+      {
+        "phase": "warmup",
+        "arm": 27,
+        "freq": 155,
+        "curr": 500,
+        "reward": -0.04806956813832415
+      },
+      {
+        "phase": "warmup",
+        "arm": 28,
+        "freq": 155,
+        "curr": 550,
+        "reward": -0.05894369197084291
+      },
+      {
+        "phase": "warmup",
+        "arm": 28,
+        "freq": 155,
+        "curr": 550,
+        "reward": -0.058992386643627756
+      },
+      {
+        "phase": "warmup",
+        "arm": 28,
+        "freq": 155,
+        "curr": 550,
+        "reward": -0.062010916677735964
+      },
+      {
+        "phase": "warmup",
+        "arm": 28,
+        "freq": 155,
+        "curr": 550,
+        "reward": -0.05377519193195007
+      },
+      {
+        "phase": "warmup",
+        "arm": 28,
+        "freq": 155,
+        "curr": 550,
+        "reward": -0.051334755025021946
+      },
+      {
+        "phase": "warmup",
+        "arm": 30,
+        "freq": 180,
+        "curr": 300,
+        "reward": -0.23824069826067235
+      },
+      {
+        "phase": "warmup",
+        "arm": 30,
+        "freq": 180,
+        "curr": 300,
+        "reward": -0.24179650531051894
+      },
+      {
+        "phase": "warmup",
+        "arm": 30,
+        "freq": 180,
+        "curr": 300,
+        "reward": -0.2325733995453626
+      },
+      {
+        "phase": "warmup",
+        "arm": 30,
+        "freq": 180,
+        "curr": 300,
+        "reward": -0.23415317247593412
+      },
+      {
+        "phase": "warmup",
+        "arm": 30,
+        "freq": 180,
+        "curr": 300,
+        "reward": -0.23150868861925383
+      },
+      {
+        "phase": "warmup",
+        "arm": 31,
+        "freq": 180,
+        "curr": 350,
+        "reward": -0.048190627071691125
+      },
+      {
+        "phase": "warmup",
+        "arm": 31,
+        "freq": 180,
+        "curr": 350,
+        "reward": -0.06813036699368408
+      },
+      {
+        "phase": "warmup",
+        "arm": 31,
+        "freq": 180,
+        "curr": 350,
+        "reward": -0.04360795582633266
+      },
+      {
+        "phase": "warmup",
+        "arm": 31,
+        "freq": 180,
+        "curr": 350,
+        "reward": -0.040380438249017075
+      },
+      {
+        "phase": "warmup",
+        "arm": 31,
+        "freq": 180,
+        "curr": 350,
+        "reward": -0.04311627709964465
+      },
+      {
+        "phase": "warmup",
+        "arm": 32,
+        "freq": 180,
+        "curr": 400,
+        "reward": -0.05186624354808415
+      },
+      {
+        "phase": "warmup",
+        "arm": 32,
+        "freq": 180,
+        "curr": 400,
+        "reward": -0.05778899756313672
+      },
+      {
+        "phase": "warmup",
+        "arm": 32,
+        "freq": 180,
+        "curr": 400,
+        "reward": -0.0583855484146109
+      },
+      {
+        "phase": "warmup",
+        "arm": 32,
+        "freq": 180,
+        "curr": 400,
+        "reward": -0.03531056446860853
+      },
+      {
+        "phase": "warmup",
+        "arm": 32,
+        "freq": 180,
+        "curr": 400,
+        "reward": -0.04063379668053874
+      },
+      {
+        "phase": "warmup",
+        "arm": 33,
+        "freq": 180,
+        "curr": 450,
+        "reward": -0.005992233911286202
+      },
+      {
+        "phase": "warmup",
+        "arm": 33,
+        "freq": 180,
+        "curr": 450,
+        "reward": -0.02791577520988174
+      },
+      {
+        "phase": "warmup",
+        "arm": 33,
+        "freq": 180,
+        "curr": 450,
+        "reward": -0.028770622468502316
+      },
+      {
+        "phase": "warmup",
+        "arm": 33,
+        "freq": 180,
+        "curr": 450,
+        "reward": -0.021686757436495962
+      },
+      {
+        "phase": "warmup",
+        "arm": 33,
+        "freq": 180,
+        "curr": 450,
+        "reward": -0.026106561257918617
+      },
+      {
+        "phase": "warmup",
+        "arm": 34,
+        "freq": 180,
+        "curr": 500,
+        "reward": -0.027674298911545183
+      },
+      {
+        "phase": "warmup",
+        "arm": 34,
+        "freq": 180,
+        "curr": 500,
+        "reward": -0.029189236064643742
+      },
+      {
+        "phase": "warmup",
+        "arm": 34,
+        "freq": 180,
+        "curr": 500,
+        "reward": -0.05066722639871493
+      },
+      {
+        "phase": "warmup",
+        "arm": 34,
+        "freq": 180,
+        "curr": 500,
+        "reward": -0.029727642427133494
+      },
+      {
+        "phase": "warmup",
+        "arm": 34,
+        "freq": 180,
+        "curr": 500,
+        "reward": -0.02176020366180229
+      },
+      {
+        "phase": "warmup",
+        "arm": 35,
+        "freq": 180,
+        "curr": 550,
+        "reward": -0.032944448992716216
+      },
+      {
+        "phase": "warmup",
+        "arm": 35,
+        "freq": 180,
+        "curr": 550,
+        "reward": -0.022759158840594675
+      },
+      {
+        "phase": "warmup",
+        "arm": 35,
+        "freq": 180,
+        "curr": 550,
+        "reward": -0.04179485048146875
+      },
+      {
+        "phase": "warmup",
+        "arm": 35,
+        "freq": 180,
+        "curr": 550,
+        "reward": -0.037782256999628595
+      },
+      {
+        "phase": "warmup",
+        "arm": 35,
+        "freq": 180,
+        "curr": 550,
+        "reward": -0.02942286104537381
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.1746083178692577
+      },
+      {
+        "phase": "explore",
+        "arm": 6,
+        "freq": 80,
+        "curr": 500,
+        "reward": -0.17000569346847624
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.21240717537164014
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.18433860332568167
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.21690155456488644
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.17961094083725843
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.1651092027017162
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.18317948934959571
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.20350073909417854
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.1796187237133294
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.20856758855881374
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.16246849672155264
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.17607886455023208
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.15124906673726707
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.17663496351219743
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.18911679044556076
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.15105629211069863
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.17855165056783956
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.1844764846202315
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.18954496781084634
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.1844887228029538
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.2086511108824149
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.1547589198502862
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.18460778329023494
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.17960861969471947
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.20789473486886817
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.17767684272893494
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.15091792265865647
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.14919714854747304
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.16137778894031668
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.21135554655844876
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.16625371228809657
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.13778808319963734
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.19421240445508967
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.192105010020059
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.1789065399718946
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.18059628564576832
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.1844738287791078
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.18100787242604455
+      },
+      {
+        "phase": "exploit",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.18637327286860378
+      }
+    ],
+    "minutes": 7.5
+  },
+  {
+    "pd": 1.0,
+    "best_arm": 10,
+    "best_freq": 105,
+    "best_curr": 350,
+    "best_Q": -0.1785655876087518,
+    "best_se": 0.003113229306329125,
+    "best_power": 62.41362868308128,
+    "cleared": true,
+    "floor_met": true,
+    "active": [
+      10,
+      17,
+      11,
+      24,
+      18,
+      12,
+      31,
+      25
+    ],
+    "Q": [
+      -0.5575327016295658,
+      0.0,
+      -0.5405824154848979,
+      -0.33692166469793733,
+      -0.2909773988845289,
+      -0.2967320448022177,
+      -0.29970532627818813,
+      -0.3040738779647458,
+      0.0,
+      -0.4839935858546835,
+      -0.1785655876087518,
+      -0.16490607399695145,
+      -0.1585077828319347,
+      -0.1486396140226035,
+      -0.1636247886884015,
+      0.0,
+      -0.47891496653153015,
+      -0.059784690460492014,
+      -0.04012716233697889,
+      -0.04915311521157366,
+      -0.0433252129360143,
+      -0.046362101639237284,
+      0.0,
+      -0.43619297411470087,
+      -0.07255286343624906,
+      -0.07447851150796314,
+      -0.06154574366468352,
+      -0.06618258194577502,
+      -0.06938140652197916,
+      0.0,
+      -0.4211957364484746,
+      -0.042267796119774326,
+      -0.034927537533669624,
+      -0.026250526330426516,
+      -0.019676581985723036,
+      -0.02338509365879825
+    ],
+    "counts": [
+      5,
+      0,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      0,
+      5,
+      44,
+      5,
+      5,
+      5,
+      5,
+      0,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      0,
+      5,
+      5,
+      6,
+      5,
+      5,
+      5,
+      0,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+    ],
+    "log": [
+      {
+        "phase": "warmup",
+        "arm": 0,
+        "freq": 80,
+        "curr": 0,
+        "reward": -0.5942443663153308
+      },
+      {
+        "phase": "warmup",
+        "arm": 0,
+        "freq": 80,
+        "curr": 0,
+        "reward": -0.5154443702993959
+      },
+      {
+        "phase": "warmup",
+        "arm": 0,
+        "freq": 80,
+        "curr": 0,
+        "reward": -0.5423811412982683
+      },
+      {
+        "phase": "warmup",
+        "arm": 0,
+        "freq": 80,
+        "curr": 0,
+        "reward": -0.5925288640529833
+      },
+      {
+        "phase": "warmup",
+        "arm": 0,
+        "freq": 80,
+        "curr": 0,
+        "reward": -0.5430647661818506
+      },
+      {
+        "phase": "warmup",
+        "arm": 2,
+        "freq": 80,
+        "curr": 300,
+        "reward": -0.5387444522884283
+      },
+      {
+        "phase": "warmup",
+        "arm": 2,
+        "freq": 80,
+        "curr": 300,
+        "reward": -0.5275844373262513
+      },
+      {
+        "phase": "warmup",
+        "arm": 2,
+        "freq": 80,
+        "curr": 300,
+        "reward": -0.512899828038621
+      },
+      {
+        "phase": "warmup",
+        "arm": 2,
+        "freq": 80,
+        "curr": 300,
+        "reward": -0.5879918997149917
+      },
+      {
+        "phase": "warmup",
+        "arm": 2,
+        "freq": 80,
+        "curr": 300,
+        "reward": -0.5356914600561973
+      },
+      {
+        "phase": "warmup",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.3735701639490067
+      },
+      {
+        "phase": "warmup",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.3251172798615588
+      },
+      {
+        "phase": "warmup",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.35718272266130613
+      },
+      {
+        "phase": "warmup",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.3187655826033913
+      },
+      {
+        "phase": "warmup",
+        "arm": 3,
+        "freq": 80,
+        "curr": 350,
+        "reward": -0.309972574414424
+      },
+      {
+        "phase": "warmup",
+        "arm": 4,
+        "freq": 80,
+        "curr": 400,
+        "reward": -0.2700888995719555
+      },
+      {
+        "phase": "warmup",
+        "arm": 4,
+        "freq": 80,
+        "curr": 400,
+        "reward": -0.30406476074597016
+      },
+      {
+        "phase": "warmup",
+        "arm": 4,
+        "freq": 80,
+        "curr": 400,
+        "reward": -0.27475674437123404
+      },
+      {
+        "phase": "warmup",
+        "arm": 4,
+        "freq": 80,
+        "curr": 400,
+        "reward": -0.3157201012244996
+      },
+      {
+        "phase": "warmup",
+        "arm": 4,
+        "freq": 80,
+        "curr": 400,
+        "reward": -0.29025648850898517
+      },
+      {
+        "phase": "warmup",
+        "arm": 5,
+        "freq": 80,
+        "curr": 450,
+        "reward": -0.27895753447759797
+      },
+      {
+        "phase": "warmup",
+        "arm": 5,
+        "freq": 80,
+        "curr": 450,
+        "reward": -0.3212990204266432
+      },
+      {
+        "phase": "warmup",
+        "arm": 5,
+        "freq": 80,
+        "curr": 450,
+        "reward": -0.3265509116802593
+      },
+      {
+        "phase": "warmup",
+        "arm": 5,
+        "freq": 80,
+        "curr": 450,
+        "reward": -0.27973505409520155
+      },
+      {
+        "phase": "warmup",
+        "arm": 5,
+        "freq": 80,
+        "curr": 450,
+        "reward": -0.27711770333138663
+      },
+      {
+        "phase": "warmup",
+        "arm": 6,
+        "freq": 80,
+        "curr": 500,
+        "reward": -0.30235960786697963
+      },
+      {
+        "phase": "warmup",
+        "arm": 6,
+        "freq": 80,
+        "curr": 500,
+        "reward": -0.318147990541791
+      },
+      {
+        "phase": "warmup",
+        "arm": 6,
+        "freq": 80,
+        "curr": 500,
+        "reward": -0.3064863853028954
+      },
+      {
+        "phase": "warmup",
+        "arm": 6,
+        "freq": 80,
+        "curr": 500,
+        "reward": -0.28687930312955773
+      },
+      {
+        "phase": "warmup",
+        "arm": 6,
+        "freq": 80,
+        "curr": 500,
+        "reward": -0.28465334454971675
+      },
+      {
+        "phase": "warmup",
+        "arm": 7,
+        "freq": 80,
+        "curr": 550,
+        "reward": -0.32358802889311944
+      },
+      {
+        "phase": "warmup",
+        "arm": 7,
+        "freq": 80,
+        "curr": 550,
+        "reward": -0.2995390140586186
+      },
+      {
+        "phase": "warmup",
+        "arm": 7,
+        "freq": 80,
+        "curr": 550,
+        "reward": -0.2817960420398134
+      },
+      {
+        "phase": "warmup",
+        "arm": 7,
+        "freq": 80,
+        "curr": 550,
+        "reward": -0.31363174618160294
+      },
+      {
+        "phase": "warmup",
+        "arm": 7,
+        "freq": 80,
+        "curr": 550,
+        "reward": -0.3018145586505743
+      },
+      {
+        "phase": "warmup",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.44983043088420566
+      },
+      {
+        "phase": "warmup",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.5002254400095857
+      },
+      {
+        "phase": "warmup",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.5135067011574787
+      },
+      {
+        "phase": "warmup",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.5094854338879979
+      },
+      {
+        "phase": "warmup",
+        "arm": 9,
+        "freq": 105,
+        "curr": 300,
+        "reward": -0.44691992333414926
+      },
+      {
+        "phase": "warmup",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.18822458430231798
+      },
+      {
+        "phase": "warmup",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.20250231333866986
+      },
+      {
+        "phase": "warmup",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.1758255855085905
+      },
+      {
+        "phase": "warmup",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.18580746404748455
+      },
+      {
+        "phase": "warmup",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.20808110039704564
+      },
+      {
+        "phase": "warmup",
+        "arm": 11,
+        "freq": 105,
+        "curr": 400,
+        "reward": -0.17279982142627873
+      },
+      {
+        "phase": "warmup",
+        "arm": 11,
+        "freq": 105,
+        "curr": 400,
+        "reward": -0.15110447562128332
+      },
+      {
+        "phase": "warmup",
+        "arm": 11,
+        "freq": 105,
+        "curr": 400,
+        "reward": -0.1780345506119369
+      },
+      {
+        "phase": "warmup",
+        "arm": 11,
+        "freq": 105,
+        "curr": 400,
+        "reward": -0.14674504354865006
+      },
+      {
+        "phase": "warmup",
+        "arm": 11,
+        "freq": 105,
+        "curr": 400,
+        "reward": -0.1758464787766082
+      },
+      {
+        "phase": "warmup",
+        "arm": 12,
+        "freq": 105,
+        "curr": 450,
+        "reward": -0.16734724526021144
+      },
+      {
+        "phase": "warmup",
+        "arm": 12,
+        "freq": 105,
+        "curr": 450,
+        "reward": -0.15755015466343997
+      },
+      {
+        "phase": "warmup",
+        "arm": 12,
+        "freq": 105,
+        "curr": 450,
+        "reward": -0.16497855014434215
+      },
+      {
+        "phase": "warmup",
+        "arm": 12,
+        "freq": 105,
+        "curr": 450,
+        "reward": -0.15399972296517506
+      },
+      {
+        "phase": "warmup",
+        "arm": 12,
+        "freq": 105,
+        "curr": 450,
+        "reward": -0.1486632411265049
+      },
+      {
+        "phase": "warmup",
+        "arm": 13,
+        "freq": 105,
+        "curr": 500,
+        "reward": -0.12515783492374297
+      },
+      {
+        "phase": "warmup",
+        "arm": 13,
+        "freq": 105,
+        "curr": 500,
+        "reward": -0.16646980831349437
+      },
+      {
+        "phase": "warmup",
+        "arm": 13,
+        "freq": 105,
+        "curr": 500,
+        "reward": -0.11392473630254529
+      },
+      {
+        "phase": "warmup",
+        "arm": 13,
+        "freq": 105,
+        "curr": 500,
+        "reward": -0.1517227837293007
+      },
+      {
+        "phase": "warmup",
+        "arm": 13,
+        "freq": 105,
+        "curr": 500,
+        "reward": -0.1859229068439342
+      },
+      {
+        "phase": "warmup",
+        "arm": 14,
+        "freq": 105,
+        "curr": 550,
+        "reward": -0.13980521606075041
+      },
+      {
+        "phase": "warmup",
+        "arm": 14,
+        "freq": 105,
+        "curr": 550,
+        "reward": -0.17512252124609815
+      },
+      {
+        "phase": "warmup",
+        "arm": 14,
+        "freq": 105,
+        "curr": 550,
+        "reward": -0.18392387506364566
+      },
+      {
+        "phase": "warmup",
+        "arm": 14,
+        "freq": 105,
+        "curr": 550,
+        "reward": -0.15738271267222007
+      },
+      {
+        "phase": "warmup",
+        "arm": 14,
+        "freq": 105,
+        "curr": 550,
+        "reward": -0.16188961839929322
+      },
+      {
+        "phase": "warmup",
+        "arm": 16,
+        "freq": 130,
+        "curr": 300,
+        "reward": -0.5052926827798336
+      },
+      {
+        "phase": "warmup",
+        "arm": 16,
+        "freq": 130,
+        "curr": 300,
+        "reward": -0.48480663936174895
+      },
+      {
+        "phase": "warmup",
+        "arm": 16,
+        "freq": 130,
+        "curr": 300,
+        "reward": -0.47292525333094426
+      },
+      {
+        "phase": "warmup",
+        "arm": 16,
+        "freq": 130,
+        "curr": 300,
+        "reward": -0.4732558901080972
+      },
+      {
+        "phase": "warmup",
+        "arm": 16,
+        "freq": 130,
+        "curr": 300,
+        "reward": -0.4582943670770268
+      },
+      {
+        "phase": "warmup",
+        "arm": 17,
+        "freq": 130,
+        "curr": 350,
+        "reward": -0.06262537514744311
+      },
+      {
+        "phase": "warmup",
+        "arm": 17,
+        "freq": 130,
+        "curr": 350,
+        "reward": -0.04621503965901045
+      },
+      {
+        "phase": "warmup",
+        "arm": 17,
+        "freq": 130,
+        "curr": 350,
+        "reward": -0.04338100988818506
+      },
+      {
+        "phase": "warmup",
+        "arm": 17,
+        "freq": 130,
+        "curr": 350,
+        "reward": -0.05382986762578315
+      },
+      {
+        "phase": "warmup",
+        "arm": 17,
+        "freq": 130,
+        "curr": 350,
+        "reward": -0.0928721599820383
+      },
+      {
+        "phase": "warmup",
+        "arm": 18,
+        "freq": 130,
+        "curr": 400,
+        "reward": -0.04311210932309002
+      },
+      {
+        "phase": "warmup",
+        "arm": 18,
+        "freq": 130,
+        "curr": 400,
+        "reward": -0.04797474543570421
+      },
+      {
+        "phase": "warmup",
+        "arm": 18,
+        "freq": 130,
+        "curr": 400,
+        "reward": -0.03885886649287477
+      },
+      {
+        "phase": "warmup",
+        "arm": 18,
+        "freq": 130,
+        "curr": 400,
+        "reward": -0.04160376958647306
+      },
+      {
+        "phase": "warmup",
+        "arm": 18,
+        "freq": 130,
+        "curr": 400,
+        "reward": -0.02908632084675241
+      },
+      {
+        "phase": "warmup",
+        "arm": 19,
+        "freq": 130,
+        "curr": 450,
+        "reward": -0.05121450087891237
+      },
+      {
+        "phase": "warmup",
+        "arm": 19,
+        "freq": 130,
+        "curr": 450,
+        "reward": -0.05635017147487292
+      },
+      {
+        "phase": "warmup",
+        "arm": 19,
+        "freq": 130,
+        "curr": 450,
+        "reward": -0.0370166233167354
+      },
+      {
+        "phase": "warmup",
+        "arm": 19,
+        "freq": 130,
+        "curr": 450,
+        "reward": -0.05860615928450294
+      },
+      {
+        "phase": "warmup",
+        "arm": 19,
+        "freq": 130,
+        "curr": 450,
+        "reward": -0.042578121102844646
+      },
+      {
+        "phase": "warmup",
+        "arm": 20,
+        "freq": 130,
+        "curr": 500,
+        "reward": -0.03641509920638439
+      },
+      {
+        "phase": "warmup",
+        "arm": 20,
+        "freq": 130,
+        "curr": 500,
+        "reward": -0.04215067639419941
+      },
+      {
+        "phase": "warmup",
+        "arm": 20,
+        "freq": 130,
+        "curr": 500,
+        "reward": -0.05457222146510318
+      },
+      {
+        "phase": "warmup",
+        "arm": 20,
+        "freq": 130,
+        "curr": 500,
+        "reward": -0.05010287707649638
+      },
+      {
+        "phase": "warmup",
+        "arm": 20,
+        "freq": 130,
+        "curr": 500,
+        "reward": -0.03338519053788813
+      },
+      {
+        "phase": "warmup",
+        "arm": 21,
+        "freq": 130,
+        "curr": 550,
+        "reward": -0.053453597308046275
+      },
+      {
+        "phase": "warmup",
+        "arm": 21,
+        "freq": 130,
+        "curr": 550,
+        "reward": -0.04686913791600912
+      },
+      {
+        "phase": "warmup",
+        "arm": 21,
+        "freq": 130,
+        "curr": 550,
+        "reward": -0.04329325046364956
+      },
+      {
+        "phase": "warmup",
+        "arm": 21,
+        "freq": 130,
+        "curr": 550,
+        "reward": -0.04482866858631061
+      },
+      {
+        "phase": "warmup",
+        "arm": 21,
+        "freq": 130,
+        "curr": 550,
+        "reward": -0.04336585392217083
+      },
+      {
+        "phase": "warmup",
+        "arm": 23,
+        "freq": 155,
+        "curr": 300,
+        "reward": -0.4502490152849022
+      },
+      {
+        "phase": "warmup",
+        "arm": 23,
+        "freq": 155,
+        "curr": 300,
+        "reward": -0.4075874208730727
+      },
+      {
+        "phase": "warmup",
+        "arm": 23,
+        "freq": 155,
+        "curr": 300,
+        "reward": -0.42553554757440976
+      },
+      {
+        "phase": "warmup",
+        "arm": 23,
+        "freq": 155,
+        "curr": 300,
+        "reward": -0.44253332167797327
+      },
+      {
+        "phase": "warmup",
+        "arm": 23,
+        "freq": 155,
+        "curr": 300,
+        "reward": -0.4550595651631464
+      },
+      {
+        "phase": "warmup",
+        "arm": 24,
+        "freq": 155,
+        "curr": 350,
+        "reward": -0.0709845108946999
+      },
+      {
+        "phase": "warmup",
+        "arm": 24,
+        "freq": 155,
+        "curr": 350,
+        "reward": -0.08015995414730978
+      },
+      {
+        "phase": "warmup",
+        "arm": 24,
+        "freq": 155,
+        "curr": 350,
+        "reward": -0.07443354963290937
+      },
+      {
+        "phase": "warmup",
+        "arm": 24,
+        "freq": 155,
+        "curr": 350,
+        "reward": -0.06558934410569334
+      },
+      {
+        "phase": "warmup",
+        "arm": 24,
+        "freq": 155,
+        "curr": 350,
+        "reward": -0.07159695840063292
+      },
+      {
+        "phase": "warmup",
+        "arm": 25,
+        "freq": 155,
+        "curr": 400,
+        "reward": -0.07297309919786221
+      },
+      {
+        "phase": "warmup",
+        "arm": 25,
+        "freq": 155,
+        "curr": 400,
+        "reward": -0.08823965811200882
+      },
+      {
+        "phase": "warmup",
+        "arm": 25,
+        "freq": 155,
+        "curr": 400,
+        "reward": -0.07105194894645564
+      },
+      {
+        "phase": "warmup",
+        "arm": 25,
+        "freq": 155,
+        "curr": 400,
+        "reward": -0.06877578190114114
+      },
+      {
+        "phase": "warmup",
+        "arm": 25,
+        "freq": 155,
+        "curr": 400,
+        "reward": -0.08209631505673293
+      },
+      {
+        "phase": "warmup",
+        "arm": 26,
+        "freq": 155,
+        "curr": 450,
+        "reward": -0.07157157939603385
+      },
+      {
+        "phase": "warmup",
+        "arm": 26,
+        "freq": 155,
+        "curr": 450,
+        "reward": -0.05003584136401498
+      },
+      {
+        "phase": "warmup",
+        "arm": 26,
+        "freq": 155,
+        "curr": 450,
+        "reward": -0.05736496563919499
+      },
+      {
+        "phase": "warmup",
+        "arm": 26,
+        "freq": 155,
+        "curr": 450,
+        "reward": -0.07144481231356932
+      },
+      {
+        "phase": "warmup",
+        "arm": 26,
+        "freq": 155,
+        "curr": 450,
+        "reward": -0.05731151961060443
+      },
+      {
+        "phase": "warmup",
+        "arm": 27,
+        "freq": 155,
+        "curr": 500,
+        "reward": -0.061548194074107804
+      },
+      {
+        "phase": "warmup",
+        "arm": 27,
+        "freq": 155,
+        "curr": 500,
+        "reward": -0.06665855672059733
+      },
+      {
+        "phase": "warmup",
+        "arm": 27,
+        "freq": 155,
+        "curr": 500,
+        "reward": -0.0720269299053943
+      },
+      {
+        "phase": "warmup",
+        "arm": 27,
+        "freq": 155,
+        "curr": 500,
+        "reward": -0.0600984434608037
+      },
+      {
+        "phase": "warmup",
+        "arm": 27,
+        "freq": 155,
+        "curr": 500,
+        "reward": -0.07058078556797198
+      },
+      {
+        "phase": "warmup",
+        "arm": 28,
+        "freq": 155,
+        "curr": 550,
+        "reward": -0.07319607322678345
+      },
+      {
+        "phase": "warmup",
+        "arm": 28,
+        "freq": 155,
+        "curr": 550,
+        "reward": -0.05905959416569398
+      },
+      {
+        "phase": "warmup",
+        "arm": 28,
+        "freq": 155,
+        "curr": 550,
+        "reward": -0.06921890056356092
+      },
+      {
+        "phase": "warmup",
+        "arm": 28,
+        "freq": 155,
+        "curr": 550,
+        "reward": -0.06405297572397749
+      },
+      {
+        "phase": "warmup",
+        "arm": 28,
+        "freq": 155,
+        "curr": 550,
+        "reward": -0.08137948892987996
+      },
+      {
+        "phase": "warmup",
+        "arm": 30,
+        "freq": 180,
+        "curr": 300,
+        "reward": -0.42963064014431895
+      },
+      {
+        "phase": "warmup",
+        "arm": 30,
+        "freq": 180,
+        "curr": 300,
+        "reward": -0.477799784516709
+      },
+      {
+        "phase": "warmup",
+        "arm": 30,
+        "freq": 180,
+        "curr": 300,
+        "reward": -0.46530775771454697
+      },
+      {
+        "phase": "warmup",
+        "arm": 30,
+        "freq": 180,
+        "curr": 300,
+        "reward": -0.30136752428370195
+      },
+      {
+        "phase": "warmup",
+        "arm": 30,
+        "freq": 180,
+        "curr": 300,
+        "reward": -0.431872975583096
+      },
+      {
+        "phase": "warmup",
+        "arm": 31,
+        "freq": 180,
+        "curr": 350,
+        "reward": -0.004602738901108575
+      },
+      {
+        "phase": "warmup",
+        "arm": 31,
+        "freq": 180,
+        "curr": 350,
+        "reward": -0.04074101513926966
+      },
+      {
+        "phase": "warmup",
+        "arm": 31,
+        "freq": 180,
+        "curr": 350,
+        "reward": -0.052904602418378015
+      },
+      {
+        "phase": "warmup",
+        "arm": 31,
+        "freq": 180,
+        "curr": 350,
+        "reward": -0.06233118339265178
+      },
+      {
+        "phase": "warmup",
+        "arm": 31,
+        "freq": 180,
+        "curr": 350,
+        "reward": -0.05075944074746359
+      },
+      {
+        "phase": "warmup",
+        "arm": 32,
+        "freq": 180,
+        "curr": 400,
+        "reward": -0.032254733864548066
+      },
+      {
+        "phase": "warmup",
+        "arm": 32,
+        "freq": 180,
+        "curr": 400,
+        "reward": -0.04289015841203295
+      },
+      {
+        "phase": "warmup",
+        "arm": 32,
+        "freq": 180,
+        "curr": 400,
+        "reward": -0.04282957738391907
+      },
+      {
+        "phase": "warmup",
+        "arm": 32,
+        "freq": 180,
+        "curr": 400,
+        "reward": -0.030968646839524668
+      },
+      {
+        "phase": "warmup",
+        "arm": 32,
+        "freq": 180,
+        "curr": 400,
+        "reward": -0.025694571168323386
+      },
+      {
+        "phase": "warmup",
+        "arm": 33,
+        "freq": 180,
+        "curr": 450,
+        "reward": -0.02309745181224611
+      },
+      {
+        "phase": "warmup",
+        "arm": 33,
+        "freq": 180,
+        "curr": 450,
+        "reward": -0.018995379299002437
+      },
+      {
+        "phase": "warmup",
+        "arm": 33,
+        "freq": 180,
+        "curr": 450,
+        "reward": -0.05268710247328839
+      },
+      {
+        "phase": "warmup",
+        "arm": 33,
+        "freq": 180,
+        "curr": 450,
+        "reward": -0.02802358346711241
+      },
+      {
+        "phase": "warmup",
+        "arm": 33,
+        "freq": 180,
+        "curr": 450,
+        "reward": -0.008449114600483231
+      },
+      {
+        "phase": "warmup",
+        "arm": 34,
+        "freq": 180,
+        "curr": 500,
+        "reward": -0.009290206012141247
+      },
+      {
+        "phase": "warmup",
+        "arm": 34,
+        "freq": 180,
+        "curr": 500,
+        "reward": -0.013484531282889158
+      },
+      {
+        "phase": "warmup",
+        "arm": 34,
+        "freq": 180,
+        "curr": 500,
+        "reward": -0.01649694116972519
+      },
+      {
+        "phase": "warmup",
+        "arm": 34,
+        "freq": 180,
+        "curr": 500,
+        "reward": -0.04084658131382229
+      },
+      {
+        "phase": "warmup",
+        "arm": 34,
+        "freq": 180,
+        "curr": 500,
+        "reward": -0.018264650150037295
+      },
+      {
+        "phase": "warmup",
+        "arm": 35,
+        "freq": 180,
+        "curr": 550,
+        "reward": -0.030358336426435466
+      },
+      {
+        "phase": "warmup",
+        "arm": 35,
+        "freq": 180,
+        "curr": 550,
+        "reward": -0.014737900681725634
+      },
+      {
+        "phase": "warmup",
+        "arm": 35,
+        "freq": 180,
+        "curr": 550,
+        "reward": -0.010960958182564248
+      },
+      {
+        "phase": "warmup",
+        "arm": 35,
+        "freq": 180,
+        "curr": 550,
+        "reward": -0.027428019185344422
+      },
+      {
+        "phase": "warmup",
+        "arm": 35,
+        "freq": 180,
+        "curr": 550,
+        "reward": -0.033440253817921484
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.17212985345982568
+      },
+      {
+        "phase": "explore",
+        "arm": 25,
+        "freq": 155,
+        "curr": 400,
+        "reward": -0.06373426583357808
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.18923114930963258
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.1935768069147269
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.15270405837629436
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.21669606616707449
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.16828263598340243
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.16030900108520552
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.1528878083618771
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.18361523177468103
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.1743621207066578
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.21722545104328134
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.1709139159965421
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.1778241197289286
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.1673029173602943
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.18604580755075745
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.2050079886528413
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.15057282376498804
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.16935903173890876
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.17666590499813029
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.18590204698589008
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.13266176918430986
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.18428029310040217
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.1930273524145013
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.22235758339016182
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.18163070716250912
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.20432144684115355
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.13515881557518944
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.17096690200498244
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.18695189702184256
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.14671887025163038
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.18915890700679794
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.1667145038964165
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.15666750798910384
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.17259754554932594
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.1872110648770124
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.16976898874225793
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.15406810552700134
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.19426336131448685
+      },
+      {
+        "phase": "exploit",
+        "arm": 10,
+        "freq": 105,
+        "curr": 350,
+        "reward": -0.17730444538194579
+      }
+    ],
+    "minutes": 7.5
+  }
+]

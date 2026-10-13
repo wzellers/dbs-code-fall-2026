@@ -1,6 +1,10 @@
 bgn_vars.mat
 *.mat
-runs_*/
+runs_switch*/
+runs_stim_*/
+runs_ladder_*/
+runs_null_*/
+runs_dir_*/
 checkpoints/
 datasets/*.npz
 __pycache__/
