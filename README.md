@@ -108,6 +108,11 @@ docs/                      results and the task documents they were carried out 
 
 cache/                     every simulation cache. Committed — small, and expensive to redo
   runs_selector/           the selector's arm and probe measurements (~2.5 h of MATLAB)
+  runs_selector.bak/       the same measurements on the NARROW frequency grid, 130/155/180 Hz
+                           only, before it was widened to 80/105. Keep it: this is the evidence
+                           behind the retracted 130 Hz finding, which fell when the wider grid
+                           moved the answer. Not a stale copy of runs_selector/ — different
+                           simulations, and every arm in it is also in the live one
   runs_neural/             the neural work's samples and trained networks
   runs_switch/             30 unstimulated severity-switch runs, the detection baseline
   runs_stim_*/             detection under stimulation, one directory per amplitude
@@ -115,6 +120,7 @@ cache/                     every simulation cache. Committed — small, and expe
   runs_null_*/             no-switch control runs — these give the false-positive rate
   runs_dir_*/              upward against downward switches
   runs_t3p/                bandit run histories
+  runs_agents/             the three trained agents' converged settings, one per severity
   runs/                    TD3 checkpoints from the retired approach
   figures/                 generated plots and summary JSON
 
