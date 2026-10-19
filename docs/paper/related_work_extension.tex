@@ -1,0 +1,277 @@
+% ===========================================================================
+% Related Work -- extension covering papers published since our submission.
+% Drop-in subsections. Keys match docs/paper/new_refs.bib.
+%
+% Written against the Related Work of arXiv:2601.12699v1, which covers:
+% deep-RL for aDBS (mostly frequency-only), MAB in DBS ("not well explored",
+% only restricted settings [12]), TD3 as the deep-RL benchmark, the BGT
+% simulation model, and one real-patient study. Nothing below repeats those.
+%
+% FOUR THINGS NEED A DECISION BEFORE SUBMISSION -- marked ACTION 1-4.
+% ACTION 1 is the one that affects a claim in the abstract.
+% ===========================================================================
+
+
+% ---------------------------------------------------------------------------
+% ACTION 1 (affects a claim, not just the section).
+% Our Related Work currently says multi-armed bandits "have not been well
+% explored" for DBS and that the only related results cover restricted
+% settings. \cite{nagrale2026arena} makes that no longer defensible: it is a
+% full MAB treatment of DBS parameter search -- UCB1, UCB-Tuned, Bayes-UCB
+% and Thompson Sampling variants, benchmarked against greedy, epsilon-greedy
+% and brute force. It also uses a subset-pruning scheme of its own (below).
+% The sentence must be rewritten. The good news is that the contribution
+% survives intact and is arguably strengthened, because that paper explicitly
+% lists joint optimisation of amplitude, pulse width and frequency as future
+% work -- i.e. the gap we fill, named by the closest prior work. Say so.
+% ---------------------------------------------------------------------------
+
+\subsection*{Bandit formulations of DBS parameter search}
+
+The closest prior treatment of DBS as a bandit problem comes from work on
+stimulation for cognitive control. Nagrale and Widge~\cite{nagrale2026arena}
+cast each electrode contact as an arm and compare UCB1, a variance-aware
+UCB-Tuned, Block-Variance Bayes-UCB and several Thompson Sampling variants
+against greedy, $\varepsilon$-greedy and brute-force search, selecting over
+eight contacts using task reaction time as the reward. Their continuous
+rolling arena keeps four contacts active, benches the weakest and rolls an
+untested contact into the set, which they report matches full eight-contact
+search at lower cost.
+
+That scheme and our pruning share a premise --- that most of an arm set can be
+set aside early --- and differ in what follows from it. The rolling arena never
+discards permanently; it rotates, so every contact remains reachable and the
+search runs continuously over a horizon of up to 4{,}200 trials. T3P prunes
+once, to the top $K$, and recovers the discarded arms not by rotation but by
+re-triggering the whole schedule on a timer or on a biomarker excursion, which
+is what lets it converge in roughly two minutes rather than thousands of
+trials. The arm sets differ accordingly: theirs is eight discrete contacts,
+ours a two-dimensional frequency--amplitude grid.
+
+The objectives differ more than the algorithms. Their reward is behavioural
+reaction time on an interference task, a proxy for cognitive control, and
+carries no energy term; ours is a biomarker-and-energy composite intended for
+an implant. Contact selection and parameter tuning are also complementary
+rather than competing problems --- one chooses where to stimulate, the other
+how --- and~\cite{nagrale2026arena} names joint optimisation of amplitude,
+pulse width and frequency as future work, which is the gap our joint
+frequency--amplitude formulation addresses.
+
+This line is also a useful case of a method correcting itself. The earlier
+study from the same group~\cite{nagrale2023bayesian} fed the bandit a latent
+state inferred by a sensor model and reset the search daily. The later paper
+removes the sensor model and feeds raw reaction times directly, reporting that
+the sensor model had inflated variance and raised ranking failure rates from
+11.9\% to 31.9\%, and replaces daily resets with one continuous history. The
+lesson transfers to our setting: an estimator placed between the measurement
+and the learner can cost more in added variance than it recovers in
+denoising.
+
+
+\subsection*{Reducing the cost of learned controllers}
+
+The deep-RL line has been extended less by new algorithms than by attempts to
+make existing ones affordable. Mehregan et al.~\cite{mehregan2024enhancing}
+discretise the state and action spaces of an RL controller and apply
+post-training and quantisation-aware training, reporting that quantisation
+perturbs individual policy outputs without degrading overall efficacy, and
+validating in a rodent model as well as in simulation --- the only in-vivo
+evidence among the works discussed here. Ravivarapu et
+al.~\cite{ravivarapu2025sea} build on it directly, adopting the same group's
+network model but targeting sample efficiency rather than model size: a
+predictive reward model lets the policy update without querying the
+environment every step, with Gumbel-Softmax sampling for exploration and FP16
+quantisation from 65\,MB to 33\,MB.
+
+The two differ in which cost they attack --- one compresses a trained policy,
+the other reduces the interaction needed to train it --- and both differ from
+our work in what is actually being decided. Each chooses at every step whether
+to deliver a pulse, leaving frequency and amplitude fixed. Neither carries an
+explicit energy term: SEA-DBS rewards the squared deviation of beta power from
+a threshold, with stimulation cost entering only implicitly through sparsity,
+where ours carries an RMS penalty and a no-stimulation bonus directly in the
+objective. The deployment gap follows from the representation: a 33\,MB
+quantised network remains orders of magnitude beyond the microcontrollers we
+target, and neither paper reports measured energy on hardware. Both also
+require offline training before first use, which is the cost our
+warm-up-and-prune schedule removes rather than reduces.
+
+
+\subsection*{Moving the computation rather than shrinking it}
+
+Nguyen et al.~\cite{nguyen2026neuromorphic} take the opposite route to
+quantisation, changing the substrate instead of compressing the network: a
+deep spiking Q-network with actuator energy in the reward, compressed by
+sparsity-constrained knowledge distillation and deployed on a neuromorphic
+processor. They report 45.2\% suppression of alpha--beta oscillations, an
+80.0\% reduction in stimulation charge against continuous DBS, and 0.52\,mW
+inference power.
+
+This is the nearest work to ours in kind of evidence rather than in method. It
+is the only other study here to place a learned DBS policy on real silicon and
+measure what it costs, and like ours it puts energy in the objective rather
+than treating it as a downstream consequence. The methods stay far apart: a
+spiking Q-network is trained offline and then distilled, so the pipeline
+producing the deployed policy is heavier than the policy itself, whereas a
+pruned bandit is trained in place. The comparison a reviewer will want is
+therefore total cost of obtaining a controller, including training, rather
+than suppression against suppression.
+
+% ---------------------------------------------------------------------------
+% ACTION 2. Contribution 3 claims the first hardware implementation of an MAB
+% approach for DBS with detailed energy metrics. As written that is still
+% true, but \cite{nguyen2026neuromorphic} now reports measured on-chip energy
+% for a learned DBS controller. Keep "MAB" explicit in the contribution
+% bullet, not only here in the text, or it reads as overclaiming to anyone
+% who knows that paper.
+% ---------------------------------------------------------------------------
+
+
+\subsection*{Where the biology sits}
+
+BGRL~\cite{bgrl2024} differs from the works above architecturally rather than
+algorithmically. They use a biophysical basal-ganglia--thalamic circuit as the
+\emph{environment} and pair it with a generic learner; BGRL draws on
+basal-ganglia circuitry to structure the \emph{agent}. The two choices are
+orthogonal and could in principle be combined.
+% ACTION 3: BGRL's full text is paywalled and I could not read it. The
+% sentence above is defensible from title and venue but is NOT from the
+% methods section. Pull it through the UNC library, confirm, and fill in the
+% author list and pages in new_refs.bib before submission.
+
+
+\subsection*{Learning to tune a controller rather than the stimulus}
+
+A separate thread keeps a classical controller and uses learning only to set
+its parameters. Zhang et al.~\cite{zhang2025pidnn} optimise a PID neural
+network for the basal-ganglia network, pre-training the stimulation waveform
+by system identification so no run-time tuning is needed, and derive a
+Lyapunov sufficient condition for closed-loop stability within the identified
+model; they report an $(81.0\pm0.7)\%$ reduction in control energy and
+restored thalamic relay reliability. Mai et al.~\cite{mai2026personalized}
+combine an unknown-input observer with a bounded soft actor--critic policy
+that adjusts two observer and two feedback gains every 20\,ms, evaluated on a
+delayed STN--GPe firing-rate model against conventional active disturbance
+rejection control and sliding mode control, with a mean RMSE of 0.4143 against
+0.4816 and 1.5000 spikes/s respectively.
+
+Both tune a controller rather than the stimulus, which is the cleanest line
+between this thread and ours: their action spaces are controller gains and
+waveform parameters, not frequency and amplitude, so what is learned is how to
+regulate rather than what to deliver. Two contrasts are worth conceding in the
+text rather than leaving to a reviewer. First, neither our work nor any
+RL-based study above offers a stability guarantee, and for a control audience
+the Lyapunov condition in~\cite{zhang2025pidnn} is the clearest advantage of
+the classical route. Second, the reported outcomes are not commensurable with
+ours: thalamic relay reliability and firing-rate RMSE are different quantities
+from band power, so the energy percentages are reductions against different
+baselines over different variables. The shared motivation is nonetheless
+ours --- pre-computing a policy so the device need not search at run time is
+what warm-starting a bandit achieves, approached from the opposite direction.
+
+% ---------------------------------------------------------------------------
+% ACTION 4. Arka's list names "PPO-tuned fractional PID controller for
+% closed-loop DBS: A simulation-based study". No paper by that title exists
+% that I can find. Searching it resolves to \cite{zhang2025pidnn}, which uses
+% the Yogi optimiser rather than PPO and a PID neural network rather than a
+% fractional-order PID -- a different method, not a variant. The paragraph
+% above describes what I actually read. Confirm which he meant.
+% ---------------------------------------------------------------------------
+
+
+\subsection*{What ``personalised'' is doing in this literature}
+
+\cite{mai2026personalized} is worth a second remark, because its framing bears
+on our own. It is titled as personalised adaptive suppression, but the
+personalisation reported is robustness: the policy is trained under randomised
+coupling and disturbance multipliers, and no patient data, severity grading or
+per-individual calibration appears. The resulting controller is a single
+policy intended to hold across conditions --- a generalist --- rather than one
+selected or specialised per patient.
+
+That is the same distinction our severity-selection argument turns on, and it
+is usually left implicit. A policy robust to variation across patients and a
+policy chosen for the patient in front of it are different objects with
+different failure modes, and a controller can be called personalised for
+achieving either. Stating which one a method delivers is a small clarification
+that most of this literature, ours included, has not made explicit.
+
+
+\subsection*{Constrained search and shared benchmarks}
+
+Two further gaps are worth closing with citations. SAFE-OPT~\cite{safeopt2024}
+adds explicit safety constraints to Bayesian optimisation of stimulation
+parameters and is the nearest prior treatment of constrained parameter search
+for DBS; it belongs wherever our own hard constraint is introduced. And two
+works provide environments rather than controllers: Krylov et
+al.~\cite{krylov2020framework} released an RL gym over ensembles of abstract
+oscillators, with desynchronisation rather than band suppression as the
+objective, and a more recent environment~\cite{benchmark2025env} targets the
+same role with a neurophysiologically realistic model. The latter is the
+natural venue for the cross-method comparison this section shows to be
+missing: every work here improves on a baseline of its own choosing on its own
+model, which is why none of the percentages quoted above can be ranked against
+one another.
+
+
+% ===========================================================================
+% Comparison table -- the part that answers "how are they different from
+% each other" at a glance. The prose above carries the reasoning.
+% ===========================================================================
+
+\begin{table}[t]
+\centering
+\caption{Learned and learning-tuned DBS controllers published since our
+submission. ``Chooses'' is what the policy actually decides; ``energy'' is
+whether stimulation cost enters the objective as an explicit term rather than
+implicitly through sparsity.}
+\label{tab:recent-related}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lllcc@{}}
+\toprule
+Work & Method & Chooses & Energy & On-chip \\
+\midrule
+\cite{krylov2020framework}    & PPO (gym)         & Suppression params & no  & no  \\
+\cite{nagrale2023bayesian}    & Bayesian opt.     & Contact            & no  & no  \\
+\cite{bgrl2024}               & BG-structured RL  & ---                & --- & no  \\
+\cite{safeopt2024}            & Constrained BO    & Stim.\ params      & no  & no  \\
+\cite{mehregan2024enhancing}  & Quantised RL      & Pulse on/off       & no  & no  \\
+\cite{ravivarapu2025sea}      & Actor--critic     & Pulse on/off       & no  & no  \\
+\cite{zhang2025pidnn}         & PID + Yogi        & Waveform           & yes & no  \\
+\cite{nagrale2026arena}       & UCB / TS bandit   & Contact            & no  & no  \\
+\cite{mai2026personalized}    & Observer + SAC    & Controller gains   & no  & no  \\
+\midrule
+This work                     & T3P MAB           & Freq.\ \& amp.     & yes & yes \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% Dashes mark fields the available text did not state. The BGRL row needs the
+% full text; do not guess it. The tremor paper (Expert Systems with
+% Applications, PII S0957417424030215) is missing from this table entirely --
+% add a row once its abstract is available.
+
+
+% ===========================================================================
+% Two observations for the discussion, not for Related Work
+% ===========================================================================
+%
+% (a) Joint frequency-amplitude tuning under an energy-aware objective is
+%     still unoccupied. Of the nine works above: two decide pulse on/off, two
+%     select a contact, two search an unspecified parameter vector, one tunes
+%     a waveform, one tunes controller gains, and one suppresses synchrony in
+%     an abstract ensemble. Two carry energy in the objective and only one
+%     reports on-chip measurements. The contribution claim holds -- state it
+%     as joint tuning plus energy plus hardware, since no single one of the
+%     three is unique any more.
+%
+% (b) None of these papers are mutually comparable. Each reports improvement
+%     on its own model against its own baseline: 45.2% suppression, 80.0%
+%     charge reduction, 81.0% control energy, RMSE 0.4143 spikes/s, PSD 304
+%     against 332, ranking failure 11.9% against 31.9%. These cannot be
+%     ranked. The shared-benchmark gap is a cleaner framing for our
+%     evaluation than claiming to beat numbers measured elsewhere.
+%
+% Reference-list bug, unrelated: entries [9] and [10] of arXiv:2601.12699v1
+% have identical titles, venues and DOIs. One should be removed.
