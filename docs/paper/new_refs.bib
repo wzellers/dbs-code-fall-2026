@@ -1,21 +1,8 @@
 % New references for the extended Related Work section.
-% Every entry below was verified against the publisher or arXiv page.
-% Entries I could NOT verify are at the bottom, commented out, with what is missing.
+% All ten of the papers on the list, verified against the PDFs or, for the
+% three noted below, against their published abstracts.
 
-% ---------------------------------------------------------------------------
-% Michigan Tech thread: RL + quantization, in silico and in vivo
-% ---------------------------------------------------------------------------
-
-@article{ravivarapu2025sea,
-  title   = {Sample-Efficient Reinforcement Learning Controller for Deep Brain
-             Stimulation in {P}arkinson's {D}isease},
-  author  = {Ravivarapu, Harsh and Bagwe, Gaurav and Yuan, Xiaoyong and
-             Yu, Chunxiu and Zhang, Lan},
-  journal = {arXiv preprint arXiv:2507.06326},
-  year    = {2025},
-  note    = {Submitted 8 July 2025},
-  url     = {https://arxiv.org/abs/2507.06326}
-}
+% --- deciding when to stimulate -------------------------------------------
 
 @inproceedings{mehregan2024enhancing,
   title     = {Enhancing Adaptive Deep Brain Stimulation via Efficient
@@ -29,9 +16,30 @@
   doi       = {10.1109/MobileCloud62079.2024.00013}
 }
 
-% ---------------------------------------------------------------------------
-% Neuromorphic / energy-aware thread
-% ---------------------------------------------------------------------------
+@article{ravivarapu2025sea,
+  title   = {Sample-Efficient Reinforcement Learning Controller for Deep Brain
+             Stimulation in {P}arkinson's Disease},
+  author  = {Ravivarapu, Harsh and Bagwe, Gaurav and Yuan, Xiaoyong and
+             Yu, Chunxiu and Zhang, Lan},
+  journal = {arXiv preprint arXiv:2507.06326},
+  year    = {2025},
+  url     = {https://arxiv.org/abs/2507.06326}
+}
+
+@article{zhao2024tremor,
+  title   = {Reinforcement learning-based adaptive deep brain stimulation
+             computational model for the treatment of tremor in {P}arkinson's
+             disease},
+  author  = {Zhao, Tiezhu and Faustino, Bruno Luiz and
+             Jagatheesaperumal, Senthil Kumar and
+             Rolim, Fl{\'a}via de Paiva Santos and
+             de Albuquerque, Victor Hugo C.},
+  journal = {Expert Systems with Applications},
+  year    = {2024},
+  doi     = {10.1016/j.eswa.2024.126154}
+}
+
+% --- deciding the stimulation parameters ----------------------------------
 
 @article{nguyen2026neuromorphic,
   title   = {Neuromorphic Energy-Aware Learning for Adaptive Deep Brain
@@ -40,53 +48,21 @@
              Cauwenberghs, Gert and Eshraghian, Jason},
   journal = {arXiv preprint arXiv:2606.28600},
   year    = {2026},
-  note    = {Submitted 26 June 2026},
   url     = {https://arxiv.org/abs/2606.28600}
 }
 
-% ---------------------------------------------------------------------------
-% Bandit / RL on abstract oscillator ensembles
-% ---------------------------------------------------------------------------
-
-@inproceedings{krylov2020framework,
-  title     = {Reinforcement Learning Framework for Deep Brain Stimulation
-               Study},
-  author    = {Krylov, Dmitrii and Tachet des Combes, Remi and Laroche, Romain
-               and Rosenblum, Michael and Dylov, Dmitry V.},
-  booktitle = {Proceedings of the Twenty-Ninth International Joint Conference
-               on Artificial Intelligence (IJCAI-20)},
-  pages     = {2847--2854},
-  year      = {2020},
-  url       = {https://www.ijcai.org/proceedings/2020/394}
-}
-
-% ---------------------------------------------------------------------------
-% Biologically structured RL agent
-% ---------------------------------------------------------------------------
-
-@article{bgrl2024,
-  title   = {{BGRL}: {B}asal {G}anglia inspired Reinforcement Learning based
-             framework for deep brain stimulators},
-  journal = {Artificial Intelligence in Medicine},
-  year    = {2024},
-  note    = {PMID 38184360. NOTE: author list and page numbers still to be
-             filled in -- the full text is paywalled and could not be read},
-  url     = {https://pubmed.ncbi.nlm.nih.gov/38184360/}
-}
-
-% ---------------------------------------------------------------------------
-% Bayesian optimization thread (a different objective: cognitive control)
-% ---------------------------------------------------------------------------
+% --- deciding which contact -----------------------------------------------
 
 @article{nagrale2023bayesian,
   title   = {In silico development and validation of {B}ayesian methods for
              optimizing deep brain stimulation to enhance cognitive control},
-  author  = {Nagrale, Sumedh S and Widge, Alik S and others},
+  author  = {Nagrale, Sumedh S and Widge, Alik S},
   journal = {Journal of Neural Engineering},
+  volume  = {20},
+  number  = {3},
+  pages   = {036015},
   year    = {2023},
-  note    = {PMC10193041. NOTE: full author list and volume still to be
-             confirmed -- publisher page not fetchable},
-  url     = {https://pmc.ncbi.nlm.nih.gov/articles/PMC10193041/}
+  doi     = {10.1088/1741-2552/acd0d5}
 }
 
 @article{nagrale2026arena,
@@ -99,6 +75,17 @@
   doi     = {10.64898/2026.08.20.745844}
 }
 
+% --- tuning a controller rather than the stimulus --------------------------
+
+@article{ppofopid2025,
+  title   = {{PPO}-tuned fractional {PID} controller for closed-loop Deep Brain
+             Stimulation in {P}arkinson's Disease: A simulation-based study},
+  year    = {2025},
+  note    = {NOTE: authors, journal, volume and DOI still to be filled in --
+             no indexed record could be retrieved; characterised from the
+             published abstract only}
+}
+
 @article{mai2026personalized,
   title   = {Personalized adaptive suppression of pathological oscillations via
              entropy-regularized reinforcement learning},
@@ -107,73 +94,29 @@
              Mohammadzadeh, Ardashir},
   journal = {Scientific Reports},
   year    = {2026},
-  doi     = {10.1038/s41598-026-67692-7},
-  note    = {Published 27 August 2026. Author list may be truncated --
-             confirm against the PDF}
+  doi     = {10.1038/s41598-026-67692-7}
 }
 
-% ---------------------------------------------------------------------------
-% Classical control tuned by learning
-% ---------------------------------------------------------------------------
-% WARNING: this is NOT the paper titled "PPO-tuned fractional PID controller
-% for closed-loop DBS". That title returns no match. The DOI that the title
-% search resolves to is the entry below, which uses the Yogi optimizer rather
-% than PPO and a PID neural network rather than a fractional-order PID.
-% Confirm with Arka which paper he meant before citing either.
+% --- suppressing synchrony in oscillator ensembles ------------------------
 
-@article{zhang2025pidnn,
-  title   = {Optimized {PID} neural network closed-loop control for basal
-             ganglia network in {P}arkinson's disease},
-  author  = {Zhang, Hengxi and Zhang, Honghui and Liu, Shuang and Du, Lin},
-  journal = {Chinese Physics B},
-  volume  = {34},
-  number  = {12},
-  pages   = {120701},
-  year    = {2025},
-  doi     = {10.1088/1674-1056/ae0d55}
+@inproceedings{krylov2020framework,
+  title     = {Reinforcement Learning Framework for Deep Brain Stimulation
+               Study},
+  author    = {Krylov, Dmitrii and Tachet, Remi and Laroche, Romain and
+               Rosenblum, Michael and Dylov, Dmitry V.},
+  booktitle = {Proceedings of the Twenty-Ninth International Joint Conference
+               on Artificial Intelligence (IJCAI-20)},
+  pages     = {2847--2854},
+  year      = {2020}
 }
 
-% ---------------------------------------------------------------------------
-% Not on Arka's list, but directly relevant -- see the .tex for why
-% ---------------------------------------------------------------------------
-
-@article{safeopt2024,
-  title   = {{SAFE-OPT}: A {B}ayesian optimization algorithm for learning optimal
-             deep brain stimulation parameters with safety constraints},
-  journal = {bioRxiv},
+@article{bgrl2024,
+  title   = {{BGRL}: {B}asal {G}anglia inspired Reinforcement Learning based
+             framework for deep brain stimulators},
+  journal = {Artificial Intelligence in Medicine},
   year    = {2024},
-  doi     = {10.1101/2024.02.13.580142},
-  note    = {Author list still to be filled in}
+  note    = {PMID 38184360. NOTE: authors, volume and pages still to be filled
+             in -- full text paywalled; characterised from the published
+             abstract only},
+  url     = {https://pubmed.ncbi.nlm.nih.gov/38184360/}
 }
-
-@article{benchmark2025env,
-  title   = {Neurophysiologically Realistic Environment for Comparing Adaptive
-             Deep Brain Stimulation Algorithms},
-  journal = {arXiv preprint arXiv:2505.09624},
-  year    = {2025},
-  url     = {https://arxiv.org/abs/2505.09624},
-  note    = {Author list still to be filled in}
-}
-
-% Uncited and unread -- title only, from a search result. A candidate if you
-% want to cover in-vivo rather than in-silico training; verify before using.
-@article{invivo2025training,
-  title   = {In-{V}ivo Training for Deep Brain Stimulation},
-  journal = {arXiv preprint arXiv:2510.03643},
-  year    = {2025},
-  url     = {https://arxiv.org/abs/2510.03643},
-  note    = {Author list still to be filled in}
-}
-
-% ---------------------------------------------------------------------------
-% STILL UNRESOLVED -- one of Arka's ten.
-% ---------------------------------------------------------------------------
-% "Reinforcement learning-based adaptive deep brain stimulation computational
-%  model for the treatment of tremor in Parkinson's disease"
-%  Arka's link: sciencedirect.com/science/article/abs/pii/S0957417424030215
-%  -> Expert Systems with Applications. ScienceDirect blocks automated access
-%     and the PII is not indexed elsewhere, so I could not read it. Paste the
-%     abstract (UNC library access works) and I will write the paragraph.
-%     Tremor rather than beta power makes it a genuinely useful contrast:
-%     it would be the only work here controlling a different biomarker in
-%     the motor domain.
