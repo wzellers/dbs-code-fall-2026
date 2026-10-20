@@ -1,74 +1,62 @@
 % ===========================================================================
-% Related Work -- extension covering the ten recent papers.
+% Related Work -- extension covering the seven recent papers.
 % Drop-in subsections plus a comparison table. Keys match new_refs.bib.
 %
-% Organised by what each method actually decides, because that is the axis on
-% which the ten separate most cleanly, and because all three lineages among
-% them fall inside a single group each -- so how the newer papers build on the
-% older ones is told within the groups rather than needing a structure of
-% its own.
+% All seven were read in full. Every number quoted below is from the paper
+% itself, not from an abstract or an index entry.
 %
-% PROVENANCE: seven of the ten were read in full. Three were characterised
-% from their published abstracts only, because the full texts could not be
-% obtained: \cite{bgrl2024}, \cite{zhao2024tremor} and \cite{ppofopid2025}.
-% Those three paragraphs state only what their abstracts state, and their
-% table rows are left blank where the abstract is silent.
+% Organised by what each method's learned component decides, because that is
+% the axis on which the seven separate most cleanly, and because both of the
+% lineages among them fall inside a single group each -- so how the newer
+% papers build on the older ones is told within the groups rather than
+% needing a structure of its own.
 % ===========================================================================
 
 
 \subsection*{Deciding when to stimulate}
 
-The largest group of recent work leaves frequency and amplitude fixed and
-learns only whether to deliver stimulation at each step. Mehregan et
+One line of recent work leaves frequency and amplitude fixed and learns only
+whether to deliver stimulation at each step. Mehregan et
 al.~\cite{mehregan2024enhancing} discretise the state and action spaces of an
-RL controller, rewarding reduced beta-band power while holding stimulation
-frequency low, and add post-training and quantisation-aware training to cut
-inference cost; they validate in a rodent model as well as in simulation,
-which is the only in-vivo evidence among the ten. Ravivarapu et
+actor--critic controller and reward reduced beta-band power while holding
+stimulation frequency low, then add post-training and quantisation-aware
+training to cut inference cost; they validate in a rodent model as well as in
+simulation, which is the only in-vivo evidence among the seven. Ravivarapu et
 al.~\cite{ravivarapu2025sea} continue that line directly, adopting the same
-group's network model but targeting sample efficiency rather than model size:
-a predictive reward model estimates outcomes so the policy need not query the
-environment at every update, with Gumbel-Softmax sampling for exploration in
-the binary action space, and FP16 quantisation reducing the model from
-65\,MB to 33\,MB. Their reward is quadratic in the deviation of mean beta power
-from a threshold, and their reported baseline is DDPG.
+group's network model but targeting sample efficiency rather than model size.
+A predictive reward model estimates outcomes so the policy need not query the
+environment at every update, Gumbel-Softmax sampling handles exploration in
+the binary action space, and FP16 quantisation reduces the model from 65\,MB
+to 33\,MB. Their reported baseline is DDPG.
 
-The two divide the same problem between them --- one compresses a trained
-policy, the other reduces the interaction needed to train it --- and both
-differ from parameter-tuning approaches in what is left fixed. Stimulation
-cost enters neither objective explicitly; in~\cite{ravivarapu2025sea} it
-appears only through the sparsity of the chosen pulses.
-
-Zhao et al.~\cite{zhao2024tremor} also control stimulation delivery, but
-against a different symptom and a different model: neurons are represented in
-the Izhikevich formalism, the target is desynchronisation in the globus
-pallidus internus with tremor attenuation as the outcome, and the authors
-report an analysis of the resulting stimulation frequency and a balance
-between efficacy and energy consumption, compared against a standard DBS
-model. It is the only work among the ten to take tremor rather than a band
-power or a synchrony measure as its endpoint.
+The two divide the same problem between them: one compresses a trained
+policy, the other reduces the interaction needed to train it. They differ in
+how stimulation cost is treated. Mehregan et al.\ carry it as a second reward
+term, penalising stimulation frequency alongside beta power, whereas the
+reward in~\cite{ravivarapu2025sea} is purely quadratic in the deviation of
+mean beta power from a fixed threshold, with sparse stimulation emerging from
+that form rather than being asked for.
 
 
 \subsection*{Deciding the stimulation parameters}
 
-Nguyen et al.~\cite{nguyen2026neuromorphic} tune stimulation parameters
-directly rather than pulse delivery. A deep spiking Q-network reads a
-biophysical cortico-basal ganglia-thalamic model and emits nine discrete
-actions, one of $\{-1, 0, +1\}$ for each of frequency, pulse width and
-amplitude, within clinical bounds; the reward combines alpha--beta suppression
-with the physical charge delivered. The policy is compressed by
-sparsity-constrained knowledge distillation and deployed on neuromorphic
-hardware, where the authors report 45.2\% suppression, an 80.0\% reduction in
-cumulative stimulation charge against continuous DBS, 0.52\,mW inference
-power, and a 28.1$\times$ reduction in energy per inference against an
-equivalent conventional network on an embedded GPU.
+Nguyen et al.~\cite{nguyen2026neuromorphic} tune the stimulus itself rather
+than its timing. A deep spiking Q-network reads a biophysical cortico-basal
+ganglia-thalamic model and emits nine discrete actions, one of
+$\{-1, 0, +1\}$ for each of frequency, pulse width and amplitude, within
+clinical bounds; the reward combines alpha--beta suppression with the physical
+charge delivered. The policy is compressed by sparsity-constrained knowledge
+distillation and deployed on neuromorphic hardware, where the authors report
+45.2\% suppression, an 80.0\% reduction in cumulative stimulation charge
+against continuous DBS, 0.52\,mW inference power, and a 28.1$\times$ reduction
+in energy per inference against an equivalent conventional network on an
+embedded GPU.
 
-Two things separate it from the group above. Its action space is relative
-rather than absolute --- each step nudges a parameter up or down instead of
-selecting a setting --- so the policy encodes a trajectory through the
-parameter space rather than a choice within it. And stimulation energy enters
-the objective as an explicit term, which among the ten is otherwise true only
-of the controller-tuning work below.
+The distinguishing feature is that its action space is relative rather than
+absolute. Each step nudges one parameter up or down instead of selecting a
+setting, so the policy encodes a trajectory through the parameter space rather
+than a choice within it, and the reachable settings at any moment depend on
+where the previous steps left it.
 
 
 \subsection*{Deciding which contact}
@@ -78,26 +66,25 @@ quantity to optimise, and comes from stimulation of the ventral
 capsule/ventral striatum for psychiatric indications rather than from
 Parkinson's disease. Nagrale et al.~\cite{nagrale2023bayesian} cast contact
 selection as a multi-armed bandit, each contact an arm with an unknown
-behavioural reward distribution, and drive it with UCB1 using reaction time on
-the Multi-Source Interference Task as the signal, holding amplitude, pulse
-width and frequency fixed. Their simulation environment is fitted to recorded
-data from six participants.
+behavioural reward distribution, driven by UCB1 over reaction times on the
+Multi-Source Interference Task, with amplitude, pulse width and frequency held
+fixed. Their simulation environment is fitted to recorded data from six
+participants.
 
 Nagrale and Widge~\cite{nagrale2026arena} revise that design in three ways and
-report what each is worth. They remove the intermediate state-space sensor
-model and feed raw reaction times to the bandit, which lowers the contact
-ranking failure rate from 31.9\% to 11.9\% and avoids a variance inflation of
-51.7\% at baseline and 148.0\% in conflict states. They replace discrete daily
-resets with one continuous history, which drives mean trial-level regret down
-steadily over 4{,}200 trials. And they introduce a rolling arena that keeps
-four of eight contacts active, benches the weakest and rolls in an untested
-one, reporting that this scales to the full array without sacrificing
-accuracy. The comparison spans UCB1, a variance-aware UCB, Block-Variance
-Bayes-UCB and Thompson Sampling variants against greedy, $\varepsilon$-greedy
-and brute-force search.
+report what each is worth. Removing the intermediate state-space sensor model
+and feeding the bandit raw reaction times lowers the contact ranking failure
+rate from 31.9\% to 11.9\% and avoids a variance inflation of 51.7\% at
+baseline and 148.0\% in conflict states. Replacing discrete daily resets with
+one continuous history drives mean trial-level regret down steadily over
+4{,}200 trials. And a rolling arena that keeps four of eight contacts active,
+benches the weakest and rolls in an untested one scales to the full array
+without sacrificing accuracy. The comparison spans UCB1, a variance-aware UCB,
+Block-Variance Bayes-UCB and Thompson Sampling variants against greedy,
+$\varepsilon$-greedy and brute-force search.
 
-The pair is the clearest case in this set of a method correcting itself: the
-later paper's main finding is that an estimator placed between the measurement
+The pair is the clearest case here of a method correcting itself: the later
+paper's central finding is that an estimator placed between the measurement
 and the learner cost more in added variance than it recovered. Contact
 selection and parameter tuning also remain complementary rather than competing
 problems, one choosing where to stimulate and the other what to deliver,
@@ -107,56 +94,45 @@ and frequency as future work.
 
 \subsection*{Tuning a controller rather than the stimulus}
 
-Two works keep an explicit controller and use learning only to set its
-parameters. In the PPO-tuned fractional-order PID
-framework~\cite{ppofopid2025}, a proximal policy optimisation agent tunes all
-five parameters of a FOPID controller --- the three gains $K_p$, $K_i$ and
-$K_d$ together with the fractional orders $\lambda$ and $\mu$ --- inside a
-macroscopic neurophysiological model, with a machine-learning diagnostic
-module upstream; evaluated against open-loop and conventional PID on RMS
-tremor error and stimulation energy, the authors report a steady-state RMS
-error of 0.0604 and a 44.38\% improvement over open-loop control. Mai et
-al.~\cite{mai2026personalized} pair an unknown-input observer with nonlinear
-state-error feedback and use a bounded soft actor--critic policy to adjust two
-observer gains and two feedback gains every 20\,ms, on a delayed
+Mai et al.~\cite{mai2026personalized} keep an explicit controller and use
+learning only to set its parameters. An unknown-input observer is paired with
+nonlinear state-error feedback, and a bounded soft actor--critic policy adjusts
+two observer gains and two feedback gains every 20\,ms; the reward balances
+tracking, smoothness and energy efficiency, and the entropy term is credited
+with robustness under non-stationary coupling and cortical drive. On a delayed
 subthalamic--globus pallidus externa firing-rate model whose dominant
-oscillation sits near 20\,Hz; against conventional active disturbance
-rejection control and sliding mode control they report mean RMSE of 0.4143
-spikes/s versus 0.4816 and 1.5000.
+oscillation sits near 20\,Hz, they report a mean RMSE of 0.4143 spikes/s
+against 0.4816 for conventional active disturbance rejection control and
+1.5000 for sliding mode control.
 
-What both learn is how to regulate, not what to deliver: their action spaces
-are controller gains, so the stimulus is whatever the tuned controller
-produces. This is also the only group here that addresses stability
-directly --- \cite{ppofopid2025} through fractional-order control and
-\cite{mai2026personalized} through a disturbance-rejection structure with
-bounded gain actions. Their reported outcomes, RMS tremor error and
-firing-rate RMSE, are not commensurable with band-power measures, so the
-percentages are improvements over different baselines on different
-quantities.
+What is learned here is how to regulate, not what to deliver: the action space
+is controller gains, and the stimulus is whatever the tuned controller
+produces. The search space is correspondingly small, four gains rather than a
+parameter grid or a pulse sequence. Note also that the work is titled as
+personalised but the personalisation reported is robustness; the policy is
+trained under randomised coupling and disturbance multipliers rather than
+calibrated per individual, and no patient data or severity grading enters.
 
 
 \subsection*{Suppressing synchrony in oscillator ensembles}
 
-The last group evaluates on ensembles of abstract oscillators rather than
-biophysical circuits, and takes synchrony itself as the pathology. Krylov et
-al.~\cite{krylov2020framework} released an RL environment spanning
-Bonhoeffer--van der Pol, Hindmarsh--Rose and Rulkov neuron models,
-demonstrated suppression across three signalling regimes with multiple PPO
-agents, and noted that the action space can be constrained so that an agent's
-actions remain harmless. BGRL~\cite{bgrl2024} works in the same setting and on
-the same three regimes --- regular, chaotic and bursting --- but structures the
-agent after the region being treated, drawing on the resemblance between the
-basal ganglia and an actor--critic architecture; against a soft actor--critic
-baseline the authors report improvements of 40\%, 146\% and 40\% across the
-three regimes, and argue the approach also reduces energy consumption.
+Krylov et al.~\cite{krylov2020framework} evaluate on ensembles of abstract
+oscillators rather than a biophysical circuit, and take synchrony itself as
+the pathology. Their environment spans Bonhoeffer--van der Pol,
+Hindmarsh--Rose and Rulkov neuron models, and they demonstrate suppression
+across three signalling regimes using multiple PPO agents on ensembles of
+$N = 1000$ neurons. Their reward,
+$R_t = -(X(t) - \langle X \rangle_t)^2 - \beta |A(t)|$ with $\beta = 2$,
+penalises both residual synchrony and the amplitude of the applied action, and
+they note that the action space can be constrained so an agent's outputs
+remain harmless to the patient.
 
-The two differ in where the biology is placed. Elsewhere in this section a
-biophysical model serves as the environment and is paired with a generic
-learner; BGRL instead takes a simplified environment and draws its
-architectural inspiration into the agent. The two choices are orthogonal.
-This group also differs from all the others in its endpoint: synchrony
-measured across an ensemble, rather than a band power, a behavioural response,
-or a tremor amplitude.
+This is the one contribution among the seven that is an environment rather
+than a controller, and its endpoint differs from every other: synchrony across
+an ensemble, rather than a band power or a behavioural response. The
+abstraction cuts both ways, giving a setting cheap enough to compare many
+agents in but one whose relationship to a measured clinical biomarker is not
+established.
 
 
 % ===========================================================================
@@ -165,40 +141,44 @@ or a tremor amplitude.
 
 \begin{table}[t]
 \centering
-\caption{The ten recent works, grouped by what the learned component decides.
-``Energy in objective'' marks an explicit term for stimulation cost, as
-opposed to cost entering only through the sparsity of chosen actions. Blank
-cells are quantities the available text does not state.}
+\caption{The seven recent works, grouped by what the learned component
+decides. ``Stim.\ cost'' marks an explicit term for stimulation cost in the
+objective, as opposed to sparse stimulation emerging from the form of a
+biomarker-only reward.}
 \label{tab:recent-related}
 \small
 \setlength{\tabcolsep}{4pt}
 \begin{tabular}{@{}lllll@{}}
 \toprule
-Work & Decides & Environment & Endpoint & Energy \\
+Work & Decides & Environment & Endpoint & Stim.\ cost \\
 \midrule
 \multicolumn{5}{@{}l}{\emph{When to stimulate}}\\
-\cite{mehregan2024enhancing} & Pulse on/off     & CBGT + rodent        & Beta power     & no  \\
-\cite{ravivarapu2025sea}     & Pulse on/off     & CBGT (HH neurons)    & Beta power     & no  \\
-\cite{zhao2024tremor}        & Stim.\ delivery  & Izhikevich neurons   & Tremor         & --- \\[2pt]
+\cite{mehregan2024enhancing} & Pulse on/off     & CBGT + rodent       & Beta power    & yes \\
+\cite{ravivarapu2025sea}     & Pulse on/off     & CBGT (HH neurons)   & Beta power    & no  \\[2pt]
 \multicolumn{5}{@{}l}{\emph{Stimulation parameters}}\\
-\cite{nguyen2026neuromorphic}& Freq., PW, amp.\ & CBGT                 & Alpha--beta    & yes \\[2pt]
+\cite{nguyen2026neuromorphic}& Freq., PW, amp.\ & CBGT                & Alpha--beta   & yes \\[2pt]
 \multicolumn{5}{@{}l}{\emph{Which contact}}\\
-\cite{nagrale2023bayesian}   & Contact          & Fitted RT generator  & Reaction time  & no  \\
-\cite{nagrale2026arena}      & Contact          & Fitted RT generator  & Reaction time  & no  \\[2pt]
+\cite{nagrale2023bayesian}   & Contact          & Fitted RT generator & Reaction time & no  \\
+\cite{nagrale2026arena}      & Contact          & Fitted RT generator & Reaction time & no  \\[2pt]
 \multicolumn{5}{@{}l}{\emph{Controller gains}}\\
-\cite{ppofopid2025}          & FOPID gains      & Macroscopic model    & Tremor RMS     & --- \\
-\cite{mai2026personalized}   & Observer gains   & Delayed STN--GPe     & Firing rate    & no  \\[2pt]
+\cite{mai2026personalized}   & Observer gains   & Delayed STN--GPe    & Firing rate   & yes \\[2pt]
 \multicolumn{5}{@{}l}{\emph{Ensemble synchrony}}\\
-\cite{krylov2020framework}   & Suppression sig. & Oscillator ensemble  & Synchrony      & no  \\
-\cite{bgrl2024}              & Suppression sig. & Oscillator ensemble  & Synchrony      & --- \\
+\cite{krylov2020framework}   & Action amplitude & Oscillator ensemble & Synchrony     & yes \\
 \midrule
-This work                    & Freq.\ \& amp.\  & BGT                  & Beta power     & yes \\
+This work                    & Freq.\ \& amp.\  & BGT                 & Beta power    & yes \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-% The endpoints in the table are not mutually comparable: beta power,
-% reaction time, tremor amplitude, firing-rate error and ensemble synchrony
-% are different quantities, each measured against a baseline of that paper's
-% own choosing. The reported percentages therefore cannot be ranked against
-% one another, and the table is grouped rather than ordered for that reason.
+% Two notes on reading the table.
+%
+% The endpoints are not mutually comparable. Beta power, reaction time,
+% firing-rate error and ensemble synchrony are different quantities, each
+% measured against a baseline of that paper's own choosing, so the reported
+% percentages cannot be ranked against one another. The table is grouped
+% rather than ordered for that reason.
+%
+% The stimulation-cost column separates less than might be expected: five of
+% the eight rows carry an explicit term. An energy-aware objective is now
+% common rather than distinguishing, and the column is kept because that
+% itself is worth showing.
