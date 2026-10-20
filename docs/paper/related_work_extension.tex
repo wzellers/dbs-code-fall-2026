@@ -14,22 +14,26 @@
 
 Two recent works leave frequency and amplitude fixed and learn only whether to
 deliver stimulation at each step. Mehregan et al.~\cite{mehregan2024enhancing}
-discretise the state and action spaces of an actor--critic controller and
-reward reduced beta-band power while maintaining a low stimulation frequency,
-and apply post-training quantisation and quantisation-aware training to the
-model. They report results in a computational model of Parkinson's disease and
-in a rat with Parkinson's disease.
+discretise the state and action spaces of a DDPG-based controller. Their
+reward is a function of average beta-band power alone, positive below a
+threshold $\beta_t = 0.35$ and negative above it, with no stimulation term;
+they report the trained controller settling to an average stimulation
+frequency of 45\,Hz. They apply post-training quantisation and
+quantisation-aware training to the model, and report results in a
+computational model of Parkinson's disease and in a rat with Parkinson's
+disease.
 
 Ravivarapu et al.~\cite{ravivarapu2025sea} adopt the network model
-of~\cite{mehregan2024enhancing} and add two components: a predictive reward
-model, which estimates expected rewards so the policy need not rely on
-real-time feedback at every update, and Gumbel-Softmax sampling for
-exploration in the binary action space. Their action is
-$a_t \in \{0, 1\}$, where $1$ delivers a pulse. Their reward is quadratic in
-the deviation of mean beta power from a fixed threshold of 0.35, with no
-separate stimulation term; the authors state that this form allows the agent
-to learn temporally sparse stimulation patterns. They report FP16 quantisation
-reducing the model from 65\,MB to 33\,MB, and compare against DDPG.
+of~\cite{mehregan2024enhancing}, and a reward of the same piecewise form about
+the same threshold of 0.35, squared on both branches. They add two components:
+a predictive reward model, which estimates expected rewards so the policy need
+not rely on real-time feedback at every update, and Gumbel-Softmax sampling
+for exploration in the binary action space. Their action is
+$a_t \in \{0, 1\}$, where $1$ delivers a pulse. The reward carries no separate
+stimulation term; the authors state that this form allows the agent to learn
+temporally sparse stimulation patterns. They report robustness to FP16
+post-training quantisation and a reduced memory footprint, without giving
+model sizes, and compare against DDPG.
 
 
 \subsection*{Deciding the stimulation parameters}
@@ -121,7 +125,7 @@ objective.}
 Work & Decides & Environment & Endpoint & Stim.\ cost \\
 \midrule
 \multicolumn{5}{@{}l}{\emph{When to stimulate}}\\
-\cite{mehregan2024enhancing} & Pulse on/off     & CBGT + rodent       & Beta power    & yes \\
+\cite{mehregan2024enhancing} & Pulse on/off     & CBGT + rodent       & Beta power    & no  \\
 \cite{ravivarapu2025sea}     & Pulse on/off     & CBGT (HH neurons)   & Beta power    & no  \\[2pt]
 \multicolumn{5}{@{}l}{\emph{Stimulation parameters}}\\
 \cite{nguyen2026neuromorphic}& Freq., PW, amp.\ & CBGT                & Alpha--beta   & yes \\[2pt]
@@ -144,8 +148,10 @@ This work                    & Freq.\ \& amp.\  & BGT                 & Beta pow
 % evaluation; the other six are in silico, though the environment in the
 % two contact-selection papers is fitted to recorded human data.
 %
-% Five of the eight rows carry an explicit stimulation-cost term in the
-% objective. The three that do not are SEA-DBS and the two
+% Four of the eight rows carry an explicit stimulation-cost term in the
+% objective: Nguyen (delivered charge), Mai (a control-magnitude penalty,
+% -0.015(u/98)^2 in Eq. 18), Krylov (-beta|A(t)| with beta = 2) and this
+% work. The four that do not are Mehregan, SEA-DBS and the two
 % contact-selection papers.
 %
 % The endpoints are five different quantities -- beta power, alpha-beta
@@ -156,4 +162,5 @@ This work                    & Freq.\ \& amp.\  & BGT                 & Beta pow
 % Each paper's reported headline figure, for reference, none of which share
 % a baseline: 45.2% suppression and 80.0% charge reduction [nguyen];
 % 31.9% to 11.9% ranking failure [nagrale2026]; RMSE 0.4143 against 0.4816
-% and 1.5000 spikes/s [mai]; 65 MB to 33 MB under FP16 [ravivarapu].
+% and 1.5000 spikes/s [mai]. SEA-DBS reports no model-size figures, only
+% that the footprint is reduced and that FP16 quantisation is tolerated.
