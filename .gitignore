@@ -14,3 +14,11 @@ venv/
 
 # Caches live under cache/ and ARE committed - small, and expensive to regenerate.
 # The selector's alone is about 2.5 hours of MATLAB.
+
+# LaTeX build products
+*.aux
+*.bbl
+*.blg
+*.out
+*.synctex.gz
+docs/paper/preview.pdf

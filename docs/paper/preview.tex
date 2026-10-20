@@ -1,0 +1,33 @@
+% Wrapper for previewing related_work_extension.tex on its own.
+% The extension is a fragment meant to drop into the paper, so it has no
+% preamble of its own. This file supplies one.
+%
+%   cd docs/paper
+%   pdflatex preview && bibtex preview && pdflatex preview && pdflatex preview
+%
+% Or upload preview.tex, related_work_extension.tex and new_refs.bib to
+% Overleaf and compile preview.tex.
+%
+% Two packages are all it needs: booktabs for the table rules, amsmath for
+% the reward equations. If the real paper uses IEEEtran, swap the
+% documentclass line and recompile to check the table still fits in one
+% column.
+
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+
+\title{Related Work extension (preview)}
+\date{}
+
+\begin{document}
+\maketitle
+
+\input{related_work_extension}
+
+\bibliographystyle{plain}
+\bibliography{new_refs}
+
+\end{document}
