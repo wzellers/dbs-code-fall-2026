@@ -2,137 +2,106 @@
 % Related Work -- extension covering the seven recent papers.
 % Drop-in subsections plus a comparison table. Keys match new_refs.bib.
 %
-% All seven were read in full. Every number quoted below is from the paper
-% itself, not from an abstract or an index entry.
+% All seven were read in full. Every statement below is taken from the paper
+% it describes; nothing here is inference or evaluation.
 %
-% Organised by what each method's learned component decides, because that is
-% the axis on which the seven separate most cleanly, and because both of the
-% lineages among them fall inside a single group each -- so how the newer
-% papers build on the older ones is told within the groups rather than
-% needing a structure of its own.
+% Grouped by what each method's learned component decides. Both lineages
+% among the seven fall inside a single group each.
 % ===========================================================================
 
 
 \subsection*{Deciding when to stimulate}
 
-One line of recent work leaves frequency and amplitude fixed and learns only
-whether to deliver stimulation at each step. Mehregan et
-al.~\cite{mehregan2024enhancing} discretise the state and action spaces of an
-actor--critic controller and reward reduced beta-band power while holding
-stimulation frequency low, then add post-training and quantisation-aware
-training to cut inference cost; they validate in a rodent model as well as in
-simulation, which is the only in-vivo evidence among the seven. Ravivarapu et
-al.~\cite{ravivarapu2025sea} continue that line directly, adopting the same
-group's network model but targeting sample efficiency rather than model size.
-A predictive reward model estimates outcomes so the policy need not query the
-environment at every update, Gumbel-Softmax sampling handles exploration in
-the binary action space, and FP16 quantisation reduces the model from 65\,MB
-to 33\,MB. Their reported baseline is DDPG.
+Two recent works leave frequency and amplitude fixed and learn only whether to
+deliver stimulation at each step. Mehregan et al.~\cite{mehregan2024enhancing}
+discretise the state and action spaces of an actor--critic controller and
+reward reduced beta-band power while maintaining a low stimulation frequency,
+and apply post-training quantisation and quantisation-aware training to the
+model. They report results in a computational model of Parkinson's disease and
+in a rat with Parkinson's disease.
 
-The two divide the same problem between them: one compresses a trained
-policy, the other reduces the interaction needed to train it. They differ in
-how stimulation cost is treated. Mehregan et al.\ carry it as a second reward
-term, penalising stimulation frequency alongside beta power, whereas the
-reward in~\cite{ravivarapu2025sea} is purely quadratic in the deviation of
-mean beta power from a fixed threshold, with sparse stimulation emerging from
-that form rather than being asked for.
+Ravivarapu et al.~\cite{ravivarapu2025sea} adopt the network model
+of~\cite{mehregan2024enhancing} and add two components: a predictive reward
+model, which estimates expected rewards so the policy need not rely on
+real-time feedback at every update, and Gumbel-Softmax sampling for
+exploration in the binary action space. Their action is
+$a_t \in \{0, 1\}$, where $1$ delivers a pulse. Their reward is quadratic in
+the deviation of mean beta power from a fixed threshold of 0.35, with no
+separate stimulation term; the authors state that this form allows the agent
+to learn temporally sparse stimulation patterns. They report FP16 quantisation
+reducing the model from 65\,MB to 33\,MB, and compare against DDPG.
 
 
 \subsection*{Deciding the stimulation parameters}
 
-Nguyen et al.~\cite{nguyen2026neuromorphic} tune the stimulus itself rather
-than its timing. A deep spiking Q-network reads a biophysical cortico-basal
+Nguyen et al.~\cite{nguyen2026neuromorphic} tune the stimulus rather than its
+timing. A deep spiking Q-network reads a biophysical cortico-basal
 ganglia-thalamic model and emits nine discrete actions, one of
-$\{-1, 0, +1\}$ for each of frequency, pulse width and amplitude, within
-clinical bounds; the reward combines alpha--beta suppression with the physical
-charge delivered. The policy is compressed by sparsity-constrained knowledge
-distillation and deployed on neuromorphic hardware, where the authors report
-45.2\% suppression, an 80.0\% reduction in cumulative stimulation charge
-against continuous DBS, 0.52\,mW inference power, and a 28.1$\times$ reduction
-in energy per inference against an equivalent conventional network on an
-embedded GPU.
-
-The distinguishing feature is that its action space is relative rather than
-absolute. Each step nudges one parameter up or down instead of selecting a
-setting, so the policy encodes a trajectory through the parameter space rather
-than a choice within it, and the reachable settings at any moment depend on
-where the previous steps left it.
+$\{-1, 0, +1\}$ for each of frequency, pulse width and amplitude, so each step
+increases, decreases or maintains a parameter rather than selecting a value.
+Pulse width is constrained to 60--400\,\textmu s and stimulation is
+current-controlled. The reward combines alpha--beta suppression with the
+physical charge delivered. The policy is compressed by sparsity-constrained
+knowledge distillation and deployed on neuromorphic hardware. They report
+45.2\% suppression of alpha--beta oscillations, an 80.0\% reduction in
+cumulative stimulation charge against continuous DBS, 0.52\,mW inference
+power, and a 28.1$\times$ reduction in energy per inference against an
+equivalent artificial neural network on an embedded GPU.
 
 
 \subsection*{Deciding which contact}
 
-A separate line treats the electrode contact, not the waveform, as the
-quantity to optimise, and comes from stimulation of the ventral
-capsule/ventral striatum for psychiatric indications rather than from
-Parkinson's disease. Nagrale et al.~\cite{nagrale2023bayesian} cast contact
+Two works optimise the electrode contact rather than the waveform, in the
+context of ventral capsule/ventral striatum stimulation for psychiatric
+indications. Nagrale et al.~\cite{nagrale2023bayesian} formulate contact
 selection as a multi-armed bandit, each contact an arm with an unknown
 behavioural reward distribution, driven by UCB1 over reaction times on the
 Multi-Source Interference Task, with amplitude, pulse width and frequency held
 fixed. Their simulation environment is fitted to recorded data from six
 participants.
 
-Nagrale and Widge~\cite{nagrale2026arena} revise that design in three ways and
-report what each is worth. Removing the intermediate state-space sensor model
-and feeding the bandit raw reaction times lowers the contact ranking failure
-rate from 31.9\% to 11.9\% and avoids a variance inflation of 51.7\% at
-baseline and 148.0\% in conflict states. Replacing discrete daily resets with
-one continuous history drives mean trial-level regret down steadily over
-4{,}200 trials. And a rolling arena that keeps four of eight contacts active,
-benches the weakest and rolls in an untested one scales to the full array
-without sacrificing accuracy. The comparison spans UCB1, a variance-aware UCB,
-Block-Variance Bayes-UCB and Thompson Sampling variants against greedy,
-$\varepsilon$-greedy and brute-force search.
-
-The pair is the clearest case here of a method correcting itself: the later
-paper's central finding is that an estimator placed between the measurement
-and the learner cost more in added variance than it recovered. Contact
-selection and parameter tuning also remain complementary rather than competing
-problems, one choosing where to stimulate and the other what to deliver,
-and~\cite{nagrale2026arena} lists joint optimisation of amplitude, pulse width
-and frequency as future work.
+Nagrale and Widge~\cite{nagrale2026arena} make three changes to that design
+and report the effect of each. Removing the intermediate state-space sensor
+model and passing raw reaction times to the bandit lowers the contact ranking
+failure rate from 31.9\% to 11.9\%, and avoids a state variance inflation of
+51.7\% at baseline and 148.0\% in conflict states. Replacing discrete daily
+resets with a continuous trial history reduces mean trial-level regret over
+4{,}200 trials. A rolling arena that keeps four of eight contacts active,
+benches the weakest and rolls in an untested contact reaches accuracy
+comparable to full eight-contact search. They benchmark UCB1, a variance-aware
+UCB, Block-Variance Bayes-UCB and Thompson Sampling variants against greedy,
+$\varepsilon$-greedy and brute-force search, and list joint optimisation of
+amplitude, pulse width and frequency as future work.
 
 
 \subsection*{Tuning a controller rather than the stimulus}
 
-Mai et al.~\cite{mai2026personalized} keep an explicit controller and use
-learning only to set its parameters. An unknown-input observer is paired with
+Mai et al.~\cite{mai2026personalized} retain an explicit controller and use
+learning to set its parameters. An unknown-input observer is paired with
 nonlinear state-error feedback, and a bounded soft actor--critic policy adjusts
-two observer gains and two feedback gains every 20\,ms; the reward balances
-tracking, smoothness and energy efficiency, and the entropy term is credited
-with robustness under non-stationary coupling and cortical drive. On a delayed
-subthalamic--globus pallidus externa firing-rate model whose dominant
-oscillation sits near 20\,Hz, they report a mean RMSE of 0.4143 spikes/s
-against 0.4816 for conventional active disturbance rejection control and
-1.5000 for sliding mode control.
-
-What is learned here is how to regulate, not what to deliver: the action space
-is controller gains, and the stimulus is whatever the tuned controller
-produces. The search space is correspondingly small, four gains rather than a
-parameter grid or a pulse sequence. Note also that the work is titled as
-personalised but the personalisation reported is robustness; the policy is
-trained under randomised coupling and disturbance multipliers rather than
-calibrated per individual, and no patient data or severity grading enters.
+two observer gains and two feedback gains every 20\,ms, giving a
+four-dimensional search space; at deployment the policy outputs deterministic
+gains within prescribed safety bounds. The reward balances tracking,
+smoothness and energy efficiency, and the policy is trained under randomised
+coupling and disturbance multipliers. On a delayed subthalamic--globus pallidus
+externa firing-rate model whose dominant oscillation lies near 20\,Hz, they
+report a mean RMSE of 0.4143 spikes/s against 0.4816 for conventional active
+disturbance rejection control and 1.5000 for sliding mode control.
 
 
 \subsection*{Suppressing synchrony in oscillator ensembles}
 
 Krylov et al.~\cite{krylov2020framework} evaluate on ensembles of abstract
-oscillators rather than a biophysical circuit, and take synchrony itself as
-the pathology. Their environment spans Bonhoeffer--van der Pol,
-Hindmarsh--Rose and Rulkov neuron models, and they demonstrate suppression
-across three signalling regimes using multiple PPO agents on ensembles of
-$N = 1000$ neurons. Their reward,
+oscillators rather than a biophysical circuit, with synchrony as the
+controlled quantity. Their environment spans Bonhoeffer--van der Pol,
+Hindmarsh--Rose and Rulkov neuron models, and they report suppression across
+three signalling regimes using multiple PPO agents on ensembles of $N = 1000$
+neurons. Their reward is
 $R_t = -(X(t) - \langle X \rangle_t)^2 - \beta |A(t)|$ with $\beta = 2$,
-penalises both residual synchrony and the amplitude of the applied action, and
-they note that the action space can be constrained so an agent's outputs
-remain harmless to the patient.
-
-This is the one contribution among the seven that is an environment rather
-than a controller, and its endpoint differs from every other: synchrony across
-an ensemble, rather than a band power or a behavioural response. The
-abstraction cuts both ways, giving a setting cheap enough to compare many
-agents in but one whose relationship to a measured clinical biomarker is not
-established.
+penalising both residual synchrony and the amplitude of the applied action.
+They state that the action space can be constrained so that an agent's actions
+remain harmless to the patient, and present the work as an RL environment for
+comparing agents rather than as a controller.
 
 
 % ===========================================================================
@@ -143,8 +112,7 @@ established.
 \centering
 \caption{The seven recent works, grouped by what the learned component
 decides. ``Stim.\ cost'' marks an explicit term for stimulation cost in the
-objective, as opposed to sparse stimulation emerging from the form of a
-biomarker-only reward.}
+objective.}
 \label{tab:recent-related}
 \small
 \setlength{\tabcolsep}{4pt}
@@ -170,15 +138,22 @@ This work                    & Freq.\ \& amp.\  & BGT                 & Beta pow
 \end{tabular}
 \end{table}
 
-% Two notes on reading the table.
+% Facts about the table, for whoever writes the surrounding text:
 %
-% The endpoints are not mutually comparable. Beta power, reaction time,
-% firing-rate error and ensemble synchrony are different quantities, each
-% measured against a baseline of that paper's own choosing, so the reported
-% percentages cannot be ranked against one another. The table is grouped
+% Mehregan et al. is the only one of the seven reporting an in-vivo
+% evaluation; the other six are in silico, though the environment in the
+% two contact-selection papers is fitted to recorded human data.
+%
+% Five of the eight rows carry an explicit stimulation-cost term in the
+% objective. The three that do not are SEA-DBS and the two
+% contact-selection papers.
+%
+% The endpoints are five different quantities -- beta power, alpha-beta
+% power, reaction time, firing-rate error and ensemble synchrony -- each
+% measured against a baseline chosen by that paper. The table is grouped
 % rather than ordered for that reason.
 %
-% The stimulation-cost column separates less than might be expected: five of
-% the eight rows carry an explicit term. An energy-aware objective is now
-% common rather than distinguishing, and the column is kept because that
-% itself is worth showing.
+% Each paper's reported headline figure, for reference, none of which share
+% a baseline: 45.2% suppression and 80.0% charge reduction [nguyen];
+% 31.9% to 11.9% ranking failure [nagrale2026]; RMSE 0.4143 against 0.4816
+% and 1.5000 spikes/s [mai]; 65 MB to 33 MB under FP16 [ravivarapu].
