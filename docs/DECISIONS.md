@@ -208,3 +208,23 @@ CLAUDE_CODE_BRIEFING.md said - bgn_init.m line 58 runs addpath("gating") itself,
 the cwd. The broken part was parent_dir=".", not the warning. Briefing corrected to say both.
 **Reversible:** yes - no cached data involved. Needs a MATLAB machine to confirm; cannot be
 verified from a container without the engine.
+
+## [detection] removed the superseded and abandoned detector scripts
+**Chose:** delete src/run_detect_bench.py, src/run_long_baseline.py and the
+third notebook cell; keep src/detect_alt.py and the two remaining cells
+**Over:** keeping them for the record
+**Because:** run_detect_bench.py did what notebook cell 1 does, so the repo had
+two sources of truth for the same table. run_long_baseline.py and cell 3 belong
+to the long-baseline investigation, which was deliberately dropped as out of
+scope; its one durable finding is recorded below so deleting the code loses
+nothing. BOCPD and Mann-Whitney stay in detect_alt.py because they are rows in
+the comparison - reported as unable to reach the false-alarm budget without
+going silent - and that is a result, not dead code.
+**Finding preserved from the dropped thread:** at 3500 uA with a 10 s baseline,
+every detector capable of firing downward false-alarms on all 10 runs before
+the switch, including CUSUM and our own two-sided test. A 10 s baseline at
+500 uA does not (1/10, same as at 5 s), so baseline length alone is not the
+cause. The remaining hypothesis is an interaction with the period-2 artifact at
+high amplitude; untested. 3500 uA is seven times the agents' operating point,
+so this belongs in limitations rather than in the comparison.
+**Reversible:** yes, both files are in git history at 385ae2b.
