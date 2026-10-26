@@ -110,23 +110,46 @@ def report():
             seen[(cache, nm)] = fires / len(runs)
         print(f"  {label:<36}" + "".join(f"{c:>14}" for c in cells))
 
-    short = seen.get(("runs_null_stim180_500", "two-sided t"))
-    long5 = seen.get(("runs_longnull_a500", "two-sided t"))
+    def rate(cache):
+        return seen.get((cache, "two-sided t"))
+
+    s5_500  = rate("runs_null_stim180_500")
+    s10_500 = rate("runs_longnull_a500")
+    s5_3500 = rate("runs_shortnull_a3500")
+    s10_3500 = rate("runs_longnull_a3500")
+
     print("\n" + "-" * 78)
-    if long5 is None:
+    if s10_500 is None:
         print("  Run without --report to simulate the 10 s / 500 uA condition.")
-    elif long5 >= 0.5:
-        print("  BASELINE LENGTH. The two-sided detector false-alarms at a")
-        print("  therapeutic amplitude once the baseline is long, so the failure is")
-        print("  not about 3500 uA. Every two-sided false-alarm rate in")
-        print("  docs/DETECTION_RESULTS.md was measured on 5 s baselines and")
-        print("  understates the deployed rate. The detector recommendation in")
-        print("  section 5 needs revisiting.")
+    elif s5_3500 is None or s10_3500 is None:
+        print(f"  So far: 10 s at 500 uA gives {s10_500:.0%} false alarms against")
+        print(f"  {s5_500:.0%} at 5 s, so baseline length ALONE does not break the")
+        print("  two-sided detector at a therapeutic amplitude.")
+        print("")
+        print("  That is not the same as the cause being amplitude. The failing")
+        print("  condition is long AND high-amplitude, and runs_stim_long_a3500 is")
+        print("  the only cached run with both. Run with --all to fill the other")
+        print("  two cells; until then length is ruled out and nothing is ruled in.")
     else:
-        print(f"  AMPLITUDE. At 500 uA a 10 s baseline gives {long5:.0%} false alarms")
-        print(f"  against {short:.0%} at 5 s, so length alone does not break it. The")
-        print("  failure belongs with the period-2 artifact at high amplitude, and")
-        print("  the detector choice stands for the therapeutic range.")
+        main_len = max(s10_500 - s5_500, 0.0)
+        main_amp = max(s5_3500 - s5_500, 0.0)
+        joint = s10_3500 - s5_500
+        print(f"  5 s / 500 uA   {s5_500:.0%}      10 s / 500 uA   {s10_500:.0%}")
+        print(f"  5 s / 3500 uA  {s5_3500:.0%}      10 s / 3500 uA  {s10_3500:.0%}")
+        print("")
+        if joint > 2 * (main_len + main_amp) + 0.2:
+            print("  INTERACTION. Neither a long baseline nor a high amplitude breaks")
+            print("  the two-sided detector on its own; the failure needs both. The")
+            print("  false-alarm rates in docs/DETECTION_RESULTS.md were all measured")
+            print("  at one corner of this square, so they do not describe the corner")
+            print("  where the detector fails.")
+        elif main_amp >= main_len:
+            print("  AMPLITUDE. High amplitude raises the false-alarm rate on its own,")
+            print("  and the failure belongs with the period-2 artifact.")
+        else:
+            print("  BASELINE LENGTH. A longer baseline raises the false-alarm rate on")
+            print("  its own, so the rates in docs/DETECTION_RESULTS.md understate what")
+            print("  a deployed detector would see.")
     print("-" * 78)
 
 
